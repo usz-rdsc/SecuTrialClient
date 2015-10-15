@@ -12,8 +12,7 @@ import Foundation
 /**
 This is an INCREDIBLY FAKE implementation of a real SOAP request.
 */
-public class SOAPRequest
-{
+public class SOAPRequest {
 	public var namespaces: [String: String]?
 	
 	let envelope = SOAPEnvelope()
@@ -38,6 +37,22 @@ public class SOAPRequest
 	public init() {
 	}
 	
+	
+	// MARK: - Performable Requests
+	
+	public func requestReadyForURL(url: NSURL) -> NSURLRequest {
+		let req = NSMutableURLRequest(URL: url)
+		req.setValue("application/xml; charset=utf-8", forHTTPHeaderField: "Content-Type")
+		req.setValue("application/xml", forHTTPHeaderField: "Accept")
+		req.HTTPMethod = "POST"
+		req.HTTPBody = asXMLData()
+		return req
+	}
+	
+	public func asXMLData() -> NSData? {
+		return asXMLString().dataUsingEncoding(NSUTF8StringEncoding)
+	}
+	
 	public func asXMLString() -> String {
 		envelope.namespaces = namespaces
 		envelope.childNodes = [SOAPNode]()
@@ -52,8 +67,7 @@ public class SOAPRequest
 }
 
 
-class SOAPEnvelope: SOAPNode
-{
+class SOAPEnvelope: SOAPNode {
 	var namespaces: [String: String]?
 	
 	init() {

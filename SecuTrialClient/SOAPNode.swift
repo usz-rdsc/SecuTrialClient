@@ -7,8 +7,7 @@
 //
 
 
-public class SOAPNode
-{
+public class SOAPNode {
 	public let name: String
 	
 	public var namespace: SOAPNamespace?
@@ -64,8 +63,7 @@ public class SOAPNode
 	}
 }
 
-public class SOAPTextNode: SOAPNode
-{
+public class SOAPTextNode: SOAPNode {
 	public var text: String?
 	
 	public convenience init(name: String, textValue: String) {
@@ -82,8 +80,7 @@ public class SOAPTextNode: SOAPNode
 	}
 }
 
-public class SOAPNamespace
-{
+public class SOAPNamespace {
 	public let name: String
 	
 	public let url: String
@@ -98,8 +95,7 @@ public class SOAPNamespace
 	}
 }
 
-class SOAPNodeAttribute
-{
+class SOAPNodeAttribute {
 	let name: String
 	
 	var value: String?

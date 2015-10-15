@@ -16,8 +16,7 @@ public typealias $ = SecuTrialOperation
 /**
 An operation to be performed against secuTrial's SOAP interface.
 */
-public class SecuTrialOperation: SOAPNode
-{
+public class SecuTrialOperation: SOAPNode {
 	public func addInput(input opInput: SecuTrialOperationInput) {
 		childNodes.append(opInput)
 	}
@@ -33,8 +32,7 @@ public class SecuTrialOperation: SOAPNode
 }
 
 
-public class SecuTrialOperationInput: SOAPTextNode
-{
+public class SecuTrialOperationInput: SOAPTextNode {
 	public convenience init(name: String, type: String, textValue: String) {
 		self.init(name: name, textValue: textValue)
 		attributes.append(SOAPNodeAttribute(name: "xsi:type", value: type))
