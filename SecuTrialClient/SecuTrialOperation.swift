@@ -17,8 +17,13 @@ public typealias $ = SecuTrialOperation
 An operation to be performed against secuTrial's SOAP interface.
 */
 public class SecuTrialOperation: SOAPNode {
+	public required init(name: String) {
+		super.init(name: name)
+		namespace = SOAPNamespace(name: "ns0", url: "http://DefaultNamespace")
+	}
+	
 	public func addInput(input opInput: SecuTrialOperationInput) {
-		childNodes.append(opInput)
+		addChild(opInput)
 	}
 	
 	public func request() -> SOAPRequest {
@@ -26,8 +31,16 @@ public class SecuTrialOperation: SOAPNode {
 		if let reqns = request.envelope.namespace {
 			attributes = [SOAPNodeAttribute(name: "\(reqns.name):encodingStyle", value: "http://schemas.xmlsoap.org/soap/encoding/")]
 		}
-		request.bodyContent = self
+		request.envelope.bodyContent = self
 		return request
+	}
+	
+	public func handleResponseData(data: NSData) throws -> SOAPResponse? {
+		let parser = SOAPEnvelopeParser()
+		if let envelope = try parser.parse(data) {
+			return SOAPResponse(envelope: envelope)
+		}
+		return nil
 	}
 }
 

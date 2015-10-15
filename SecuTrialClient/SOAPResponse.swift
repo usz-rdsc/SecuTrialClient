@@ -7,6 +7,12 @@
 //
 
 
+
 public class SOAPResponse {
 	
+	public let envelope: SOAPEnvelope
+	
+	public init(envelope: SOAPEnvelope) {
+		self.envelope = envelope
+	}
 }

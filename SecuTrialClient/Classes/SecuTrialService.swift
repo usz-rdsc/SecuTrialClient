@@ -29,6 +29,32 @@ public class SecuTrialService {
 		fatalError("Not implemented")
 	}
 	
+	
+	// MARK: - Operations & Requests
+	
+	/**
+	Performs the given operation against the receiver's service URL.
+	
+	- parameter operation: The operation to perform
+	- parameter callback: Callback called when the operation finishes, either with a response or an error instance
+	*/
+	public func performOperation(operation: SecuTrialOperation, callback: ((response: SOAPResponse?, error: NSError?) -> Void)) {
+		performRequest(operation.request()) { data, error in
+			if let data = data {
+				do {
+					let response = try operation.handleResponseData(data)
+					callback(response: response, error: nil)
+				}
+				catch let err {
+					callback(response: nil, error: err as NSError)
+				}
+			}
+			else {
+				callback(response: nil, error: error)
+			}
+		}
+	}
+	
 	/**
 	Performs the given request against the service URL.
 	

@@ -15,6 +15,9 @@
 		EE83DC691BC69291000B57D5 /* SOAPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC681BC69291000B57D5 /* SOAPRequest.swift */; settings = {ASSET_TAGS = (); }; };
 		EE83DC6B1BC6929A000B57D5 /* SOAPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC6A1BC6929A000B57D5 /* SOAPResponse.swift */; settings = {ASSET_TAGS = (); }; };
 		EE83DC6D1BC6A234000B57D5 /* SOAPNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC6C1BC6A234000B57D5 /* SOAPNode.swift */; settings = {ASSET_TAGS = (); }; };
+		EE83DC7E1BCFC0D3000B57D5 /* SOAPEnvelope.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC7D1BCFC0D3000B57D5 /* SOAPEnvelope.swift */; settings = {ASSET_TAGS = (); }; };
+		EE83DC831BCFC3F9000B57D5 /* SOAPNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC821BCFC3F9000B57D5 /* SOAPNodeTests.swift */; settings = {ASSET_TAGS = (); }; };
+		EE83DC851BCFC437000B57D5 /* TestEnvelope.xml in Resources */ = {isa = PBXBuildFile; fileRef = EE83DC841BCFC437000B57D5 /* TestEnvelope.xml */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		EE83DC681BC69291000B57D5 /* SOAPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPRequest.swift; sourceTree = "<group>"; };
 		EE83DC6A1BC6929A000B57D5 /* SOAPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPResponse.swift; sourceTree = "<group>"; };
 		EE83DC6C1BC6A234000B57D5 /* SOAPNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPNode.swift; sourceTree = "<group>"; };
+		EE83DC7D1BCFC0D3000B57D5 /* SOAPEnvelope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPEnvelope.swift; sourceTree = "<group>"; };
+		EE83DC821BCFC3F9000B57D5 /* SOAPNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPNodeTests.swift; sourceTree = "<group>"; };
+		EE83DC841BCFC437000B57D5 /* TestEnvelope.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestEnvelope.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 				EE83DC661BC691E7000B57D5 /* SecuTrialOperation.swift */,
 				EE83DC681BC69291000B57D5 /* SOAPRequest.swift */,
 				EE83DC6A1BC6929A000B57D5 /* SOAPResponse.swift */,
+				EE83DC7D1BCFC0D3000B57D5 /* SOAPEnvelope.swift */,
 				EE83DC6C1BC6A234000B57D5 /* SOAPNode.swift */,
 				EE83DC2B1BC66E2C000B57D5 /* SecuTrialClient.h */,
 				EE83DC2D1BC66E2C000B57D5 /* Info.plist */,
@@ -112,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				EE83DC371BC66E2C000B57D5 /* SecuTrialClientTests.swift */,
+				EE83DC821BCFC3F9000B57D5 /* SOAPNodeTests.swift */,
+				EE83DC841BCFC437000B57D5 /* TestEnvelope.xml */,
 				EE83DC391BC66E2C000B57D5 /* Info.plist */,
 			);
 			path = SecuTrialClientTests;
@@ -247,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE83DC851BCFC437000B57D5 /* TestEnvelope.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +271,7 @@
 				EE83DC671BC691E7000B57D5 /* SecuTrialOperation.swift in Sources */,
 				EE83DC6D1BC6A234000B57D5 /* SOAPNode.swift in Sources */,
 				EE83DC4E1BC66EE1000B57D5 /* SecuTrialService.swift in Sources */,
+				EE83DC7E1BCFC0D3000B57D5 /* SOAPEnvelope.swift in Sources */,
 				EE83DC6B1BC6929A000B57D5 /* SOAPResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE83DC831BCFC3F9000B57D5 /* SOAPNodeTests.swift in Sources */,
 				EE83DC381BC66E2C000B57D5 /* SecuTrialClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

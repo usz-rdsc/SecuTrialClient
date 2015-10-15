@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<soapenv:Header>
+		<ns1:wosid soapenv:actor="http://schemas.xmlsoap.org/soap/actor/next" soapenv:mustUnderstand="0" xsi:type="soapenc:string" xmlns:ns1="http://www.apple.com/webobjects/webservices/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">64enfEQAr6rj2kXpC7jbjw</ns1:wosid>
+		<ns2:woinst soapenv:actor="http://schemas.xmlsoap.org/soap/actor/next" soapenv:mustUnderstand="0" xsi:type="soapenc:string" xmlns:ns2="http://www.apple.com/webobjects/webservices/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">1</ns2:woinst>
+	</soapenv:Header>
+	<soapenv:Body>
+		<ns3:authenticateResponse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns3="http://DefaultNamespace">
+			<authenticateReturn xsi:type="ns4:WebServiceResult" xmlns:ns4="http://ws.appserver.secusuite.brainmedia.de">
+				<errorCode xsi:type="xsd:int">0</errorCode>
+				<message xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">64enfEQAr6rj2kXpC7jbjw</message>
+				<statusCode xsi:type="xsd:int">1</statusCode>
+			</authenticateReturn>
+		</ns3:authenticateResponse>
+	</soapenv:Body>
+</soapenv:Envelope>

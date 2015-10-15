@@ -7,28 +7,120 @@
 //
 
 
+/**
+Instances of this class represent one XML node in a SOAP tree.
+*/
 public class SOAPNode {
+	
+	/// The node name.
 	public let name: String
 	
+	/// The namespace of the node
 	public var namespace: SOAPNamespace?
 	
+	/// Other namespaces defined on the node
+	var namespaces: [SOAPNamespace]?
+	
+	/// The parent node.
+	weak var parent: SOAPNode?
+	
+	/// Node attributes.
 	var attributes = [SOAPNodeAttribute]()
 	
-	var childNodes = [SOAPNode]()
+	/// Child nodes.
+	private(set) var childNodes = [SOAPNode]()
 	
-	public init(name inName: String) {
+	
+	public required init(name inName: String) {
 		name = inName
 	}
 	
+	public class func replace(otherNode other: SOAPNode) -> Self {
+		let node = self.init(name: other.name)
+		node.namespace = other.namespace
+		node.namespaces = other.namespaces
+		node.attributes = other.attributes
+		node.childNodes = other.childNodes
+		if let parent = other.parent {
+			let idx = parent.removeChild(other)
+			parent.addChild(node, atIndex: idx)
+		}
+		return node
+	}
 	
-	// MARK: - Chid Nodes
 	
-	func addChild(child: SOAPNode) {
-		childNodes.append(child)
+	// MARK: - Child Nodes
+	
+	func addChild(child: SOAPNode, atIndex: Int? = nil) {
+		if let parent = child.parent {
+			parent.removeChild(child)
+		}
+		child.parent = self
+		if let idx = atIndex where idx < childNodes.count {
+			childNodes.insert(child, atIndex: idx)
+		}
+		else {
+			childNodes.append(child)
+		}
+	}
+	
+	func removeChild(child: SOAPNode) -> Int? {
+		let idx = childNodes.indexOf() { $0 === child }
+		childNodes = childNodes.filter() { $0 !== child }
+		return idx
+	}
+	
+	public func childNamed(name: String) -> SOAPNode? {
+		for child in childNodes {
+			if name == child.name {
+				return child
+			}
+		}
+		return nil
 	}
 	
 	func numChildNodes() -> Int {
 		return childNodes.count
+	}
+	
+	
+	// MARK: - Namespaces
+	
+	func namespaceIsInScope(namespace otherNS: SOAPNamespace) -> Bool {
+		if let myNS = namespace where otherNS == myNS {
+			return true
+		}
+		if let nss = namespaces {
+			for ns in nss {
+				if ns == otherNS {
+					return true
+				}
+			}
+		}
+		return parent?.namespaceIsInScope(namespace: otherNS) ?? false
+	}
+	
+	func namespaceWithURI(uri: String) -> SOAPNamespace? {
+		if let nss = namespaces {
+			for ns in nss {
+				if ns.url == uri {
+					return ns
+				}
+			}
+		}
+		return parent?.namespaceWithURI(uri)
+	}
+	
+	
+	// MARK: - Attributes
+	
+	public func attr(name: String) -> String? {
+		for attr in attributes {
+			if name == attr.name {
+				return attr.value
+			}
+		}
+		return nil
 	}
 	
 	
@@ -43,8 +135,11 @@ public class SOAPNode {
 		// build node name and add attributes
 		let nodeName = (nil != namespace) ? "\(namespace!.name):\(name)" : name
 		var attrs = [nodeName]
-		if let namespace = namespace {
-			attrs.append(namespace.asXMLAttributeString())
+		if let ns = namespace where nil == parent || !parent!.namespaceIsInScope(namespace: ns) {
+			attrs.append(ns.asXMLAttributeString())
+		}
+		if let ns = namespaces {
+			attrs.appendContentsOf(ns.filter() { nil == namespace || $0.url != namespace!.url }.map() { $0.asXMLAttributeString() })
 		}
 		attrs.appendContentsOf(attributes.map() { return $0.asXMLAttributeString() })
 		let parts = attrs.joinWithSeparator(" ")
@@ -63,6 +158,7 @@ public class SOAPNode {
 	}
 }
 
+
 public class SOAPTextNode: SOAPNode {
 	public var text: String?
 	
@@ -80,6 +176,7 @@ public class SOAPTextNode: SOAPNode {
 	}
 }
 
+
 public class SOAPNamespace {
 	public let name: String
 	
@@ -94,6 +191,11 @@ public class SOAPNamespace {
 		return "xmlns:\(name)=\"\(url)\""
 	}
 }
+
+public func ==(left: SOAPNamespace, right: SOAPNamespace) -> Bool {
+	return left.name == right.name && left.url == right.url
+}
+
 
 class SOAPNodeAttribute {
 	let name: String
