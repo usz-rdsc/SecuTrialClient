@@ -10,13 +10,17 @@ import Foundation
 
 
 /// Aliasing "$" to `SecuTrialOperation`.
-public typealias $ = SecuTrialOperation
+//public typealias $ = SecuTrialOperation
 
 
 /**
 An operation to be performed against secuTrial's SOAP interface.
 */
 public class SecuTrialOperation: SOAPNode {
+	
+	public var expectedResponseBean: SecuTrialBean.Type?
+	
+	public var expectsResponseBeanAt: [String]?
 	
 	public required init(name: String) {
 		super.init(name: name)
@@ -34,6 +38,12 @@ public class SecuTrialOperation: SOAPNode {
 		return (nil != childNamed(name))
 	}
 	
+	public func removeInput(name: String) {
+		if let child = childNamed(name) {
+			removeChild(child)
+		}
+	}
+	
 	
 	// MARK: - Request
 	
@@ -49,13 +59,8 @@ public class SecuTrialOperation: SOAPNode {
 	
 	// MARK: - Response
 	
-	/// Optional block to execute that will return a desired response from the parsed response envelope.
-	public var withResponseEnvelope: ((envelope: SOAPEnvelope) -> SecuTrialResponse)?
-	
 	/**
 	Incoming XML data is passed to this method, whith attempts to parse the XML and instantiates a suitable response.
-	
-	This method will call `withResponseEnvelope` if it's defined, otherwise return a `SecuTrialResponse` instance with the parsed envelope.
 	
 	- parameter data: The data received from the server, expected to be UTF-8 encoded XML
 	- returns: A SecuTrialResponse instance
@@ -64,24 +69,25 @@ public class SecuTrialOperation: SOAPNode {
 		secu_debug("handling response data of \(data.length) bytes")
 		let parser = SOAPEnvelopeParser()
 		do {
-			if let envelope = try parser.parse(data) {
-				if let handler = withResponseEnvelope {
-					return handler(envelope: envelope)
-				}
-				return SecuTrialResponse(envelope: envelope)
+			let envelope = try parser.parse(data)
+			if let beanPath = expectsResponseBeanAt, let beanType = expectedResponseBean {
+				return try SecuTrialResponse(envelope: envelope, path: beanPath, type: beanType)
 			}
-			return hadError(nil)
+			throw SecuTrialError.OperationNotConfigured
 		}
-		catch let err {
-			return hadError(err as NSError)
+		catch let err as SecuTrialError {
+			return hadError(err)
+		}
+		catch {
+			return hadError(SecuTrialError.Error("unknown"))
 		}
 	}
 	
-	public func hadError(error: NSError?) -> SecuTrialResponse {
+	public func hadError(error: SecuTrialError?) -> SecuTrialResponse {
 		if let error = error {
 			return SecuTrialResponse(error: error)
 		}
-		return SecuTrialResponse(error: NSError(domain: "SecuTrialErrorDomain", code: 0, userInfo: nil))
+		return SecuTrialResponse(error: SecuTrialError.Error("unknown"))
 	}
 }
 

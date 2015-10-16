@@ -31,8 +31,8 @@ public class SOAPNode {
 	private(set) var childNodes = [SOAPNode]()
 	
 	
-	public required init(name inName: String) {
-		name = inName
+	public required init(name: String) {
+		self.name = name
 	}
 	
 	public class func replace(otherNode other: SOAPNode) -> Self {
@@ -182,9 +182,9 @@ public class SOAPNamespace {
 	
 	public let url: String
 	
-	public init(name inName: String, url inURL: String) {
-		name = inName
-		url = inURL
+	public init(name: String, url: String) {
+		self.name = name
+		self.url = url
 	}
 	
 	public func asXMLAttributeString() -> String {
@@ -202,8 +202,8 @@ class SOAPNodeAttribute {
 	
 	var value: String?
 	
-	init(name inName: String) {
-		name = inName
+	init(name: String) {
+		self.name = name
 	}
 	
 	convenience init(name: String, value inValue: String) {

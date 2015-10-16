@@ -13,13 +13,13 @@ public class SecuTrialClient {
 	
 	let service: SecuTrialService
 	
-	var customer: String?
+	public var customer: String?
 	
-	var username: String?
+	public var username: String?
 	
-	var password: String?
+	public var password: String?
 	
-	var session: String?
+	public var session: String?
 	
 	
 	public init(url: NSURL, customer: String? = nil, username: String? = nil, password: String? = nil) {
@@ -46,23 +46,39 @@ public class SecuTrialClient {
 			}
 			else {
 				secu_debug("no session-id, authenticating")
-				authenticate() { response in
-					if !response.isError {
-						self.performOperation(operation, callback: callback)
-					}
-					else {
-						callback(response: response)
-					}
-				}
+				autoAuthenticateOperation(operation, callback: callback)
 				return
 			}
 		}
 		
+		secu_debug("performing operation “\(operation.name)”")
 		service.performOperation(operation) { response in
-			if response.isError {
-				secu_debug("operation failed with error: \(response.error ?? response.errorCode!)")
+			if let error = response.error {
+				switch error {
+				case .Unauthenticated:
+					secu_debug("unauthenticated, authenticating")
+					operation.removeInput("sessionId")
+					self.autoAuthenticateOperation(operation, callback: callback)
+					return
+				default:
+					break
+				}
+			}
+			if let error = response.error {
+				secu_debug("operation failed with error: \(error)")
 			}
 			callback(response: response)
+		}
+	}
+	
+	func autoAuthenticateOperation(operation: SecuTrialOperation, callback: ((response: SecuTrialResponse) -> Void)) {
+		authenticate() { response in
+			if nil == response.error {
+				self.performOperation(operation, callback: callback)
+			}
+			else {
+				callback(response: response)
+			}
 		}
 	}
 	
@@ -70,6 +86,7 @@ public class SecuTrialClient {
 	// MARK: - Authentication
 	
 	func authenticate(callback: ((response: SecuTrialResponse) -> Void)) {
+		// TODO: create request object classes
 		let auth = SecuTrialOperation(name: "authenticate")
 		if let customer = customer {
 			auth.addInput(SecuTrialOperationInput(name: "customerId", type: "soapenc:string", textValue: customer))
@@ -80,17 +97,17 @@ public class SecuTrialClient {
 		if let password = password {
 			auth.addInput(SecuTrialOperationInput(name: "password", type: "soapenc:string", textValue: password))
 		}
-		auth.withResponseEnvelope = { envelope in
-			return SecuTrialResponse(envelope: envelope, parsePath: ["authenticateResponse", "authenticateReturn"])
-		}
+		auth.expectedResponseBean = STWebServiceResult.self
+		auth.expectsResponseBeanAt = ["authenticateResponse", "authenticateReturn"]
 		
+		secu_debug("performing operation “\(auth.name)”")
 		service.performOperation(auth) { response in
-			if !response.isError {
-				if let sessionId = response.message {
+			if nil == response.error {
+				if let sessionId = response.bean?.message {
 					self.session = sessionId
 				}
 				else {
-					response.errorCode = 10403
+					response.knownError = SecuTrialError.NoSessionReceived
 				}
 			}
 			callback(response: response)

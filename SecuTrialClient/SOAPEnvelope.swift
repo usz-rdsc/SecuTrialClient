@@ -88,16 +88,19 @@ public class SOAPEnvelopeParser: NSObject, NSXMLParserDelegate {
 	- returns: The SOAPEnvelope node found at the root level of the XML document, if any
 	- throws: An error when parsing fails
 	*/
-	public func parse(data: NSData) throws -> SOAPEnvelope? {
+	public func parse(data: NSData) throws -> SOAPEnvelope {
 		let parser = NSXMLParser(data: data)
 		parser.shouldProcessNamespaces = true
 		parser.shouldReportNamespacePrefixes = true
 		parser.delegate = self
 		parser.parse()
 		if let error = parser.parserError {
-			throw error
+			throw SecuTrialError.Error(error.localizedDescription)
 		}
-		return rootNode?.childNodes.first as? SOAPEnvelope
+		if let envelope = rootNode?.childNodes.first as? SOAPEnvelope {
+			return envelope
+		}
+		throw SecuTrialError.EnvelopeNotFound
 	}
 	
 	

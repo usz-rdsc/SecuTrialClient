@@ -13,70 +13,49 @@ import Foundation
 Response to a `SecuTrialOperation`.
 */
 public class SecuTrialResponse: SOAPResponse {
-	public var isError: Bool {
-		return (nil != errorCode && 0 != errorCode!) || nil != error
+	
+	public var error: SecuTrialError? {
+		if let beanerr = bean?.error {
+			return beanerr
+		}
+		return knownError
 	}
 	
-	var bodyPath: [String]?
-	
-	/// Response status code.
-	public internal(set) var statusCode: Int?
-	
-	/// Response error code.
-	public internal(set) var errorCode: Int?
+	/// Response bean.
+	public internal(set) var bean: SecuTrialBean?
 	
 	/// Response error, if any.
-	public internal(set) var error: NSError?
-	
-	/// Response message, if any.
-	public internal(set) var message: String?
+	public internal(set) var knownError: SecuTrialError?
 	
 	
-	public init(envelope: SOAPEnvelope, parsePath: [String]? = nil) {
-		bodyPath = parsePath
+	public init(envelope: SOAPEnvelope, path: [String], type: SecuTrialBean.Type) throws {
 		super.init(envelope: envelope)
-		parseResponse()
+		try parseResponse(path, type: type)
 	}
 	
-	public init(error: NSError) {
+	public init(error: SecuTrialError) {
 		super.init(envelope: SOAPEnvelope())
-		self.error = error
+		self.knownError = error
 	}
 	
-	func parseResponse() {
-		if let node = findResponseNode(envelope) {
-			parseResponseNode(node)
+	func parseResponse(path: [String], type: SecuTrialBean.Type) throws {
+		guard let node = findResponseNode(envelope, at: path) else {
+			throw SecuTrialError.ResponseBeanNotFound
 		}
+		bean = try type.init(node: node)
 	}
 	
-	func findResponseNode(envelope: SOAPEnvelope) -> SOAPNode? {
+	func findResponseNode(envelope: SOAPEnvelope, at path: [String]) -> SOAPNode? {
 		var node = envelope.body
-		if let path = bodyPath {
-			for part in path {
-				node = node?.childNamed(part)
-				if nil == node {
-					let sep = " > "
-					secu_debug("Desired body node at \(path.joinWithSeparator(sep)) not found in:\n\(envelope.asXMLString())\n----")
-					break
-				}
+		for part in path {
+			node = node?.childNamed(part)
+			if nil == node {
+				let sep = "” > “"
+				secu_debug("Desired response bean at “\(path.joinWithSeparator(sep))” not found in:\n\(envelope.asXMLString())\n----")
+				break
 			}
 		}
 		return node
-	}
-	
-	func parseResponseNode(node: SOAPNode) {
-		statusCode = nil
-		if let status = (node.childNamed("statusCode") as? SOAPTextNode)?.text {
-			statusCode = Int(status)
-		}
-		message = (node.childNamed("message") as? SOAPTextNode)?.text
-		errorCode = nil
-		if let err = (node.childNamed("errorCode") as? SOAPTextNode)?.text, let code = Int(err) {
-			errorCode = code
-			if let message = message where code != 0 && nil == error {
-				error = NSError(domain: "SecuTrialErrorDomain", code: code, userInfo: [NSLocalizedDescriptionKey: message])
-			}
-		}
 	}
 }
 

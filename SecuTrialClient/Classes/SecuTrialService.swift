@@ -39,7 +39,6 @@ public class SecuTrialService {
 	- parameter callback: Callback called when the operation finishes, either with a response or an error instance
 	*/
 	public func performOperation(operation: SecuTrialOperation, callback: ((response: SecuTrialResponse) -> Void)) {
-		secu_debug("performing operation “\(operation.name)”")
 		performRequest(operation.request()) { data, error in
 			if let data = data {
 				callback(response: operation.handleResponseData(data))
@@ -56,15 +55,15 @@ public class SecuTrialService {
 	- parameter request: The SOAPRequest to perform
 	- parameter callback: Callback that's called when the request finishes, either with a data or an error instance
 	*/
-	public func performRequest(request: SOAPRequest, callback: ((data: NSData?, error: NSError?) -> Void)) {
+	public func performRequest(request: SOAPRequest, callback: ((data: NSData?, error: SecuTrialError?) -> Void)) {
 		let session = NSURLSession.sharedSession()
 		let request = request.requestReadyForURL(serviceURL)
 		let task = session.uploadTaskWithRequest(request, fromData: request.HTTPBody) { data, response, error in
 			if let error = error {
-				callback(data: nil, error: error)
+				callback(data: nil, error: SecuTrialError.Error(error.localizedDescription))
 			}
 			else if let response = response as? NSHTTPURLResponse where response.statusCode >= 400 {
-				callback(data: nil, error: NSError(domain: NSURLErrorDomain, code: response.statusCode, userInfo: nil))
+				callback(data: nil, error: SecuTrialError.HTTPStatus(response.statusCode))
 			}
 			else if let data = data {
 				callback(data: data, error: nil)

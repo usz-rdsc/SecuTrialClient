@@ -18,10 +18,9 @@ class SOAPNodeTests: XCTestCase {
 		let parser = SOAPEnvelopeParser()
 		do {
 			let envelope = try parser.parse(data!)
-			XCTAssertNotNil(envelope)
-			XCTAssertNotNil(envelope?.header)
-			XCTAssertNotNil(envelope?.body)
-			let resp = envelope?.body?.childNamed("authenticateResponse")
+			XCTAssertNotNil(envelope.header)
+			XCTAssertNotNil(envelope.body)
+			let resp = envelope.body?.childNamed("authenticateResponse")
 			XCTAssertNotNil(resp, "Expecting 'authenticateResponse' child node")
 			XCTAssertEqual("ns3", resp!.namespace!.name)
 			XCTAssertEqual("http://DefaultNamespace", resp!.namespace!.url)

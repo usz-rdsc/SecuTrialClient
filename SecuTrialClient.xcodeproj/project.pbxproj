@@ -21,6 +21,8 @@
 		EE8973441BD0F5CA001FE1DA /* SecuTrialOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8973431BD0F5CA001FE1DA /* SecuTrialOperationTests.swift */; settings = {ASSET_TAGS = (); }; };
 		EE89734B1BD0FFB4001FE1DA /* SecuTrialClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE89734A1BD0FFB4001FE1DA /* SecuTrialClient.swift */; settings = {ASSET_TAGS = (); }; };
 		EE89734D1BD11BFD001FE1DA /* SecuTrialResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE89734C1BD11BFD001FE1DA /* SecuTrialResponse.swift */; settings = {ASSET_TAGS = (); }; };
+		EE89734F1BD1265F001FE1DA /* SecuTrialBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE89734E1BD1265F001FE1DA /* SecuTrialBean.swift */; settings = {ASSET_TAGS = (); }; };
+		EE8973511BD14030001FE1DA /* SecuTrialError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8973501BD14030001FE1DA /* SecuTrialError.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		EE8973431BD0F5CA001FE1DA /* SecuTrialOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialOperationTests.swift; sourceTree = "<group>"; };
 		EE89734A1BD0FFB4001FE1DA /* SecuTrialClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialClient.swift; sourceTree = "<group>"; };
 		EE89734C1BD11BFD001FE1DA /* SecuTrialResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialResponse.swift; sourceTree = "<group>"; };
+		EE89734E1BD1265F001FE1DA /* SecuTrialBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialBean.swift; sourceTree = "<group>"; };
+		EE8973501BD14030001FE1DA /* SecuTrialError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 				EE83DC4D1BC66EE1000B57D5 /* SecuTrialService.swift */,
 				EE83DC661BC691E7000B57D5 /* SecuTrialOperation.swift */,
 				EE89734C1BD11BFD001FE1DA /* SecuTrialResponse.swift */,
+				EE89734E1BD1265F001FE1DA /* SecuTrialBean.swift */,
+				EE8973501BD14030001FE1DA /* SecuTrialError.swift */,
 				EE83DC681BC69291000B57D5 /* SOAPRequest.swift */,
 				EE83DC6A1BC6929A000B57D5 /* SOAPResponse.swift */,
 				EE83DC7D1BCFC0D3000B57D5 /* SOAPEnvelope.swift */,
@@ -277,11 +283,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE83DC691BC69291000B57D5 /* SOAPRequest.swift in Sources */,
+				EE89734F1BD1265F001FE1DA /* SecuTrialBean.swift in Sources */,
 				EE83DC671BC691E7000B57D5 /* SecuTrialOperation.swift in Sources */,
 				EE83DC6D1BC6A234000B57D5 /* SOAPNode.swift in Sources */,
 				EE83DC4E1BC66EE1000B57D5 /* SecuTrialService.swift in Sources */,
 				EE83DC7E1BCFC0D3000B57D5 /* SOAPEnvelope.swift in Sources */,
 				EE89734D1BD11BFD001FE1DA /* SecuTrialResponse.swift in Sources */,
+				EE8973511BD14030001FE1DA /* SecuTrialError.swift in Sources */,
 				EE83DC6B1BC6929A000B57D5 /* SOAPResponse.swift in Sources */,
 				EE89734B1BD0FFB4001FE1DA /* SecuTrialClient.swift in Sources */,
 			);
