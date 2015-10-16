@@ -19,7 +19,6 @@ class SOAPNodeTests: XCTestCase {
 		do {
 			let envelope = try parser.parse(data!)
 			XCTAssertNotNil(envelope)
-			print(envelope!.asXMLString())
 			XCTAssertNotNil(envelope?.header)
 			XCTAssertNotNil(envelope?.body)
 			let resp = envelope?.body?.childNamed("authenticateResponse")
@@ -41,7 +40,7 @@ class SOAPNodeTests: XCTestCase {
 		}
 	}
 	
-	func testPerformanceExample() {
+	func dontTestPerformanceExample() {
 		// This is an example of a performance test case.
 		self.measureBlock {
 			// Put the code you want to measure the time of here.
