@@ -21,6 +21,10 @@ public class STWebServiceResult: SecuTrialBean {
 	public internal(set) var message: String?
 	
 	
+	public required init() {
+		node = SOAPNode(name: "result")
+	}
+	
 	public required init(node: SOAPNode) throws {
 		self.node = node
 		message = (node.childNamed("message") as? SOAPTextNode)?.text

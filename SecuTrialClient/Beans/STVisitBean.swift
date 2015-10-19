@@ -9,12 +9,30 @@
 
 public class STVisitBean: SecuTrialBean {
 	
+	public var label: String?
+	
+	public var nr: String?
+	
+	public var date: String?
+	
+	
+	public required init() {
+	}
 	
 	public required init(node: SOAPNode) throws {
 	}
 	
 	public func node(name: String) -> SOAPNode {
 		let node = SOAPNode(name: name)
+		if let txt = label {
+			node.addChild(SOAPTextNode(name: "label", textValue: txt))
+		}
+		if let txt = nr {
+			node.addChild(SOAPTextNode(name: "nr", textValue: txt))
+		}
+		if let txt = date {
+			node.addChild(SOAPTextNode(name: "date", textValue: txt))
+		}
 		return node
 	}
 }

@@ -27,7 +27,8 @@ public class STFormDataRecordBean: SecuTrialBean {
 	public var item: [STFormDataItemBean]?
 	
 	
-	public init() {  }
+	public required init() {
+	}
 	
 	public required init(node: SOAPNode) throws {
 		if let txt = (node.childNamed("project") as? SOAPTextNode)?.text {
@@ -56,14 +57,28 @@ public class STFormDataRecordBean: SecuTrialBean {
 	
 	public func node(name: String) -> SOAPNode {
 		let node = SOAPNode(name: name)
-		if let project = project {
-			node.addChild(SOAPTextNode(name: "project", textValue: project))
+		if let txt = project {
+			node.addChild(SOAPTextNode(name: "project", textValue: txt))
 		}
-		if let centre = centre {
-			node.addChild(SOAPTextNode(name: "centre", textValue: centre))
+		if let txt = centre {
+			node.addChild(SOAPTextNode(name: "centre", textValue: txt))
 		}
-		if let form = form {
-			node.addChild(SOAPTextNode(name: "form", textValue: form))
+		if let txt = form {
+			node.addChild(SOAPTextNode(name: "form", textValue: txt))
+		}
+		if let sub = patient {
+			node.addChild(sub.node("patient"))
+		}
+		if let sub = visit {
+			node.addChild(sub.node("visit"))
+		}
+//		if let sub = ae {
+//			node.addChild(sub.node("ae"))
+//		}
+		if let subs = item {
+			for sub in subs {
+				node.addChild(sub.node("item"))
+			}
 		}
 		return node
 	}

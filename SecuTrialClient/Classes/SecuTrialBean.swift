@@ -9,6 +9,8 @@
 
 public protocol SecuTrialBean {
 	
+	init()
+	
 	init(node: SOAPNode) throws
 	
 	func node(name: String) -> SOAPNode
