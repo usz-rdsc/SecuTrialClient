@@ -9,11 +9,13 @@
 
 public class STPatientBean: SecuTrialBean {
 	
-	let node: SOAPNode
-	
 	
 	public required init(node: SOAPNode) throws {
-		self.node = node
+	}
+	
+	public func node(name: String) -> SOAPNode {
+		let node = SOAPNode(name: name)
+		return node
 	}
 }
 

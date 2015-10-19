@@ -85,7 +85,7 @@ public class SOAPNode {
 	}
 	
 	func numChildNodes() -> Int {
-		return childNodes.count
+		return childNodesForXMLString().count
 	}
 	
 	
@@ -119,11 +119,18 @@ public class SOAPNode {
 	
 	// MARK: - Attributes
 	
-	public func attr(name: String) -> String? {
+	public func attr(name: String, value: String? = nil) -> String? {
 		for attr in attributes {
 			if name == attr.name {
+				if let value = value {
+					attr.value = value
+				}
 				return attr.value
 			}
+		}
+		if let value = value {
+			attributes.append(SOAPNodeAttribute(name: name, value: value))
+			return value
 		}
 		return nil
 	}
@@ -157,8 +164,12 @@ public class SOAPNode {
 		return "\(tabs)<\(parts)>\(children)</\(nodeName)>"
 	}
 	
+	func childNodesForXMLString() -> [SOAPNode] {
+		return childNodes
+	}
+	
 	func childNodesAsXMLString(useTabs tabs: String, childIndentLevel: Int = 0) -> String {
-		let children = childNodes.map() { return $0.asXMLString(childIndentLevel) }.joinWithSeparator("\n")
+		let children = childNodesForXMLString().map() { return $0.asXMLString(childIndentLevel) }.joinWithSeparator("\n")
 		return "\n\(children)\n\(tabs)"
 	}
 }

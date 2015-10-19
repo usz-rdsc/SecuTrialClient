@@ -12,11 +12,11 @@ Manually created FormDataRecordBean.
 */
 public class STFormDataRecordBean: SecuTrialBean {
 	
-	let node: SOAPNode
-	
 	public var project: String?
 	
 	public var centre: String?
+	
+	public var form: String?
 	
 	public var patient: STPatientBean?
 	
@@ -24,19 +24,19 @@ public class STFormDataRecordBean: SecuTrialBean {
 	
 //	public var ae: STAdverseEventBean?
 	
-	public var form: String?
-	
 	public var item: [STFormDataItemBean]?
 	
+	
+	public init() {  }
+	
 	public required init(node: SOAPNode) throws {
-		self.node = node
 		if let txt = (node.childNamed("project") as? SOAPTextNode)?.text {
 			project = txt
 		}
 		if let txt = (node.childNamed("centre") as? SOAPTextNode)?.text {
 			centre = txt
 		}
-		if let txt = (node.childNamed("statusCode") as? SOAPTextNode)?.text {
+		if let txt = (node.childNamed("form") as? SOAPTextNode)?.text {
 			form = txt
 		}
 		if let sub = node.childNamed("patient") {
@@ -51,6 +51,21 @@ public class STFormDataRecordBean: SecuTrialBean {
 		if let subs = node.childrenNamed("item") {
 			item = try subs.map() { try STFormDataItemBean(node: $0) }
 		}
+	}
+	
+	
+	public func node(name: String) -> SOAPNode {
+		let node = SOAPNode(name: name)
+		if let project = project {
+			node.addChild(SOAPTextNode(name: "project", textValue: project))
+		}
+		if let centre = centre {
+			node.addChild(SOAPTextNode(name: "centre", textValue: centre))
+		}
+		if let form = form {
+			node.addChild(SOAPTextNode(name: "form", textValue: form))
+		}
+		return node
 	}
 }
 

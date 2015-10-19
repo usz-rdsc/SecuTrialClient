@@ -177,9 +177,9 @@
 			children = (
 				EEEA7F1B1BD4E6020089BF85 /* STWebServiceResult.swift */,
 				EEEA7F191BD4E5B60089BF85 /* STFormDataRecordBean.swift */,
+				EEEA7F231BD4E6F60089BF85 /* STFormDataItemBean.swift */,
 				EEEA7F1D1BD4E6A20089BF85 /* STPatientBean.swift */,
 				EEEA7F1F1BD4E6CF0089BF85 /* STVisitBean.swift */,
-				EEEA7F231BD4E6F60089BF85 /* STFormDataItemBean.swift */,
 			);
 			path = Beans;
 			sourceTree = "<group>";

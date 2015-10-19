@@ -23,6 +23,7 @@ public class STWebServiceResult: SecuTrialBean {
 	
 	public required init(node: SOAPNode) throws {
 		self.node = node
+		message = (node.childNamed("message") as? SOAPTextNode)?.text
 		if let status = (node.childNamed("statusCode") as? SOAPTextNode)?.text, let code = Int(status) {
 			statusCode = code
 		}
@@ -43,7 +44,11 @@ public class STWebServiceResult: SecuTrialBean {
 		else {
 			throw SecuTrialError.InvalidDOM("`errorCode` is missing:\n\(node.asXMLString())\n----")
 		}
-		message = (node.childNamed("message") as? SOAPTextNode)?.text
+	}
+	
+	
+	public func node(name: String) -> SOAPNode {
+		return node
 	}
 }
 

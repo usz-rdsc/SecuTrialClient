@@ -18,9 +18,12 @@ An operation to be performed against secuTrial's SOAP interface.
 */
 public class SecuTrialOperation: SOAPNode {
 	
+	var inputs = [SecuTrialOperationInput]()
+	
 	public var expectedResponseBean: SecuTrialBean.Type?
 	
 	public var expectsResponseBeanAt: [String]?
+	
 	
 	public required init(name: String) {
 		super.init(name: name)
@@ -31,17 +34,19 @@ public class SecuTrialOperation: SOAPNode {
 	// MARK: - Operation Input
 	
 	public func addInput(input: SecuTrialOperationInput) {
-		addChild(input)
+		inputs.append(input)
 	}
 	
 	public func hasInput(name: String) -> Bool {
-		return (nil != childNamed(name))
+		return !inputs.filter() { $0.node.name == name }.isEmpty
 	}
 	
 	public func removeInput(name: String) {
-		if let child = childNamed(name) {
-			removeChild(child)
-		}
+		inputs = inputs.filter() { $0.node.name != name }
+	}
+	
+	override func childNodesForXMLString() -> [SOAPNode] {
+		return inputs.map() { $0.node }
 	}
 	
 	
@@ -92,10 +97,36 @@ public class SecuTrialOperation: SOAPNode {
 }
 
 
-public class SecuTrialOperationInput: SOAPTextNode {
-	public convenience init(name: String, type: String, textValue: String) {
-		self.init(name: name, textValue: textValue)
-		attributes.append(SOAPNodeAttribute(name: "xsi:type", value: type))
+public class SecuTrialOperationInput {
+	
+	let name: String
+	
+	var type: String?
+	
+	var textValue: String?
+	
+	var bean: SecuTrialBean?
+	
+	public var node: SOAPNode {
+		if let bean = bean {
+			return bean.node(name)
+		}
+		let node = SOAPTextNode(name: name, textValue: textValue ?? "")
+		if let type = type {
+			node.attr("xsi:type", value: type)
+		}
+		return node
+	}
+	
+	public init(name: String, type: String, textValue: String) {
+		self.name = name
+		self.type = type
+		self.textValue = textValue
+	}
+	
+	public init(name: String, bean: SecuTrialBean) {
+		self.name = name
+		self.bean = bean
 	}
 }
 
