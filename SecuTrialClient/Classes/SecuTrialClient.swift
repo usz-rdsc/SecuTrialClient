@@ -13,20 +13,14 @@ public class SecuTrialClient {
 	
 	let service: SecuTrialService
 	
-	public var customer: String?
-	
-	public var username: String?
-	
-	public var password: String?
+	public var account: SecuTrialAccount?
 	
 	public var session: String?
 	
 	
 	public init(url: NSURL, customer: String? = nil, username: String? = nil, password: String? = nil) {
 		service = SecuTrialService(url: url)
-		self.customer = customer
-		self.username = username
-		self.password = password
+		account = SecuTrialAccount(customer: customer, username: username, password: password)
 		secu_debug("client initialized against \(service.serviceURL.host ?? service.serviceURL.description)")
 	}
 	
@@ -86,31 +80,29 @@ public class SecuTrialClient {
 	// MARK: - Authentication
 	
 	func authenticate(callback: ((response: SecuTrialResponse) -> Void)) {
-		// TODO: create request object classes
-		let auth = SecuTrialOperation(name: "authenticate")
-		if let customer = customer {
-			auth.addInput(SecuTrialOperationInput(name: "customerId", type: "soapenc:string", textValue: customer))
-		}
-		if let username = username {
-			auth.addInput(SecuTrialOperationInput(name: "username", type: "soapenc:string", textValue: username))
-		}
-		if let password = password {
-			auth.addInput(SecuTrialOperationInput(name: "password", type: "soapenc:string", textValue: password))
-		}
-		auth.expectedResponseBean = STWebServiceResult.self
-		auth.expectsResponseBeanAt = ["authenticateResponse", "authenticateReturn"]
-		
-		secu_debug("performing operation “\(auth.name)”")
-		service.performOperation(auth) { response in
-			if nil == response.error {
-				if let sessionId = response.bean?.message {
-					self.session = sessionId
+		if let auth = account?.authOperation() {
+			secu_debug("performing operation “\(auth.name)”")
+			service.performOperation(auth) { response in
+				if nil == response.error {
+					if let bean = response.bean as? STWebServiceResult {
+						if let sessionId = bean.message {
+							print("===>  \(sessionId)")
+							self.session = sessionId
+						}
+						else {
+							response.error = SecuTrialError.NoSessionReceived
+						}
+					}
+					else {
+						response.error = SecuTrialError.InvalidDOM("Did not receive a WebServiceResult Bean")
+					}
 				}
-				else {
-					response.knownError = SecuTrialError.NoSessionReceived
-				}
+				callback(response: response)
 			}
-			callback(response: response)
+		}
+		else {
+			secu_debug("No `account`, cannot authenticate")
+			callback(response: SecuTrialResponse(error: .NoAccount))
 		}
 	}
 }

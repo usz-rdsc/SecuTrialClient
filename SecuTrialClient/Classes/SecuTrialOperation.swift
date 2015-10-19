@@ -71,7 +71,7 @@ public class SecuTrialOperation: SOAPNode {
 		do {
 			let envelope = try parser.parse(data)
 			if let beanPath = expectsResponseBeanAt, let beanType = expectedResponseBean {
-				return try SecuTrialResponse(envelope: envelope, path: beanPath, type: beanType)
+				return SecuTrialResponse(envelope: envelope, path: beanPath, type: beanType)
 			}
 			throw SecuTrialError.OperationNotConfigured
 		}

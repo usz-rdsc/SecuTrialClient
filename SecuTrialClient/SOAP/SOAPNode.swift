@@ -79,6 +79,11 @@ public class SOAPNode {
 		return nil
 	}
 	
+	public func childrenNamed(name: String) -> [SOAPNode]? {
+		let kids = childNodes.filter() { $0.name == name }
+		return kids.isEmpty ? nil : kids
+	}
+	
 	func numChildNodes() -> Int {
 		return childNodes.count
 	}

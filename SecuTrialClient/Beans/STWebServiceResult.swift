@@ -1,20 +1,10 @@
 //
-//  SecuTrialBean.swift
+//  STWebServiceResult.swift
 //  SecuTrialClient
 //
-//  Created by Pascal Pfiffner on 16/10/15.
+//  Created by Pascal Pfiffner on 19/10/15.
 //  Copyright © 2015 USZ. All rights reserved.
 //
-
-
-public protocol SecuTrialBean {
-	
-	var error: SecuTrialError? { get }
-	
-	var message: String? { get }
-	
-	init(node: SOAPNode) throws
-}
 
 
 /**
@@ -27,24 +17,8 @@ public class STWebServiceResult: SecuTrialBean {
 	/// Response status code.
 	public internal(set) var statusCode = 0
 	
-	/// Response error code.
-	public internal(set) var errorCode = 0
-	
 	/// Response message, if any.
 	public internal(set) var message: String?
-	
-	public var error: SecuTrialError? {
-		if 0 != errorCode {
-			if 1 == errorCode {
-				return SecuTrialError.Unauthenticated
-			}
-			if let message = message {
-				return SecuTrialError.Error("\(message) [\(errorCode)]")
-			}
-			return SecuTrialError.Error("Error code \(errorCode)")
-		}
-		return nil
-	}
 	
 	
 	public required init(node: SOAPNode) throws {
@@ -56,7 +30,15 @@ public class STWebServiceResult: SecuTrialBean {
 			throw SecuTrialError.InvalidDOM("`statusCode` is missing:\n\(node.asXMLString())\n----")
 		}
 		if let err = (node.childNamed("errorCode") as? SOAPTextNode)?.text, let code = Int(err) {
-			errorCode = code
+			if 0 != code {
+				if 1 == code {
+					throw SecuTrialError.Unauthenticated
+				}
+				if let message = message {
+					throw SecuTrialError.Error("\(message) [\(code)]")
+				}
+				throw SecuTrialError.Error("Error code \(code)")
+			}
 		}
 		else {
 			throw SecuTrialError.InvalidDOM("`errorCode` is missing:\n\(node.asXMLString())\n----")

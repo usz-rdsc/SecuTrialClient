@@ -8,6 +8,7 @@
 
 
 public enum SecuTrialError: ErrorType, CustomStringConvertible {
+	case NoAccount
 	case Unauthenticated
 	case OperationNotConfigured
 	case EnvelopeNotFound
@@ -19,6 +20,8 @@ public enum SecuTrialError: ErrorType, CustomStringConvertible {
 	
 	public var description: String {
 		switch self {
+		case .NoAccount:
+			return "No account has been set up yet"
 		case .Unauthenticated:
 			return "Not authenticated"
 		case .OperationNotConfigured:

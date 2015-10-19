@@ -14,28 +14,29 @@ Response to a `SecuTrialOperation`.
 */
 public class SecuTrialResponse: SOAPResponse {
 	
-	public var error: SecuTrialError? {
-		if let beanerr = bean?.error {
-			return beanerr
-		}
-		return knownError
-	}
-	
 	/// Response bean.
 	public internal(set) var bean: SecuTrialBean?
 	
 	/// Response error, if any.
-	public internal(set) var knownError: SecuTrialError?
+	public internal(set) var error: SecuTrialError?
 	
 	
-	public init(envelope: SOAPEnvelope, path: [String], type: SecuTrialBean.Type) throws {
+	public init(envelope: SOAPEnvelope, path: [String], type: SecuTrialBean.Type) {
 		super.init(envelope: envelope)
-		try parseResponse(path, type: type)
+		do {
+			try parseResponse(path, type: type)
+		}
+		catch let err as SecuTrialError {
+			error = err
+		}
+		catch let err {
+			error = SecuTrialError.Error("\(err)")
+		}
 	}
 	
 	public init(error: SecuTrialError) {
 		super.init(envelope: SOAPEnvelope())
-		self.knownError = error
+		self.error = error
 	}
 	
 	func parseResponse(path: [String], type: SecuTrialBean.Type) throws {
