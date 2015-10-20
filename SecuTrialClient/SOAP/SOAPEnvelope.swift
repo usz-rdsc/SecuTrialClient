@@ -95,6 +95,12 @@ public class SOAPEnvelopeParser: NSObject, NSXMLParserDelegate {
 		parser.delegate = self
 		parser.parse()
 		if let error = parser.parserError {
+			if let raw = NSString(data: data, encoding: NSUTF8StringEncoding) {
+				secu_debug("Failed parsing response:\n----\n\(raw)\n----")
+				if NSXMLParserErrorDomain == error.domain && 111 == error.code {		// CharacterRefInPrologError
+					throw SecuTrialError.Error(raw as String)
+				}
+			}
 			throw SecuTrialError.Error(error.localizedDescription)
 		}
 		if let envelope = rootNode?.childNodes.first as? SOAPEnvelope {

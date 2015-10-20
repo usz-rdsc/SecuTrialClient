@@ -35,7 +35,6 @@ public class SecuTrialAccount {
 		if let password = password {
 			auth.addInput(SecuTrialOperationInput(name: "password", type: "soapenc:string", textValue: password))
 		}
-		auth.expectedResponseBean = STWebServiceResult.self
 		auth.expectsResponseBeanAt = ["authenticateResponse", "authenticateReturn"]
 		return auth
 	}

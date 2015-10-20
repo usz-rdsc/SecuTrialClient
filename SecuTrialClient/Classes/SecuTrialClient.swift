@@ -15,7 +15,7 @@ public class SecuTrialClient {
 	
 	public var account: SecuTrialAccount?
 	
-	public var session: String?
+	var session: String?
 	
 	
 	public init(url: NSURL, customer: String? = nil, username: String? = nil, password: String? = nil) {
@@ -57,15 +57,53 @@ public class SecuTrialClient {
 				default:
 					break
 				}
-			}
-			if let error = response.error {
 				secu_debug("operation failed with error: \(error)")
 			}
-			callback(response: response)
+			
+			if "authenticate" != operation.name && "terminate" != operation.name {
+				print("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n\(operation.asXMLString(0))")
+				self.terminate(response, callback: callback)
+			}
+			else {
+				callback(response: response)
+			}
+		}
+	}
+	
+	
+	// MARK: - Authentication & Termination
+	
+	func authenticate(callback: ((response: SecuTrialResponse) -> Void)) {
+		if let auth = account?.authOperation() {
+			secu_debug("performing operation “\(auth.name)”")
+			service.performOperation(auth) { response in
+				if nil == response.error {
+					if let bean = response.bean as? STWebServiceResult {
+						if let sessionId = bean.message {
+							self.session = sessionId
+						}
+						else {
+							response.error = SecuTrialError.NoSessionReceived
+						}
+					}
+					else {
+						response.error = SecuTrialError.InvalidDOM("Authenticate operation did not receive a WebServiceResult Bean")
+					}
+				}
+				callback(response: response)
+			}
+		}
+		else {
+			secu_debug("no `account`, cannot authenticate")
+			callback(response: SecuTrialResponse(error: .NoAccount))
 		}
 	}
 	
 	func autoAuthenticateOperation(operation: SecuTrialOperation, callback: ((response: SecuTrialResponse) -> Void)) {
+		guard "authenticate" != operation.name else {
+			self.performOperation(operation, callback: callback)
+			return
+		}
 		authenticate() { response in
 			if nil == response.error {
 				self.performOperation(operation, callback: callback)
@@ -76,33 +114,23 @@ public class SecuTrialClient {
 		}
 	}
 	
-	
-	// MARK: - Authentication
-	
-	func authenticate(callback: ((response: SecuTrialResponse) -> Void)) {
-		if let auth = account?.authOperation() {
-			secu_debug("performing operation “\(auth.name)”")
-			service.performOperation(auth) { response in
-				if nil == response.error {
-					if let bean = response.bean as? STWebServiceResult {
-						if let sessionId = bean.message {
-							print("===>  \(sessionId)")
-							self.session = sessionId
-						}
-						else {
-							response.error = SecuTrialError.NoSessionReceived
-						}
-					}
-					else {
-						response.error = SecuTrialError.InvalidDOM("Did not receive a WebServiceResult Bean")
-					}
+	func terminate(afterResponse: SecuTrialResponse, callback: ((response: SecuTrialResponse) -> Void)) {
+		if let sessionId = session {
+			let terminate = SecuTrialOperation(name: "terminate")
+			terminate.addInput(SecuTrialOperationInput(name: "sessionId", type: "soapenc:string", textValue: sessionId))
+			terminate.expectsResponseBeanAt = ["terminateResponse", "terminateReturn"]
+			
+			secu_debug("performing operation “\(terminate.name)”")
+			service.performOperation(terminate) { response in
+				if let error = response.error {
+					secu_debug("error terminating: \(error)")
 				}
-				callback(response: response)
+				callback(response: afterResponse)
 			}
 		}
 		else {
-			secu_debug("No `account`, cannot authenticate")
-			callback(response: SecuTrialResponse(error: .NoAccount))
+			secu_debug("No session id, no need to terminate")
+			callback(response: afterResponse)
 		}
 	}
 }

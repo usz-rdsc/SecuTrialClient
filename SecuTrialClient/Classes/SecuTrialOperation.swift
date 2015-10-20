@@ -10,7 +10,7 @@ import Foundation
 
 
 /// Aliasing "$" to `SecuTrialOperation`.
-//public typealias $ = SecuTrialOperation
+public typealias $ = SecuTrialOperation
 
 
 /**
@@ -20,7 +20,7 @@ public class SecuTrialOperation: SOAPNode {
 	
 	var inputs = [SecuTrialOperationInput]()
 	
-	public var expectedResponseBean: SecuTrialBean.Type?
+	public var expectedResponseBean: SecuTrialBean.Type = STWebServiceResult.self
 	
 	public var expectsResponseBeanAt: [String]?
 	
@@ -75,8 +75,8 @@ public class SecuTrialOperation: SOAPNode {
 		let parser = SOAPEnvelopeParser()
 		do {
 			let envelope = try parser.parse(data)
-			if let beanPath = expectsResponseBeanAt, let beanType = expectedResponseBean {
-				return SecuTrialResponse(envelope: envelope, path: beanPath, type: beanType)
+			if let beanPath = expectsResponseBeanAt {
+				return SecuTrialResponse(envelope: envelope, path: beanPath, type: expectedResponseBean)
 			}
 			throw SecuTrialError.OperationNotConfigured
 		}
