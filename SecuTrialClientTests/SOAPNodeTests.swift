@@ -19,6 +19,9 @@ class SOAPNodeTests: XCTestCase {
 		do {
 			let root = try parser.parse(data!)
 			XCTAssertEqual(2, root.childNodes.count)
+			let notext = root.childNamed("Body", ofType: SOAPTextNode.self)
+			XCTAssertNil(notext, "Should not return the 'Body' node when asking for a text node")
+			
 			let resp = root.childNamed("Body")?.childNamed("authenticateResponse")
 			XCTAssertNotNil(resp, "Expecting 'authenticateResponse' child node")
 			XCTAssertEqual("ns3", resp!.namespace!.name)

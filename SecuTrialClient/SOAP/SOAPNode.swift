@@ -97,7 +97,7 @@ public class SOAPNode {
 	public func childNamed<T: SOAPNode>(name: String, ofType: T.Type? = nil) -> T? {
 		for child in childNodes {
 			if name == child.name && child is T {
-				return child as! T
+				return (child as! T)
 			}
 		}
 		return nil
