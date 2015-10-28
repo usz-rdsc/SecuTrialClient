@@ -35,6 +35,15 @@ public class SOAPNode {
 		self.name = name
 	}
 	
+	public func copy(other: SOAPNode) {
+		namespace = other.namespace
+		namespaces = other.namespaces
+		attributes = other.attributes
+		for child in other.childNodes {
+			addChild(child)
+		}
+	}
+	
 	/**
 	Replaces a given node with itself, copying all information from the other node.
 	
@@ -42,12 +51,7 @@ public class SOAPNode {
 	*/
 	public class func replace(otherNode other: SOAPNode) -> Self {
 		let node = self.init(name: other.name)
-		node.namespace = other.namespace
-		node.namespaces = other.namespaces
-		node.attributes = other.attributes
-		for child in other.childNodes {
-			node.addChild(child)
-		}
+		node.copy(other)
 		if let parent = other.parent {
 			let idx = parent.removeChild(other)
 			parent.addChild(node, atIndex: idx)
@@ -58,6 +62,9 @@ public class SOAPNode {
 	
 	// MARK: - Child Nodes
 	
+	/**
+	Add the given node as a child node to the receiver, setting the parent pointer accordingly.
+	*/
 	func addChild(child: SOAPNode, atIndex: Int? = nil) {
 		if let parent = child.parent {
 			parent.removeChild(child)
@@ -71,24 +78,36 @@ public class SOAPNode {
 		}
 	}
 	
+	/**
+	Remove the given node from the receiver's child nodes, unsetting the parent pointer accordingly. This method does nothing if the given
+	node is not a child node of the receiver.
+	*/
 	func removeChild(child: SOAPNode) -> Int? {
 		let idx = childNodes.indexOf() { $0 === child }
-		childNodes = childNodes.filter() { $0 !== child }
+		if nil != idx {
+			child.parent = nil
+			childNodes = childNodes.filter() { $0 !== child }
+		}
 		return idx
 	}
 	
-	public func childNamed(name: String) -> SOAPNode? {
+	/**
+	Return the first child node with the given name and of the given type.
+	*/
+	public func childNamed<T: SOAPNode>(name: String, ofType: T.Type? = nil) -> T? {
 		for child in childNodes {
-			if name == child.name {
-				return child
+			if name == child.name && child is T {
+				return child as! T
 			}
 		}
 		return nil
 	}
 	
-	public func childrenNamed(name: String) -> [SOAPNode]? {
-		let kids = childNodes.filter() { $0.name == name }
-		return kids.isEmpty ? nil : kids
+	/**
+	Return an array of child nodes with the given name.
+	*/
+	public func childrenNamed(name: String) -> [SOAPNode] {
+		return childNodes.filter() { $0.name == name }
 	}
 	
 	func numChildNodes() -> Int {
@@ -188,6 +207,14 @@ public class SOAPTextNode: SOAPNode {
 	public convenience init(name: String, textValue: String) {
 		self.init(name: name)
 		text = textValue
+	}
+	
+	public override func copy(other: SOAPNode) {
+		super.copy(other)
+		childNodes.removeAll()
+		if let other = other as? SOAPTextNode {
+			text = other.text
+		}
 	}
 	
 	override func numChildNodes() -> Int {

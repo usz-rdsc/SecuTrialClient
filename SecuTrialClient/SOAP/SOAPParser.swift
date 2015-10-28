@@ -84,6 +84,7 @@ public class SOAPParser: NSObject, NSXMLParserDelegate {
 		if !stripped.isEmpty {
 			let textNode = SOAPTextNode.replace(otherNode: parsingNode!)
 			textNode.text = string
+			parsingNode = textNode
 		}
 	}
 	

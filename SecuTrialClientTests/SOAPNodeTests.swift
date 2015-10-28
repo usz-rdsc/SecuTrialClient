@@ -12,6 +12,39 @@ import XCTest
 
 class SOAPNodeTests: XCTestCase {
 	
+	func testNodeStuff() {
+		let data = NSData(contentsOfURL: NSBundle(forClass: self.dynamicType).URLForResource("TestEnvelope", withExtension: "xml")!)
+		XCTAssertNotNil(data)
+		let parser = SOAPParser()
+		do {
+			let root = try parser.parse(data!)
+			XCTAssertEqual(2, root.childNodes.count)
+			let resp = root.childNamed("Body")?.childNamed("authenticateResponse")
+			XCTAssertNotNil(resp, "Expecting 'authenticateResponse' child node")
+			XCTAssertEqual("ns3", resp!.namespace!.name)
+			XCTAssertEqual("http://DefaultNamespace", resp!.namespace!.url)
+			
+			let replacement = SOAPNode.replace(otherNode: resp!)
+			XCTAssertNil(resp!.parent)
+			XCTAssertNotNil(replacement.parent)
+			XCTAssertTrue(root.childNamed("Body")! === replacement.parent!)
+			
+			let ret = replacement.childNamed("authenticateReturn")
+			XCTAssertNotNil(ret, "Expecting 'authenticateReturn' child node")
+			XCTAssertNil(ret!.namespace)
+			
+			let status = ret!.childNamed("statusCode", ofType: SOAPTextNode.self)
+			XCTAssertNotNil(status, "Expecting 'statusCode' child node")
+			XCTAssertTrue(ret!.childNodes[2] === status!)
+			XCTAssertNil(status!.namespace)
+			XCTAssertEqual("xsd:int", status!.attr("xsi:type")!)
+			XCTAssertEqual("1", status!.text!)
+		}
+		catch let err {
+			XCTAssertNil(err, "Error parsing TestEnvelope")
+		}
+	}
+	
 	func testEnvelopeParsing() {
 		let data = NSData(contentsOfURL: NSBundle(forClass: self.dynamicType).URLForResource("TestEnvelope", withExtension: "xml")!)
 		XCTAssertNotNil(data)
@@ -24,10 +57,12 @@ class SOAPNodeTests: XCTestCase {
 			XCTAssertNotNil(resp, "Expecting 'authenticateResponse' child node")
 			XCTAssertEqual("ns3", resp!.namespace!.name)
 			XCTAssertEqual("http://DefaultNamespace", resp!.namespace!.url)
+			
 			let ret = resp!.childNamed("authenticateReturn")
 			XCTAssertNotNil(ret, "Expecting 'authenticateReturn' child node")
 			XCTAssertNil(ret!.namespace)
-			let status = ret!.childNamed("statusCode") as? SOAPTextNode
+			
+			let status = ret!.childNamed("statusCode", ofType: SOAPTextNode.self)
 			XCTAssertNotNil(status, "Expecting 'statusCode' child node")
 			XCTAssertTrue(ret!.childNodes[2] === status!)
 			XCTAssertNil(status!.namespace)

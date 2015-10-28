@@ -27,7 +27,7 @@ public class STWebServiceResult: SecuTrialBean {
 	
 	public required init(node: SOAPNode) throws {
 		self.node = node
-		let messages = node.childrenNamed("message")?.filter() { $0 is SOAPTextNode && nil != ($0 as! SOAPTextNode).text } ?? []
+		let messages = node.childrenNamed("message").filter() { $0 is SOAPTextNode && nil != ($0 as! SOAPTextNode).text }
 		message = messages.map() { ($0 as! SOAPTextNode).text! }.joinWithSeparator("")
 		if let status = (node.childNamed("statusCode") as? SOAPTextNode)?.text, let code = Int(status) {
 			statusCode = code

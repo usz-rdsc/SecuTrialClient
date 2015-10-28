@@ -49,9 +49,7 @@ public class STFormDataRecordBean: SecuTrialBean {
 //		if let sub = node.childNamed("ae") {
 //			ae = try STAdverseEventBean(node: sub)
 //		}
-		if let subs = node.childrenNamed("item") {
-			item = try subs.map() { try STFormDataItemBean(node: $0) }
-		}
+		item = try node.childrenNamed("item").map() { try STFormDataItemBean(node: $0) }
 	}
 	
 	

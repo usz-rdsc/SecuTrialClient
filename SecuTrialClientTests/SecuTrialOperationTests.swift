@@ -24,7 +24,6 @@ class SecuTrialOperationTests: XCTestCase {
 		if let bean = res.bean as? STWebServiceResult {
 			XCTAssertNotNil(bean.message)
 			XCTAssertEqual(1, bean.statusCode)
-			XCTAssertEqual(0, bean.errorCode)
 			XCTAssertEqual("64enfEQAr6rj2kXpC7jbjw", bean.message!)
 		}
 	}
