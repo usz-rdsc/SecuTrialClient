@@ -74,87 +74,21 @@ public class SOAPEnvelope: SOAPNode {
 /**
 Simple XML parser designed to parse SOAP request and response bodies, which have an "Envelope" node at their root.
 */
-public class SOAPEnvelopeParser: NSObject, NSXMLParserDelegate {
-	var rootNode: SOAPNode?
-	
-	var parsingNode: SOAPNode?
-	
-	var parsingNamespaces = [SOAPNamespace]()
+public class SOAPEnvelopeParser: SOAPParser {
 	
 	/**
-	Starts parsing given data, throwing an error if the data does not represent valid XML.
+	Starts parsing given data, throwing an error if the data is not valid XML and the root node is not an "Envelope".
 	
 	- parameter data: The data, presumed to be UTF-8 encoded XML data, that should be parsed
 	- returns: The SOAPEnvelope node found at the root level of the XML document, if any
-	- throws: An error when parsing fails
+	- throws: SOAPError or SecuTrialError when parsing fails
 	*/
-	public func parse(data: NSData) throws -> SOAPEnvelope {
-		let parser = NSXMLParser(data: data)
-		parser.shouldProcessNamespaces = true
-		parser.shouldReportNamespacePrefixes = true
-		parser.delegate = self
-		parser.parse()
-		if let error = parser.parserError {
-			if let raw = NSString(data: data, encoding: NSUTF8StringEncoding) {
-				secu_debug("Failed parsing response:\n----\n\(raw)\n----")
-				if NSXMLParserErrorDomain == error.domain && 111 == error.code {		// CharacterRefInPrologError
-					throw SecuTrialError.Error(raw as String)
-				}
-			}
-			throw SecuTrialError.Error(error.localizedDescription)
-		}
-		if let envelope = rootNode?.childNodes.first as? SOAPEnvelope {
-			return envelope
+	public override func parse(data: NSData) throws -> SOAPEnvelope {
+		let root = try super.parse(data)
+		if "Envelope" == root.name {
+			return SOAPEnvelope.replace(otherNode: root)
 		}
 		throw SecuTrialError.EnvelopeNotFound
-	}
-	
-	
-	// MARK: - NSXMLParser Delegate Methods
-	
-	public func parserDidStartDocument(parser: NSXMLParser) {
-		rootNode = SOAPNode(name: "root")
-		parsingNamespaces.removeAll()
-		parsingNode = rootNode
-	}
-	
-	public func parser(parser: NSXMLParser, didStartMappingPrefix prefix: String, toURI namespaceURI: String) {
-		let ns = SOAPNamespace(name: prefix, url: namespaceURI)
-		parsingNamespaces.append(ns)
-	}
-	
-	public func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
-		let node = "Envelope" == elementName ? SOAPEnvelope(name: "Envelope") : SOAPNode(name: elementName)
-		parsingNode?.addChild(node)
-		parsingNode = node
-		
-		if !parsingNamespaces.isEmpty {
-			node.namespaces = parsingNamespaces
-			parsingNamespaces.removeAll()
-		}
-		if let nsURI = namespaceURI {
-			node.namespace = node.namespaceWithURI(nsURI)
-		}
-		for (key, val) in attributeDict {
-			let attr = SOAPNodeAttribute(name: key, value: val)
-			node.attributes.append(attr)
-		}
-	}
-	
-	public func parser(parser: NSXMLParser, foundCharacters string: String) {
-		let stripped = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-		if !stripped.isEmpty {
-			let textNode = SOAPTextNode.replace(otherNode: parsingNode!)
-			textNode.text = string
-		}
-	}
-	
-	public func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-		parsingNode = parsingNode?.parent
-	}
-	
-	public func parserDidEndDocument(parser: NSXMLParser) {
-		assert(rootNode === parsingNode)
 	}
 }
 

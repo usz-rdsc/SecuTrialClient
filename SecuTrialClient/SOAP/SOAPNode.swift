@@ -35,12 +35,19 @@ public class SOAPNode {
 		self.name = name
 	}
 	
+	/**
+	Replaces a given node with itself, copying all information from the other node.
+	
+	You usually use this to use a specific subclass in place of a generic SOAPNode.
+	*/
 	public class func replace(otherNode other: SOAPNode) -> Self {
 		let node = self.init(name: other.name)
 		node.namespace = other.namespace
 		node.namespaces = other.namespaces
 		node.attributes = other.attributes
-		node.childNodes = other.childNodes
+		for child in other.childNodes {
+			node.addChild(child)
+		}
 		if let parent = other.parent {
 			let idx = parent.removeChild(other)
 			parent.addChild(node, atIndex: idx)
