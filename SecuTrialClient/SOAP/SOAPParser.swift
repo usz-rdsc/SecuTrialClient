@@ -19,6 +19,12 @@ public class SOAPParser: NSObject, NSXMLParserDelegate {
 	
 	var parsingNamespaces = [SOAPNamespace]()
 	
+	var customError: ErrorType?
+	
+	/// Optional block to call when an element finishes parsing; receives the node that has just finished, if returning a different node
+	/// will insert the returned node in place of the original node.
+	public var onEndElement: ((element: SOAPNode) throws -> SOAPNode?)?
+	
 	/**
 	Starts parsing given data, throwing an error if the data does not represent valid XML.
 	
@@ -38,6 +44,9 @@ public class SOAPParser: NSObject, NSXMLParserDelegate {
 				if NSXMLParserErrorDomain == error.domain && 111 == error.code {		// CharacterRefInPrologError
 					throw SOAPError.Error(raw as String)
 				}
+			}
+			if let custom = customError {
+				throw custom
 			}
 			throw SOAPError.Error(error.localizedDescription)
 		}
@@ -82,13 +91,25 @@ public class SOAPParser: NSObject, NSXMLParserDelegate {
 	public func parser(parser: NSXMLParser, foundCharacters string: String) {
 		let stripped = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
 		if !stripped.isEmpty {
-			let textNode = SOAPTextNode.replace(otherNode: parsingNode!)
+			let textNode = SOAPTextNode.replace(parsingNode!)
 			textNode.text = string
 			parsingNode = textNode
 		}
 	}
 	
 	public func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+		if let onEndElement = onEndElement, let parsing = parsingNode {
+			do {
+				if let ret = try onEndElement(element: parsing) {
+					ret.replace(parsing)
+					parsingNode = ret
+				}
+			}
+			catch let error {
+				customError = error
+				parser.abortParsing()
+			}
+		}
 		parsingNode = parsingNode?.parent
 	}
 	

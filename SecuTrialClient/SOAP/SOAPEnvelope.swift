@@ -86,7 +86,7 @@ public class SOAPEnvelopeParser: SOAPParser {
 	public override func parse(data: NSData) throws -> SOAPEnvelope {
 		let root = try super.parse(data)
 		if "Envelope" == root.name {
-			return SOAPEnvelope.replace(otherNode: root)
+			return SOAPEnvelope.replace(root)
 		}
 		throw SecuTrialError.EnvelopeNotFound
 	}

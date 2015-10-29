@@ -27,7 +27,7 @@ class SOAPNodeTests: XCTestCase {
 			XCTAssertEqual("ns3", resp!.namespace!.name)
 			XCTAssertEqual("http://DefaultNamespace", resp!.namespace!.url)
 			
-			let replacement = SOAPNode.replace(otherNode: resp!)
+			let replacement = SOAPNode.replace(resp!)
 			XCTAssertNil(resp!.parent)
 			XCTAssertNotNil(replacement.parent)
 			XCTAssertTrue(root.childNamed("Body")! === replacement.parent!)
