@@ -27,6 +27,8 @@
 		EEA69A6F1BE1074C00DAA00E /* SOAPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A6E1BE1074C00DAA00E /* SOAPError.swift */; };
 		EEA69A741BE1142B00DAA00E /* SecuTrialFormParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A731BE1142B00DAA00E /* SecuTrialFormParsingTests.swift */; };
 		EEA69A781BE1166000DAA00E /* TestFormDefinition.xml in Resources */ = {isa = PBXBuildFile; fileRef = EEA69A771BE1166000DAA00E /* TestFormDefinition.xml */; };
+		EEA69A871BE27F6900DAA00E /* STFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A861BE27F6900DAA00E /* STFObject.swift */; };
+		EEA69A891BE282DA00DAA00E /* STFBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A881BE282DA00DAA00E /* STFBase.swift */; };
 		EEEA7F131BD4E1C30089BF85 /* SecuTrialAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA7F121BD4E1C30089BF85 /* SecuTrialAccount.swift */; };
 		EEEA7F1A1BD4E5B60089BF85 /* STFormDataRecordBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA7F191BD4E5B60089BF85 /* STFormDataRecordBean.swift */; };
 		EEEA7F1C1BD4E6020089BF85 /* STWebServiceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA7F1B1BD4E6020089BF85 /* STWebServiceResult.swift */; };
@@ -85,6 +87,8 @@
 		EEA69A6E1BE1074C00DAA00E /* SOAPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPError.swift; sourceTree = "<group>"; };
 		EEA69A731BE1142B00DAA00E /* SecuTrialFormParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialFormParsingTests.swift; sourceTree = "<group>"; };
 		EEA69A771BE1166000DAA00E /* TestFormDefinition.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestFormDefinition.xml; sourceTree = "<group>"; };
+		EEA69A861BE27F6900DAA00E /* STFObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STFObject.swift; sourceTree = "<group>"; };
+		EEA69A881BE282DA00DAA00E /* STFBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STFBase.swift; sourceTree = "<group>"; };
 		EEEA7F121BD4E1C30089BF85 /* SecuTrialAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecuTrialAccount.swift; path = Classes/SecuTrialAccount.swift; sourceTree = "<group>"; };
 		EEEA7F191BD4E5B60089BF85 /* STFormDataRecordBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STFormDataRecordBean.swift; sourceTree = "<group>"; };
 		EEEA7F1B1BD4E6020089BF85 /* STWebServiceResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STWebServiceResult.swift; sourceTree = "<group>"; };
@@ -177,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				EEA69A671BE105FD00DAA00E /* SecuTrialFormParser.swift */,
+				EEA69A881BE282DA00DAA00E /* STFBase.swift */,
+				EEA69A861BE27F6900DAA00E /* STFObject.swift */,
 			);
 			name = "Form Parser";
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 			files = (
 				EE83DC691BC69291000B57D5 /* SOAPRequest.swift in Sources */,
 				EEEA7F131BD4E1C30089BF85 /* SecuTrialAccount.swift in Sources */,
+				EEA69A871BE27F6900DAA00E /* STFObject.swift in Sources */,
 				EEEA7F1C1BD4E6020089BF85 /* STWebServiceResult.swift in Sources */,
 				EE83DC671BC691E7000B57D5 /* SecuTrialOperation.swift in Sources */,
 				EE83DC6D1BC6A234000B57D5 /* SOAPNode.swift in Sources */,
@@ -352,6 +359,7 @@
 				EEEA7F1E1BD4E6A20089BF85 /* STPatientBean.swift in Sources */,
 				EEEA7F531BD674C70089BF85 /* SecuTrialBean.swift in Sources */,
 				EEA69A6D1BE106BA00DAA00E /* SOAPParser.swift in Sources */,
+				EEA69A891BE282DA00DAA00E /* STFBase.swift in Sources */,
 				EE8973511BD14030001FE1DA /* SecuTrialError.swift in Sources */,
 				EE83DC6B1BC6929A000B57D5 /* SOAPResponse.swift in Sources */,
 				EEEA7F241BD4E6F60089BF85 /* STFormDataItemBean.swift in Sources */,
