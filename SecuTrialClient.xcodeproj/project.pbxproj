@@ -22,9 +22,11 @@
 		EE89734B1BD0FFB4001FE1DA /* SecuTrialClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE89734A1BD0FFB4001FE1DA /* SecuTrialClient.swift */; };
 		EE89734D1BD11BFD001FE1DA /* SecuTrialResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE89734C1BD11BFD001FE1DA /* SecuTrialResponse.swift */; };
 		EE8973511BD14030001FE1DA /* SecuTrialError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8973501BD14030001FE1DA /* SecuTrialError.swift */; };
-		EEA69A681BE105FD00DAA00E /* SecuFormParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A671BE105FD00DAA00E /* SecuFormParser.swift */; };
+		EEA69A681BE105FD00DAA00E /* SecuTrialFormParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A671BE105FD00DAA00E /* SecuTrialFormParser.swift */; };
 		EEA69A6D1BE106BA00DAA00E /* SOAPParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A6C1BE106BA00DAA00E /* SOAPParser.swift */; };
 		EEA69A6F1BE1074C00DAA00E /* SOAPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A6E1BE1074C00DAA00E /* SOAPError.swift */; };
+		EEA69A741BE1142B00DAA00E /* SecuTrialFormParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A731BE1142B00DAA00E /* SecuTrialFormParsingTests.swift */; };
+		EEA69A781BE1166000DAA00E /* TestFormDefinition.xml in Resources */ = {isa = PBXBuildFile; fileRef = EEA69A771BE1166000DAA00E /* TestFormDefinition.xml */; };
 		EEEA7F131BD4E1C30089BF85 /* SecuTrialAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA7F121BD4E1C30089BF85 /* SecuTrialAccount.swift */; };
 		EEEA7F1A1BD4E5B60089BF85 /* STFormDataRecordBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA7F191BD4E5B60089BF85 /* STFormDataRecordBean.swift */; };
 		EEEA7F1C1BD4E6020089BF85 /* STWebServiceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA7F1B1BD4E6020089BF85 /* STWebServiceResult.swift */; };
@@ -78,9 +80,11 @@
 		EE89734A1BD0FFB4001FE1DA /* SecuTrialClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecuTrialClient.swift; path = Classes/SecuTrialClient.swift; sourceTree = "<group>"; };
 		EE89734C1BD11BFD001FE1DA /* SecuTrialResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecuTrialResponse.swift; path = Classes/SecuTrialResponse.swift; sourceTree = "<group>"; };
 		EE8973501BD14030001FE1DA /* SecuTrialError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecuTrialError.swift; path = Classes/SecuTrialError.swift; sourceTree = "<group>"; };
-		EEA69A671BE105FD00DAA00E /* SecuFormParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuFormParser.swift; sourceTree = "<group>"; };
+		EEA69A671BE105FD00DAA00E /* SecuTrialFormParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialFormParser.swift; sourceTree = "<group>"; };
 		EEA69A6C1BE106BA00DAA00E /* SOAPParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPParser.swift; sourceTree = "<group>"; };
 		EEA69A6E1BE1074C00DAA00E /* SOAPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPError.swift; sourceTree = "<group>"; };
+		EEA69A731BE1142B00DAA00E /* SecuTrialFormParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialFormParsingTests.swift; sourceTree = "<group>"; };
+		EEA69A771BE1166000DAA00E /* TestFormDefinition.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestFormDefinition.xml; sourceTree = "<group>"; };
 		EEEA7F121BD4E1C30089BF85 /* SecuTrialAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecuTrialAccount.swift; path = Classes/SecuTrialAccount.swift; sourceTree = "<group>"; };
 		EEEA7F191BD4E5B60089BF85 /* STFormDataRecordBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STFormDataRecordBean.swift; sourceTree = "<group>"; };
 		EEEA7F1B1BD4E6020089BF85 /* STWebServiceResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STWebServiceResult.swift; sourceTree = "<group>"; };
@@ -137,7 +141,7 @@
 				EE83DC661BC691E7000B57D5 /* SecuTrialOperation.swift */,
 				EE89734C1BD11BFD001FE1DA /* SecuTrialResponse.swift */,
 				EE8973501BD14030001FE1DA /* SecuTrialError.swift */,
-				EEA69A671BE105FD00DAA00E /* SecuFormParser.swift */,
+				EEA69A811BE20C1100DAA00E /* Form Parser */,
 				EEEA7F181BD4E5A40089BF85 /* Beans */,
 				EEEA7F171BD4E5730089BF85 /* SOAP */,
 				EE83DC2B1BC66E2C000B57D5 /* SecuTrialClient.h */,
@@ -151,8 +155,10 @@
 			children = (
 				EE83DC371BC66E2C000B57D5 /* SecuTrialClientTests.swift */,
 				EE8973431BD0F5CA001FE1DA /* SecuTrialOperationTests.swift */,
+				EEA69A731BE1142B00DAA00E /* SecuTrialFormParsingTests.swift */,
 				EE83DC821BCFC3F9000B57D5 /* SOAPNodeTests.swift */,
 				EE83DC841BCFC437000B57D5 /* TestEnvelope.xml */,
+				EEA69A771BE1166000DAA00E /* TestFormDefinition.xml */,
 				EE83DC391BC66E2C000B57D5 /* Info.plist */,
 			);
 			path = SecuTrialClientTests;
@@ -165,6 +171,14 @@
 				EE83DC651BC68F37000B57D5 /* ResearchKitTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EEA69A811BE20C1100DAA00E /* Form Parser */ = {
+			isa = PBXGroup;
+			children = (
+				EEA69A671BE105FD00DAA00E /* SecuTrialFormParser.swift */,
+			);
+			name = "Form Parser";
 			sourceTree = "<group>";
 		};
 		EEEA7F171BD4E5730089BF85 /* SOAP */ = {
@@ -314,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEA69A781BE1166000DAA00E /* TestFormDefinition.xml in Resources */,
 				EE83DC851BCFC437000B57D5 /* TestEnvelope.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,7 +358,7 @@
 				EEA69A6F1BE1074C00DAA00E /* SOAPError.swift in Sources */,
 				EEEA7F201BD4E6CF0089BF85 /* STVisitBean.swift in Sources */,
 				EE89734B1BD0FFB4001FE1DA /* SecuTrialClient.swift in Sources */,
-				EEA69A681BE105FD00DAA00E /* SecuFormParser.swift in Sources */,
+				EEA69A681BE105FD00DAA00E /* SecuTrialFormParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE83DC831BCFC3F9000B57D5 /* SOAPNodeTests.swift in Sources */,
+				EEA69A741BE1142B00DAA00E /* SecuTrialFormParsingTests.swift in Sources */,
 				EE8973441BD0F5CA001FE1DA /* SecuTrialOperationTests.swift in Sources */,
 				EE83DC381BC66E2C000B57D5 /* SecuTrialClientTests.swift in Sources */,
 			);

@@ -1,0 +1,5403 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dict count="15">
+	<key>
+		<string>versionnumber</string>
+	</key>
+	<value>
+		<integer>0</integer>
+	</value>
+	<key>
+		<string>projectname</string>
+	</key>
+	<value>
+		<string>CTC FDTS</string>
+	</value>
+	<key>
+		<string>path</string>
+	</key>
+	<value>
+		<string>/opt/Apple/Local/Library/WebObjects/Applications/ST00/FormBuilder.woa</string>
+	</value>
+	<key>
+		<string>host</string>
+	</key>
+	<value>
+		<string>vl90106.usz.ch</string>
+	</value>
+	<key>
+		<string>application_version</string>
+	</key>
+	<value>
+		<string>4.9.1.10</string>
+	</value>
+	<key>
+		<string>versionstatus</string>
+	</key>
+	<value>
+		<string>Development</string>
+	</value>
+	<key>
+		<string>forms</string>
+	</key>
+	<value>
+		<array count="1">
+			<object entity="Form" id="1">
+				<property name="actionArray">
+					<array count="0"/>
+				</property>
+				<property name="actionurl">
+					<null/>
+				</property>
+				<property name="commenton">
+					<string>2</string>
+				</property>
+				<property name="copyformvals">
+					<string>0</string>
+				</property>
+				<property name="esignature">
+					<null/>
+				</property>
+				<property name="formdescr">
+					<null/>
+				</property>
+				<property name="formextimage">
+					<null/>
+				</property>
+				<property name="formextname">
+					<null/>
+				</property>
+				<property name="formfamily">
+					<null/>
+				</property>
+				<property name="formfieldruleArray">
+					<array count="0"/>
+				</property>
+				<property name="formgroupArray">
+					<array count="5">
+						<object entity="Formgroup" id="2">
+							<property name="actionmsggroupArray">
+								<array count="0"/>
+							</property>
+							<property name="catalog">
+								<null/>
+							</property>
+							<property name="fgdescr">
+								<null/>
+							</property>
+							<property name="fgdescr1">
+								<null/>
+							</property>
+							<property name="fghelp">
+								<null/>
+							</property>
+							<property name="fglabel">
+								<string>Import manuell testen</string>
+							</property>
+							<property name="fgnumber">
+								<integer>90</integer>
+							</property>
+							<property name="fgnumlabel">
+								<null/>
+							</property>
+							<property name="fgquerylabel">
+								<string>Import manuell testen</string>
+							</property>
+							<property name="flexiblewidth">
+								<integer>0</integer>
+							</property>
+							<property name="form">
+								<object refid="1"/>
+							</property>
+							<property name="formfieldArray">
+								<array count="0"/>
+							</property>
+							<property name="formfieldmatrix">
+								<null/>
+							</property>
+							<property name="formgroupdescriptionArray">
+								<array count="0"/>
+							</property>
+							<property name="formgrouphelpArray">
+								<array count="0"/>
+							</property>
+							<property name="formgroupruleArray">
+								<array count="0"/>
+							</property>
+							<property name="grouptype">
+								<object id="3" readonlyEntity="Grouptype">
+									<dict count="1">
+										<key>
+											<string>fgtype</string>
+										</key>
+										<value>
+											<integer>4</integer>
+										</value>
+									</dict>
+								</object>
+							</property>
+							<property name="hide">
+								<null/>
+							</property>
+							<property name="importmappings">
+								<array count="0"/>
+							</property>
+							<property name="layoutArray">
+								<array count="0"/>
+							</property>
+							<property name="maxdetailcount">
+								<null/>
+							</property>
+							<property name="odmaliasArray">
+								<array count="0"/>
+							</property>
+							<property name="qacon">
+								<string>1</string>
+							</property>
+							<property name="repafterdec">
+								<null/>
+							</property>
+							<property name="sdtmdomain">
+								<null/>
+							</property>
+							<property name="subform">
+								<null/>
+							</property>
+							<property name="subformdetailcount">
+								<null/>
+							</property>
+							<property name="subformhideheader">
+								<null/>
+							</property>
+							<property name="subformicon">
+								<null/>
+							</property>
+							<property name="subformicon2">
+								<null/>
+							</property>
+							<property name="subformreset">
+								<null/>
+							</property>
+							<property name="subformreverseorder">
+								<null/>
+							</property>
+						</object>
+						<object entity="Formgroup" id="4">
+							<property name="actionmsggroupArray">
+								<array count="0"/>
+							</property>
+							<property name="catalog">
+								<null/>
+							</property>
+							<property name="fgdescr">
+								<string>Patienten werden ggf. neu angelegt.</string>
+							</property>
+							<property name="fgdescr1">
+								<null/>
+							</property>
+							<property name="fghelp">
+								<null/>
+							</property>
+							<property name="fglabel">
+								<string>Patienten und Daten</string>
+							</property>
+							<property name="fgnumber">
+								<integer>100</integer>
+							</property>
+							<property name="fgnumlabel">
+								<null/>
+							</property>
+							<property name="fgquerylabel">
+								<string>Patienten und Daten</string>
+							</property>
+							<property name="flexiblewidth">
+								<integer>0</integer>
+							</property>
+							<property name="form">
+								<object refid="1"/>
+							</property>
+							<property name="formfieldArray">
+								<array count="12">
+									<object entity="Formfield" id="5">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<null/>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>20</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object id="6" readonlyEntity="Fieldtype">
+												<dict count="1">
+													<key>
+														<string>fftype</string>
+													</key>
+													<value>
+														<integer>126</integer>
+													</value>
+												</dict>
+											</object>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="4"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&lt;a href=&quot;https://www.datamanagement.usz.ch/Documents/CTC_FDTS/Import_cas_PatVisDat.csv&quot; target=&quot;_blank&quot; class=&quot;underline&quot;&gt;Importdatei&lt;/a&gt;</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="7">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<string>Importieren</string>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>30</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="4"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>Anmelden im Modul DataCapture.&lt;br&gt;Aufruf der Willkommensseite (erste Seite nach Anmeldung).</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="8">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<null/>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>40</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="4"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&amp;rarr;Importieren (rechts oben) &amp;rarr; Formulardaten für mehrere Formulare</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="9">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<null/>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>50</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="4"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&lt;ul&gt;&lt;li&gt;Projekt: CTC FDTS&lt;li&gt;Import-Konfiguration: FDTS&lt;/ul&gt;</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="10">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<string>Musterdatei</string>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>10</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="4"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>Musterdatei über den folgenden Link herunterladen und als csv-Datei auf dem PC speichern.</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="11">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<null/>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>60</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="4"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&amp;rarr;Durchsuchen &amp;rarr;Importdatei auswählen.</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="12">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<null/>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>120</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="4"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&lt;a href=&quot;https://www.datamanagement.usz.ch/Documents/CTC_FDTS/FDTS.pdf&quot; target=&quot;_blank&quot; class=&quot;underline&quot;&gt;FDTS (Projektebene)&lt;/a&gt;</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="13">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<null/>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>70</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="4"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&lt;ul&gt;&lt;li&gt;Analyse beginnt in Zeile 1&lt;li&gt;Spalten-Trenner: Semikolon&lt;li&gt;Spalten-Begrenzer: Anführungsstriche.&lt;/ul&gt;</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="14">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<null/>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>80</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="4"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&amp;rarr;Analysieren &amp;rarr;Speichern</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="15">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<string>Anpassen der Importdatei</string>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>90</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="4"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>Die Daten der Importdatei können angepasst werden.</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="16">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<null/>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>100</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="4"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&lt;ul&gt;&lt;li&gt;aid: Muss mit &quot;FDTS&quot; beginnen. &lt;li&gt;centre: 'Zentrum FDTS 1' &lt;li&gt;entrydate: Gültiges Datum&lt;/ul&gt;</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="17">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<string>Importformate</string>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>110</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="4"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&lt;a href=&quot;https://www.datamanagement.usz.ch/Documents/CTC_FDTS/FDTS_Casenode-Formular.pdf&quot; target=&quot;_blank&quot; class=&quot;underline&quot;&gt;FDTS - Casenode-Formular (Formularebene)&lt;/a&gt;</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+								</array>
+							</property>
+							<property name="formfieldmatrix">
+								<null/>
+							</property>
+							<property name="formgroupdescriptionArray">
+								<array count="0"/>
+							</property>
+							<property name="formgrouphelpArray">
+								<array count="0"/>
+							</property>
+							<property name="formgroupruleArray">
+								<array count="0"/>
+							</property>
+							<property name="grouptype">
+								<object id="18" readonlyEntity="Grouptype">
+									<dict count="1">
+										<key>
+											<string>fgtype</string>
+										</key>
+										<value>
+											<integer>1</integer>
+										</value>
+									</dict>
+								</object>
+							</property>
+							<property name="hide">
+								<null/>
+							</property>
+							<property name="importmappings">
+								<array count="0"/>
+							</property>
+							<property name="layoutArray">
+								<array count="0"/>
+							</property>
+							<property name="maxdetailcount">
+								<null/>
+							</property>
+							<property name="odmaliasArray">
+								<array count="0"/>
+							</property>
+							<property name="qacon">
+								<string>1</string>
+							</property>
+							<property name="repafterdec">
+								<null/>
+							</property>
+							<property name="sdtmdomain">
+								<null/>
+							</property>
+							<property name="subform">
+								<null/>
+							</property>
+							<property name="subformdetailcount">
+								<null/>
+							</property>
+							<property name="subformhideheader">
+								<null/>
+							</property>
+							<property name="subformicon">
+								<null/>
+							</property>
+							<property name="subformicon2">
+								<null/>
+							</property>
+							<property name="subformreset">
+								<null/>
+							</property>
+							<property name="subformreverseorder">
+								<null/>
+							</property>
+						</object>
+						<object entity="Formgroup" id="19">
+							<property name="actionmsggroupArray">
+								<array count="0"/>
+							</property>
+							<property name="catalog">
+								<null/>
+							</property>
+							<property name="fgdescr">
+								<string>Import nur von Daten f&amp;uuml;r mehrere Patienten.</string>
+							</property>
+							<property name="fgdescr1">
+								<string>Patienten sind bereits angelegt.</string>
+							</property>
+							<property name="fghelp">
+								<null/>
+							</property>
+							<property name="fglabel">
+								<string>Nur Daten</string>
+							</property>
+							<property name="fgnumber">
+								<integer>110</integer>
+							</property>
+							<property name="fgnumlabel">
+								<null/>
+							</property>
+							<property name="fgquerylabel">
+								<string>Nur Daten</string>
+							</property>
+							<property name="flexiblewidth">
+								<integer>0</integer>
+							</property>
+							<property name="form">
+								<object refid="1"/>
+							</property>
+							<property name="formfieldArray">
+								<array count="11">
+									<object entity="Formfield" id="20">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<null/>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>20</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="19"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&lt;a href=&quot;https://www.datamanagement.usz.ch/Documents/CTC_FDTS/Import_cas_Dat.csv&quot; target=&quot;_blank&quot; class=&quot;underline&quot;&gt;Importdatei&lt;/a&gt;</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="21">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<string>Importieren</string>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>30</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="19"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>Anmelden im Modul DataCapture.&lt;br&gt;Aufruf der Willkommensseite (erste Seite nach Anmeldung).</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="22">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<null/>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>40</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="19"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&amp;rarr;Importieren (rechts oben) &amp;rarr; Formulardaten für ein einzelnes Formular</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="23">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<null/>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>50</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="19"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&lt;ul&gt;&lt;li&gt;Projekt: CTC FDTS&lt;li&gt;Zentrum: alle Zentren&lt;li&gt;Zum Patient&lt;li&gt;Formular: Import in Casenode-Formular&lt;li&gt;Import-Format: FDTS - Casenode-Formular&lt;/ul&gt;</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="24">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<string>Musterdatei</string>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>10</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="19"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>Musterdatei über den folgenden Link herunterladen und als csv-Datei auf dem PC speichern.</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="25">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<null/>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>60</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="19"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&amp;rarr;Durchsuchen &amp;rarr;Importdatei auswählen.</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="26">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<string>Importformate</string>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>110</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="19"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&lt;a href=&quot;https://www.datamanagement.usz.ch/Documents/CTC_FDTS/FDTS_Visitenformular.pdf&quot; target=&quot;_blank&quot; class=&quot;underline&quot;&gt;FDTS - Visitenformular (Formularebene)&lt;/a&gt;</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="27">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<null/>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>70</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="19"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&lt;ul&gt;&lt;li&gt;Analyse beginnt in Zeile 1&lt;li&gt;Spalten-Trenner: Semikolon&lt;li&gt;Spalten-Begrenzer: Anführungsstriche.&lt;/ul&gt;</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="28">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<null/>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>80</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="19"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&amp;rarr;Analysieren &amp;rarr;Speichern</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="29">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<string>Anpassen der Importdatei</string>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>90</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="19"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>Die Daten der Importdatei können angepasst werden.</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object entity="Formfield" id="30">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<null/>
+										</property>
+										<property name="fflabel">
+											<null/>
+										</property>
+										<property name="fflabelhtml">
+											<null/>
+										</property>
+										<property name="ffnumber">
+											<integer>100</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object refid="6"/>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="19"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="0"/>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<string>&lt;ul&gt;&lt;li&gt;aid: Muss mit &quot;FDTS&quot; beginnen, dieser Patient muss schon angelegt sein.&lt;/ul&gt;</string>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+								</array>
+							</property>
+							<property name="formfieldmatrix">
+								<null/>
+							</property>
+							<property name="formgroupdescriptionArray">
+								<array count="0"/>
+							</property>
+							<property name="formgrouphelpArray">
+								<array count="0"/>
+							</property>
+							<property name="formgroupruleArray">
+								<array count="0"/>
+							</property>
+							<property name="grouptype">
+								<object refid="18"/>
+							</property>
+							<property name="hide">
+								<null/>
+							</property>
+							<property name="importmappings">
+								<array count="0"/>
+							</property>
+							<property name="layoutArray">
+								<array count="0"/>
+							</property>
+							<property name="maxdetailcount">
+								<null/>
+							</property>
+							<property name="odmaliasArray">
+								<array count="0"/>
+							</property>
+							<property name="qacon">
+								<string>1</string>
+							</property>
+							<property name="repafterdec">
+								<null/>
+							</property>
+							<property name="sdtmdomain">
+								<null/>
+							</property>
+							<property name="subform">
+								<null/>
+							</property>
+							<property name="subformdetailcount">
+								<null/>
+							</property>
+							<property name="subformhideheader">
+								<null/>
+							</property>
+							<property name="subformicon">
+								<null/>
+							</property>
+							<property name="subformicon2">
+								<null/>
+							</property>
+							<property name="subformreset">
+								<null/>
+							</property>
+							<property name="subformreverseorder">
+								<null/>
+							</property>
+						</object>
+						<object entity="Formgroup" id="31">
+							<property name="actionmsggroupArray">
+								<array count="0"/>
+							</property>
+							<property name="catalog">
+								<null/>
+							</property>
+							<property name="fgdescr">
+								<null/>
+							</property>
+							<property name="fgdescr1">
+								<string>&lt;big&gt;&lt;b&gt;Importidentifikator: &lt;font color=&quot;blue&quot;&gt;cas&lt;/font&gt;&lt;/b&gt;&lt;/big&gt;</string>
+							</property>
+							<property name="fghelp">
+								<null/>
+							</property>
+							<property name="fglabel">
+								<null/>
+							</property>
+							<property name="fgnumber">
+								<integer>80</integer>
+							</property>
+							<property name="fgnumlabel">
+								<null/>
+							</property>
+							<property name="fgquerylabel">
+								<string>Daten aus Import</string>
+							</property>
+							<property name="flexiblewidth">
+								<integer>0</integer>
+							</property>
+							<property name="form">
+								<object refid="1"/>
+							</property>
+							<property name="formfieldArray">
+								<array count="5">
+									<object entity="Formfield" id="32">
+										<property name="actionArray">
+											<array count="0"/>
+										</property>
+										<property name="blindedlistcentre">
+											<null/>
+										</property>
+										<property name="cataloginfo">
+											<null/>
+										</property>
+										<property name="dateformatterdisplay">
+											<null/>
+										</property>
+										<property name="ffcolname">
+											<string>text</string>
+										</property>
+										<property name="fflabel">
+											<string>Textfeld</string>
+										</property>
+										<property name="fflabelhtml">
+											<string>&lt;br&gt;&lt;i&gt;&lt;font color=&quot;red&quot;&gt;text&lt;/i&gt;&lt;/font&gt;</string>
+										</property>
+										<property name="ffnumber">
+											<integer>20</integer>
+										</property>
+										<property name="ffnumlabel">
+											<null/>
+										</property>
+										<property name="ffprecision">
+											<null/>
+										</property>
+										<property name="fftext">
+											<null/>
+										</property>
+										<property name="fieldtype">
+											<object id="33" readonlyEntity="Fieldtype">
+												<dict count="1">
+													<key>
+														<string>fftype</string>
+													</key>
+													<value>
+														<integer>88</integer>
+													</value>
+												</dict>
+											</object>
+										</property>
+										<property name="formArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldmatrixitemArray">
+											<array count="0"/>
+										</property>
+										<property name="formfieldruleArray">
+											<array count="0"/>
+										</property>
+										<property name="formgroup">
+											<object refid="31"/>
+										</property>
+										<property name="formimageArray">
+											<array count="0"/>
+										</property>
+										<property name="fvaluelinkArray">
+											<array count="0"/>
+										</property>
+										<property name="hide">
+											<null/>
+										</property>
+										<property name="hidefflabel">
+											<null/>
+										</property>
+										<property name="ignoredde">
+											<null/>
+										</property>
+										<property name="imageheight">
+											<null/>
+										</property>
+										<property name="imagewidth">
+											<null/>
+										</property>
+										<property name="importmappingArray">
+											<array count="1">
+												<object entity="Importmapping" id="34">
+													<property name="cbno">
+														<null/>
+													</property>
+													<property name="cbyes">
+														<null/>
+													</property>
+													<property name="dateformat">
+														<null/>
+													</property>
+													<property name="externalkey">
+														<string>text</string>
+													</property>
+													<property name="formfield">
+														<object refid="32"/>
+													</property>
+													<property name="importformat">
+														<object entity="Importformat" id="35">
+															<property name="allowmassimport">
+																<integer>1</integer>
+															</property>
+															<property name="form">
+																<object refid="1"/>
+															</property>
+															<property name="formatname">
+																<string>FDTS - Casenode-Formular</string>
+															</property>
+															<property name="identifier">
+																<string>cas</string>
+															</property>
+															<property name="ignorekeycase">
+																<integer>1</integer>
+															</property>
+															<property name="ignorevaluecase">
+																<integer>1</integer>
+															</property>
+															<property name="importidmappingArray">
+																<array count="0"/>
+															</property>
+															<property name="importmappingArray">
+																<array count="7">
+																	<object refid="34"/>
+																	<object entity="Importmapping" id="36">
+																		<property name="cbno">
+																			<null/>
+																		</property>
+																		<property name="cbyes">
+																			<null/>
+																		</property>
+																		<property name="dateformat">
+																			<null/>
+																		</property>
+																		<property name="externalkey">
+																			<string>zahl</string>
+																		</property>
+																		<property name="formfield">
+																			<object entity="Formfield" id="37">
+																				<property name="actionArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="blindedlistcentre">
+																					<null/>
+																				</property>
+																				<property name="cataloginfo">
+																					<null/>
+																				</property>
+																				<property name="dateformatterdisplay">
+																					<null/>
+																				</property>
+																				<property name="ffcolname">
+																					<string>zahl</string>
+																				</property>
+																				<property name="fflabel">
+																					<string>Zahlenfeld</string>
+																				</property>
+																				<property name="fflabelhtml">
+																					<string>&lt;br&gt;&lt;i&gt;&lt;font color=&quot;red&quot;&gt;zahl&lt;/i&gt;&lt;/font&gt;</string>
+																				</property>
+																				<property name="ffnumber">
+																					<integer>10</integer>
+																				</property>
+																				<property name="ffnumlabel">
+																					<null/>
+																				</property>
+																				<property name="ffprecision">
+																					<null/>
+																				</property>
+																				<property name="fftext">
+																					<string>kg</string>
+																				</property>
+																				<property name="fieldtype">
+																					<object id="38" readonlyEntity="Fieldtype">
+																						<dict count="1">
+																							<key>
+																								<string>fftype</string>
+																							</key>
+																							<value>
+																								<integer>27</integer>
+																							</value>
+																						</dict>
+																					</object>
+																				</property>
+																				<property name="formArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="formfieldmatrixitemArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="formfieldruleArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="formgroup">
+																					<object refid="31"/>
+																				</property>
+																				<property name="formimageArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="fvaluelinkArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="hide">
+																					<null/>
+																				</property>
+																				<property name="hidefflabel">
+																					<null/>
+																				</property>
+																				<property name="ignoredde">
+																					<null/>
+																				</property>
+																				<property name="imageheight">
+																					<null/>
+																				</property>
+																				<property name="imagewidth">
+																					<null/>
+																				</property>
+																				<property name="importmappingArray">
+																					<array count="1">
+																						<object refid="36"/>
+																					</array>
+																				</property>
+																				<property name="layoutArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="letterfieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="lookuptablename">
+																					<null/>
+																				</property>
+																				<property name="mivactive">
+																					<null/>
+																				</property>
+																				<property name="odmaliasArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="paramfieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randomalgorithm">
+																					<null/>
+																				</property>
+																				<property name="randomalgorithmparameter">
+																					<null/>
+																				</property>
+																				<property name="randomblocksize">
+																					<null/>
+																				</property>
+																				<property name="randomblocksizemulti">
+																					<null/>
+																				</property>
+																				<property name="randomelementprobability">
+																					<null/>
+																				</property>
+																				<property name="randomgroupArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randommultiblocklistparam">
+																					<null/>
+																				</property>
+																				<property name="randomrestriction">
+																					<null/>
+																				</property>
+																				<property name="randomstratReferenceArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randomstratificationArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randomtotalnumber">
+																					<null/>
+																				</property>
+																				<property name="reportfieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="resetlabel">
+																					<null/>
+																				</property>
+																				<property name="resettable">
+																					<null/>
+																				</property>
+																				<property name="sdsvarname">
+																					<null/>
+																				</property>
+																				<property name="testArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="usenumgrouping">
+																					<null/>
+																				</property>
+																				<property name="valuefieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="visitArray">
+																					<array count="0"/>
+																				</property>
+																			</object>
+																		</property>
+																		<property name="importformat">
+																			<object refid="35"/>
+																		</property>
+																		<property name="importlabelmappingArray">
+																			<array count="0"/>
+																		</property>
+																		<property name="position">
+																			<integer>1</integer>
+																		</property>
+																		<property name="repetitiongroup">
+																			<null/>
+																		</property>
+																	</object>
+																	<object entity="Importmapping" id="39">
+																		<property name="cbno">
+																			<null/>
+																		</property>
+																		<property name="cbyes">
+																			<null/>
+																		</property>
+																		<property name="dateformat">
+																			<null/>
+																		</property>
+																		<property name="externalkey">
+																			<string>rb</string>
+																		</property>
+																		<property name="formfield">
+																			<object entity="Formfield" id="40">
+																				<property name="actionArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="blindedlistcentre">
+																					<null/>
+																				</property>
+																				<property name="cataloginfo">
+																					<null/>
+																				</property>
+																				<property name="dateformatterdisplay">
+																					<null/>
+																				</property>
+																				<property name="ffcolname">
+																					<string>rb</string>
+																				</property>
+																				<property name="fflabel">
+																					<string>Radiobutton</string>
+																				</property>
+																				<property name="fflabelhtml">
+																					<string>&lt;br&gt;&lt;i&gt;&lt;font color=&quot;red&quot;&gt;rb&lt;/i&gt;&lt;/font&gt;</string>
+																				</property>
+																				<property name="ffnumber">
+																					<integer>40</integer>
+																				</property>
+																				<property name="ffnumlabel">
+																					<null/>
+																				</property>
+																				<property name="ffprecision">
+																					<null/>
+																				</property>
+																				<property name="fftext">
+																					<null/>
+																				</property>
+																				<property name="fieldtype">
+																					<object id="41" readonlyEntity="Fieldtype">
+																						<dict count="1">
+																							<key>
+																								<string>fftype</string>
+																							</key>
+																							<value>
+																								<integer>127</integer>
+																							</value>
+																						</dict>
+																					</object>
+																				</property>
+																				<property name="formArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="formfieldmatrixitemArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="formfieldruleArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="formgroup">
+																					<object refid="31"/>
+																				</property>
+																				<property name="formimageArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="fvaluelinkArray">
+																					<array count="2">
+																						<object entity="Fvaluelink" id="42">
+																							<property name="formfield">
+																								<object refid="40"/>
+																							</property>
+																							<property name="fvalue">
+																								<object entity="Fvalue" id="43">
+																									<property name="fvaluelinkArray">
+																										<array count="3">
+																											<null/>
+																											<object refid="42"/>
+																											<null/>
+																										</array>
+																									</property>
+																									<property name="fvfactor">
+																										<null/>
+																									</property>
+																									<property name="fvlabel">
+																										<string>Nein</string>
+																									</property>
+																									<property name="fvvalue">
+																										<integer>0</integer>
+																									</property>
+																									<property name="importlabelmappingArray">
+																										<array count="3">
+																											<null/>
+																											<null/>
+																											<object entity="Importlabelmapping" id="44">
+																												<property name="externallabel">
+																													<string>0</string>
+																												</property>
+																												<property name="fvalue">
+																													<object refid="43"/>
+																												</property>
+																												<property name="ilmposition">
+																													<integer>2</integer>
+																												</property>
+																												<property name="importmapping">
+																													<object refid="39"/>
+																												</property>
+																											</object>
+																										</array>
+																									</property>
+																									<property name="project">
+																										<null/>
+																									</property>
+																								</object>
+																							</property>
+																							<property name="fvlposition">
+																								<integer>2</integer>
+																							</property>
+																						</object>
+																						<object entity="Fvaluelink" id="45">
+																							<property name="formfield">
+																								<object refid="40"/>
+																							</property>
+																							<property name="fvalue">
+																								<object entity="Fvalue" id="46">
+																									<property name="fvaluelinkArray">
+																										<array count="3">
+																											<null/>
+																											<object refid="45"/>
+																											<null/>
+																										</array>
+																									</property>
+																									<property name="fvfactor">
+																										<null/>
+																									</property>
+																									<property name="fvlabel">
+																										<string>Ja</string>
+																									</property>
+																									<property name="fvvalue">
+																										<integer>1</integer>
+																									</property>
+																									<property name="importlabelmappingArray">
+																										<array count="3">
+																											<null/>
+																											<null/>
+																											<object entity="Importlabelmapping" id="47">
+																												<property name="externallabel">
+																													<string>1</string>
+																												</property>
+																												<property name="fvalue">
+																													<object refid="46"/>
+																												</property>
+																												<property name="ilmposition">
+																													<integer>1</integer>
+																												</property>
+																												<property name="importmapping">
+																													<object refid="39"/>
+																												</property>
+																											</object>
+																										</array>
+																									</property>
+																									<property name="project">
+																										<null/>
+																									</property>
+																								</object>
+																							</property>
+																							<property name="fvlposition">
+																								<integer>1</integer>
+																							</property>
+																						</object>
+																					</array>
+																				</property>
+																				<property name="hide">
+																					<null/>
+																				</property>
+																				<property name="hidefflabel">
+																					<null/>
+																				</property>
+																				<property name="ignoredde">
+																					<null/>
+																				</property>
+																				<property name="imageheight">
+																					<null/>
+																				</property>
+																				<property name="imagewidth">
+																					<null/>
+																				</property>
+																				<property name="importmappingArray">
+																					<array count="1">
+																						<object refid="39"/>
+																					</array>
+																				</property>
+																				<property name="layoutArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="letterfieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="lookuptablename">
+																					<null/>
+																				</property>
+																				<property name="mivactive">
+																					<null/>
+																				</property>
+																				<property name="odmaliasArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="paramfieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randomalgorithm">
+																					<null/>
+																				</property>
+																				<property name="randomalgorithmparameter">
+																					<null/>
+																				</property>
+																				<property name="randomblocksize">
+																					<null/>
+																				</property>
+																				<property name="randomblocksizemulti">
+																					<null/>
+																				</property>
+																				<property name="randomelementprobability">
+																					<null/>
+																				</property>
+																				<property name="randomgroupArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randommultiblocklistparam">
+																					<null/>
+																				</property>
+																				<property name="randomrestriction">
+																					<null/>
+																				</property>
+																				<property name="randomstratReferenceArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randomstratificationArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randomtotalnumber">
+																					<null/>
+																				</property>
+																				<property name="reportfieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="resetlabel">
+																					<null/>
+																				</property>
+																				<property name="resettable">
+																					<integer>0</integer>
+																				</property>
+																				<property name="sdsvarname">
+																					<null/>
+																				</property>
+																				<property name="testArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="usenumgrouping">
+																					<null/>
+																				</property>
+																				<property name="valuefieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="visitArray">
+																					<array count="0"/>
+																				</property>
+																			</object>
+																		</property>
+																		<property name="importformat">
+																			<object refid="35"/>
+																		</property>
+																		<property name="importlabelmappingArray">
+																			<array count="2">
+																				<object refid="47"/>
+																				<object refid="44"/>
+																			</array>
+																		</property>
+																		<property name="position">
+																			<integer>4</integer>
+																		</property>
+																		<property name="repetitiongroup">
+																			<null/>
+																		</property>
+																	</object>
+																	<object entity="Importmapping" id="48">
+																		<property name="cbno">
+																			<null/>
+																		</property>
+																		<property name="cbyes">
+																			<null/>
+																		</property>
+																		<property name="dateformat">
+																			<string>dd.MM.yyyy HH:mm</string>
+																		</property>
+																		<property name="externalkey">
+																			<string>dtm</string>
+																		</property>
+																		<property name="formfield">
+																			<object entity="Formfield" id="49">
+																				<property name="actionArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="blindedlistcentre">
+																					<null/>
+																				</property>
+																				<property name="cataloginfo">
+																					<null/>
+																				</property>
+																				<property name="dateformatterdisplay">
+																					<string>0</string>
+																				</property>
+																				<property name="ffcolname">
+																					<string>dtm</string>
+																				</property>
+																				<property name="fflabel">
+																					<string>Datumswert</string>
+																				</property>
+																				<property name="fflabelhtml">
+																					<string>&lt;br&gt;&lt;i&gt;&lt;font color=&quot;red&quot;&gt;dtm&lt;/i&gt;&lt;/font&gt;</string>
+																				</property>
+																				<property name="ffnumber">
+																					<integer>30</integer>
+																				</property>
+																				<property name="ffnumlabel">
+																					<null/>
+																				</property>
+																				<property name="ffprecision">
+																					<null/>
+																				</property>
+																				<property name="fftext">
+																					<null/>
+																				</property>
+																				<property name="fieldtype">
+																					<object id="50" readonlyEntity="Fieldtype">
+																						<dict count="1">
+																							<key>
+																								<string>fftype</string>
+																							</key>
+																							<value>
+																								<integer>35</integer>
+																							</value>
+																						</dict>
+																					</object>
+																				</property>
+																				<property name="formArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="formfieldmatrixitemArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="formfieldruleArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="formgroup">
+																					<object refid="31"/>
+																				</property>
+																				<property name="formimageArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="fvaluelinkArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="hide">
+																					<null/>
+																				</property>
+																				<property name="hidefflabel">
+																					<null/>
+																				</property>
+																				<property name="ignoredde">
+																					<null/>
+																				</property>
+																				<property name="imageheight">
+																					<null/>
+																				</property>
+																				<property name="imagewidth">
+																					<null/>
+																				</property>
+																				<property name="importmappingArray">
+																					<array count="1">
+																						<object refid="48"/>
+																					</array>
+																				</property>
+																				<property name="layoutArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="letterfieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="lookuptablename">
+																					<null/>
+																				</property>
+																				<property name="mivactive">
+																					<null/>
+																				</property>
+																				<property name="odmaliasArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="paramfieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randomalgorithm">
+																					<null/>
+																				</property>
+																				<property name="randomalgorithmparameter">
+																					<null/>
+																				</property>
+																				<property name="randomblocksize">
+																					<null/>
+																				</property>
+																				<property name="randomblocksizemulti">
+																					<null/>
+																				</property>
+																				<property name="randomelementprobability">
+																					<null/>
+																				</property>
+																				<property name="randomgroupArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randommultiblocklistparam">
+																					<null/>
+																				</property>
+																				<property name="randomrestriction">
+																					<null/>
+																				</property>
+																				<property name="randomstratReferenceArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randomstratificationArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randomtotalnumber">
+																					<null/>
+																				</property>
+																				<property name="reportfieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="resetlabel">
+																					<null/>
+																				</property>
+																				<property name="resettable">
+																					<null/>
+																				</property>
+																				<property name="sdsvarname">
+																					<null/>
+																				</property>
+																				<property name="testArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="usenumgrouping">
+																					<null/>
+																				</property>
+																				<property name="valuefieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="visitArray">
+																					<array count="0"/>
+																				</property>
+																			</object>
+																		</property>
+																		<property name="importformat">
+																			<object refid="35"/>
+																		</property>
+																		<property name="importlabelmappingArray">
+																			<array count="0"/>
+																		</property>
+																		<property name="position">
+																			<integer>3</integer>
+																		</property>
+																		<property name="repetitiongroup">
+																			<null/>
+																		</property>
+																	</object>
+																	<object entity="Importmapping" id="51">
+																		<property name="cbno">
+																			<null/>
+																		</property>
+																		<property name="cbyes">
+																			<string>1</string>
+																		</property>
+																		<property name="dateformat">
+																			<null/>
+																		</property>
+																		<property name="externalkey">
+																			<string>cb</string>
+																		</property>
+																		<property name="formfield">
+																			<object entity="Formfield" id="52">
+																				<property name="actionArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="blindedlistcentre">
+																					<null/>
+																				</property>
+																				<property name="cataloginfo">
+																					<null/>
+																				</property>
+																				<property name="dateformatterdisplay">
+																					<null/>
+																				</property>
+																				<property name="ffcolname">
+																					<string>cb</string>
+																				</property>
+																				<property name="fflabel">
+																					<string>Checkbox</string>
+																				</property>
+																				<property name="fflabelhtml">
+																					<string>&lt;br&gt;&lt;i&gt;&lt;font color=&quot;red&quot;&gt;cb&lt;/i&gt;&lt;/font&gt;</string>
+																				</property>
+																				<property name="ffnumber">
+																					<integer>50</integer>
+																				</property>
+																				<property name="ffnumlabel">
+																					<null/>
+																				</property>
+																				<property name="ffprecision">
+																					<null/>
+																				</property>
+																				<property name="fftext">
+																					<null/>
+																				</property>
+																				<property name="fieldtype">
+																					<object id="53" readonlyEntity="Fieldtype">
+																						<dict count="1">
+																							<key>
+																								<string>fftype</string>
+																							</key>
+																							<value>
+																								<integer>33</integer>
+																							</value>
+																						</dict>
+																					</object>
+																				</property>
+																				<property name="formArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="formfieldmatrixitemArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="formfieldruleArray">
+																					<array count="1">
+																						<object entity="Formfieldrule" id="54">
+																							<property name="actionArray">
+																								<array count="0"/>
+																							</property>
+																							<property name="ffrconfirm">
+																								<null/>
+																							</property>
+																							<property name="ffrmaxnone">
+																								<null/>
+																							</property>
+																							<property name="ffrname">
+																								<null/>
+																							</property>
+																							<property name="ffrposition">
+																								<integer>10</integer>
+																							</property>
+																							<property name="ffrprecision">
+																								<null/>
+																							</property>
+																							<property name="ffrvaluenone">
+																								<null/>
+																							</property>
+																							<property name="ffrvalueweight">
+																								<null/>
+																							</property>
+																							<property name="formfield">
+																								<object refid="52"/>
+																							</property>
+																							<property name="formfieldruleparamArray">
+																								<array count="0"/>
+																							</property>
+																							<property name="formprerequisiteArray">
+																								<array count="0"/>
+																							</property>
+																							<property name="referenceform">
+																								<null/>
+																							</property>
+																							<property name="ruletype">
+																								<object id="55" readonlyEntity="Ruletype">
+																									<dict count="1">
+																										<key>
+																											<string>ffrtype</string>
+																										</key>
+																										<value>
+																											<integer>4</integer>
+																										</value>
+																									</dict>
+																								</object>
+																							</property>
+																							<property name="visitplanarmArray">
+																								<array count="0"/>
+																							</property>
+																						</object>
+																					</array>
+																				</property>
+																				<property name="formgroup">
+																					<object refid="31"/>
+																				</property>
+																				<property name="formimageArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="fvaluelinkArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="hide">
+																					<null/>
+																				</property>
+																				<property name="hidefflabel">
+																					<null/>
+																				</property>
+																				<property name="ignoredde">
+																					<null/>
+																				</property>
+																				<property name="imageheight">
+																					<null/>
+																				</property>
+																				<property name="imagewidth">
+																					<null/>
+																				</property>
+																				<property name="importmappingArray">
+																					<array count="1">
+																						<object refid="51"/>
+																					</array>
+																				</property>
+																				<property name="layoutArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="letterfieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="lookuptablename">
+																					<null/>
+																				</property>
+																				<property name="mivactive">
+																					<null/>
+																				</property>
+																				<property name="odmaliasArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="paramfieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randomalgorithm">
+																					<null/>
+																				</property>
+																				<property name="randomalgorithmparameter">
+																					<null/>
+																				</property>
+																				<property name="randomblocksize">
+																					<null/>
+																				</property>
+																				<property name="randomblocksizemulti">
+																					<null/>
+																				</property>
+																				<property name="randomelementprobability">
+																					<null/>
+																				</property>
+																				<property name="randomgroupArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randommultiblocklistparam">
+																					<null/>
+																				</property>
+																				<property name="randomrestriction">
+																					<null/>
+																				</property>
+																				<property name="randomstratReferenceArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randomstratificationArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="randomtotalnumber">
+																					<null/>
+																				</property>
+																				<property name="reportfieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="resetlabel">
+																					<null/>
+																				</property>
+																				<property name="resettable">
+																					<null/>
+																				</property>
+																				<property name="sdsvarname">
+																					<null/>
+																				</property>
+																				<property name="testArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="usenumgrouping">
+																					<null/>
+																				</property>
+																				<property name="valuefieldArray">
+																					<array count="0"/>
+																				</property>
+																				<property name="visitArray">
+																					<array count="0"/>
+																				</property>
+																			</object>
+																		</property>
+																		<property name="importformat">
+																			<object refid="35"/>
+																		</property>
+																		<property name="importlabelmappingArray">
+																			<array count="0"/>
+																		</property>
+																		<property name="position">
+																			<integer>5</integer>
+																		</property>
+																		<property name="repetitiongroup">
+																			<null/>
+																		</property>
+																	</object>
+																	<object entity="Importmapping" id="56">
+																		<property name="cbno">
+																			<null/>
+																		</property>
+																		<property name="cbyes">
+																			<null/>
+																		</property>
+																		<property name="dateformat">
+																			<null/>
+																		</property>
+																		<property name="externalkey">
+																			<string>ignore1</string>
+																		</property>
+																		<property name="formfield">
+																			<null/>
+																		</property>
+																		<property name="importformat">
+																			<object refid="35"/>
+																		</property>
+																		<property name="importlabelmappingArray">
+																			<array count="0"/>
+																		</property>
+																		<property name="position">
+																			<integer>6</integer>
+																		</property>
+																		<property name="repetitiongroup">
+																			<null/>
+																		</property>
+																	</object>
+																	<object entity="Importmapping" id="57">
+																		<property name="cbno">
+																			<null/>
+																		</property>
+																		<property name="cbyes">
+																			<null/>
+																		</property>
+																		<property name="dateformat">
+																			<null/>
+																		</property>
+																		<property name="externalkey">
+																			<string>ignore2</string>
+																		</property>
+																		<property name="formfield">
+																			<null/>
+																		</property>
+																		<property name="importformat">
+																			<object refid="35"/>
+																		</property>
+																		<property name="importlabelmappingArray">
+																			<array count="0"/>
+																		</property>
+																		<property name="position">
+																			<integer>7</integer>
+																		</property>
+																		<property name="repetitiongroup">
+																			<null/>
+																		</property>
+																	</object>
+																</array>
+															</property>
+															<property name="importparserArray">
+																<array count="1">
+																	<object entity="Importparser" id="58">
+																		<property name="assign">
+																			<string>=</string>
+																		</property>
+																		<property name="encloser">
+																			<string>&quot;</string>
+																		</property>
+																		<property name="importconfig">
+																			<null/>
+																		</property>
+																		<property name="importformat">
+																			<object refid="35"/>
+																		</property>
+																		<property name="parserclass">
+																			<string>CsvParser</string>
+																		</property>
+																		<property name="parsername">
+																			<string>Default Parser</string>
+																		</property>
+																		<property name="separator">
+																			<string>;</string>
+																		</property>
+																	</object>
+																</array>
+															</property>
+															<property name="language">
+																<string>en</string>
+															</property>
+															<property name="patientaid">
+																<string>aid</string>
+															</property>
+															<property name="patientlabid">
+																<null/>
+															</property>
+															<property name="patientpsd">
+																<null/>
+															</property>
+															<property name="repetitionmode">
+																<integer>0</integer>
+															</property>
+															<property name="repetitiontoken">
+																<string>-#</string>
+															</property>
+															<property name="visitscolumnheader">
+																<string>date</string>
+															</property>
+															<property name="visitsspecificationmode">
+																<integer>1</integer>
+															</property>
+														</object>
+													</property>
+													<property name="importlabelmappingArray">
+														<array count="0"/>
+													</property>
+													<property name="position">
+														<integer>2</integer>
+													</property>
+													<property name="repetitiongroup">
+														<null/>
+													</property>
+												</object>
+											</array>
+										</property>
+										<property name="layoutArray">
+											<array count="0"/>
+										</property>
+										<property name="letterfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="lookuptablename">
+											<null/>
+										</property>
+										<property name="mivactive">
+											<null/>
+										</property>
+										<property name="odmaliasArray">
+											<array count="0"/>
+										</property>
+										<property name="paramfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="randomalgorithm">
+											<null/>
+										</property>
+										<property name="randomalgorithmparameter">
+											<null/>
+										</property>
+										<property name="randomblocksize">
+											<null/>
+										</property>
+										<property name="randomblocksizemulti">
+											<null/>
+										</property>
+										<property name="randomelementprobability">
+											<null/>
+										</property>
+										<property name="randomgroupArray">
+											<array count="0"/>
+										</property>
+										<property name="randommultiblocklistparam">
+											<null/>
+										</property>
+										<property name="randomrestriction">
+											<null/>
+										</property>
+										<property name="randomstratReferenceArray">
+											<array count="0"/>
+										</property>
+										<property name="randomstratificationArray">
+											<array count="0"/>
+										</property>
+										<property name="randomtotalnumber">
+											<null/>
+										</property>
+										<property name="reportfieldArray">
+											<array count="0"/>
+										</property>
+										<property name="resetlabel">
+											<null/>
+										</property>
+										<property name="resettable">
+											<null/>
+										</property>
+										<property name="sdsvarname">
+											<null/>
+										</property>
+										<property name="testArray">
+											<array count="0"/>
+										</property>
+										<property name="usenumgrouping">
+											<null/>
+										</property>
+										<property name="valuefieldArray">
+											<array count="0"/>
+										</property>
+										<property name="visitArray">
+											<array count="0"/>
+										</property>
+									</object>
+									<object refid="49"/>
+									<object refid="40"/>
+									<object refid="52"/>
+									<object refid="37"/>
+								</array>
+							</property>
+							<property name="formfieldmatrix">
+								<null/>
+							</property>
+							<property name="formgroupdescriptionArray">
+								<array count="0"/>
+							</property>
+							<property name="formgrouphelpArray">
+								<array count="0"/>
+							</property>
+							<property name="formgroupruleArray">
+								<array count="0"/>
+							</property>
+							<property name="grouptype">
+								<object id="59" readonlyEntity="Grouptype">
+									<dict count="1">
+										<key>
+											<string>fgtype</string>
+										</key>
+										<value>
+											<integer>7</integer>
+										</value>
+									</dict>
+								</object>
+							</property>
+							<property name="hide">
+								<null/>
+							</property>
+							<property name="importmappings">
+								<array count="0"/>
+							</property>
+							<property name="layoutArray">
+								<array count="0"/>
+							</property>
+							<property name="maxdetailcount">
+								<null/>
+							</property>
+							<property name="odmaliasArray">
+								<array count="0"/>
+							</property>
+							<property name="qacon">
+								<string>0</string>
+							</property>
+							<property name="repafterdec">
+								<null/>
+							</property>
+							<property name="sdtmdomain">
+								<null/>
+							</property>
+							<property name="subform">
+								<null/>
+							</property>
+							<property name="subformdetailcount">
+								<null/>
+							</property>
+							<property name="subformhideheader">
+								<null/>
+							</property>
+							<property name="subformicon">
+								<null/>
+							</property>
+							<property name="subformicon2">
+								<null/>
+							</property>
+							<property name="subformreset">
+								<null/>
+							</property>
+							<property name="subformreverseorder">
+								<null/>
+							</property>
+						</object>
+						<object entity="Formgroup" id="60">
+							<property name="actionmsggroupArray">
+								<array count="0"/>
+							</property>
+							<property name="catalog">
+								<null/>
+							</property>
+							<property name="fgdescr">
+								<null/>
+							</property>
+							<property name="fgdescr1">
+								<null/>
+							</property>
+							<property name="fghelp">
+								<null/>
+							</property>
+							<property name="fglabel">
+								<string>Eingabefelder f&amp;uuml;r den Import</string>
+							</property>
+							<property name="fgnumber">
+								<integer>70</integer>
+							</property>
+							<property name="fgnumlabel">
+								<null/>
+							</property>
+							<property name="fgquerylabel">
+								<string>Eingabefelder f&amp;uuml;r den Import</string>
+							</property>
+							<property name="flexiblewidth">
+								<integer>0</integer>
+							</property>
+							<property name="form">
+								<object refid="1"/>
+							</property>
+							<property name="formfieldArray">
+								<array count="0"/>
+							</property>
+							<property name="formfieldmatrix">
+								<null/>
+							</property>
+							<property name="formgroupdescriptionArray">
+								<array count="0"/>
+							</property>
+							<property name="formgrouphelpArray">
+								<array count="0"/>
+							</property>
+							<property name="formgroupruleArray">
+								<array count="0"/>
+							</property>
+							<property name="grouptype">
+								<object refid="3"/>
+							</property>
+							<property name="hide">
+								<null/>
+							</property>
+							<property name="importmappings">
+								<array count="0"/>
+							</property>
+							<property name="layoutArray">
+								<array count="0"/>
+							</property>
+							<property name="maxdetailcount">
+								<null/>
+							</property>
+							<property name="odmaliasArray">
+								<array count="0"/>
+							</property>
+							<property name="qacon">
+								<string>0</string>
+							</property>
+							<property name="repafterdec">
+								<null/>
+							</property>
+							<property name="sdtmdomain">
+								<null/>
+							</property>
+							<property name="subform">
+								<null/>
+							</property>
+							<property name="subformdetailcount">
+								<null/>
+							</property>
+							<property name="subformhideheader">
+								<null/>
+							</property>
+							<property name="subformicon">
+								<null/>
+							</property>
+							<property name="subformicon2">
+								<null/>
+							</property>
+							<property name="subformreset">
+								<null/>
+							</property>
+							<property name="subformreverseorder">
+								<null/>
+							</property>
+						</object>
+					</array>
+				</property>
+				<property name="formheader">
+					<string>Import in Casenode-Formular</string>
+				</property>
+				<property name="formname">
+					<string>Import in Casenode-Formular</string>
+				</property>
+				<property name="formnumber">
+					<integer>10</integer>
+				</property>
+				<property name="formnumlabel">
+					<null/>
+				</property>
+				<property name="formprerequisiteArray">
+					<array count="0"/>
+				</property>
+				<property name="formprocessing">
+					<integer>1</integer>
+				</property>
+				<property name="formtablename">
+					<string>mnpctp17_cas</string>
+				</property>
+				<property name="hide">
+					<null/>
+				</property>
+				<property name="importformatArray">
+					<array count="1">
+						<object refid="35"/>
+					</array>
+				</property>
+				<property name="issaeform">
+					<null/>
+				</property>
+				<property name="istestform">
+					<null/>
+				</property>
+				<property name="markuprules">
+					<integer>4</integer>
+				</property>
+				<property name="messageconfirmformleave">
+					<null/>
+				</property>
+				<property name="messageerror">
+					<null/>
+				</property>
+				<property name="messagewarning">
+					<null/>
+				</property>
+				<property name="preformprerequisiteArray">
+					<array count="0"/>
+				</property>
+				<property name="queryon">
+					<string>2</string>
+				</property>
+				<property name="randomform">
+					<null/>
+				</property>
+				<property name="repetitiongroupArray">
+					<array count="0"/>
+				</property>
+				<property name="reportfieldArray">
+					<array count="0"/>
+				</property>
+				<property name="tabular">
+					<null/>
+				</property>
+				<property name="testArray">
+					<array count="0"/>
+				</property>
+				<property name="versionlabel">
+					<null/>
+				</property>
+				<property name="versionno">
+					<null/>
+				</property>
+				<property name="visitArray">
+					<array count="0"/>
+				</property>
+			</object>
+		</array>
+	</value>
+	<key>
+		<string>application</string>
+	</key>
+	<value>
+		<string>ST00-setup-FormBuilder</string>
+	</value>
+	<key>
+		<string>participant</string>
+	</key>
+	<value>
+		<string>Dirk Smolinski</string>
+	</value>
+	<key>
+		<string>modelname</string>
+	</key>
+	<value>
+		<string>CTP17</string>
+	</value>
+	<key>
+		<string>db_version</string>
+	</key>
+	<value>
+		<integer>7</integer>
+	</value>
+	<key>
+		<string>export_time</string>
+	</key>
+	<value>
+		<timestamp>2015-10-28 09:25:00 Europe/Berlin</timestamp>
+	</value>
+	<key>
+		<string>lookupValues</string>
+	</key>
+	<value>
+		<dict count="0"/>
+	</value>
+	<key>
+		<string>versionlabel</string>
+	</key>
+	<value>
+		<string>27.10.2015 - 17:55:28 (MEZ)</string>
+	</value>
+	<key>
+		<string>dbprefix</string>
+	</key>
+	<value>
+		<string>CTP</string>
+	</value>
+</dict>
