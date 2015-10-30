@@ -1,5 +1,5 @@
 //
-//  STFBase.swift
+//  SecuTrialEntityBase.swift
 //  SecuTrialClient
 //
 //  Created by Pascal Pfiffner on 29/10/15.
@@ -10,7 +10,7 @@
 /**
 A SecuTrial form array element.
 */
-class STFArray: SOAPNode {
+class SecuTrialEntityArray: SOAPNode {
 	
 	init(node: SOAPNode) throws {
 		super.init(name: node.name)
@@ -21,7 +21,7 @@ class STFArray: SOAPNode {
 		fatalError("Cannot use init(name:)")
 	}
 	
-	func objects<T: STFObject>(entity: String, type: T.Type? = nil) -> [T] {
+	func objects<T: SecuTrialEntityObject>(entity: String, type: T.Type? = nil) -> [T] {
 		var objects = [T]()
 		for object in childNodes {
 			if let obj = object as? T where obj.entity == entity {
@@ -36,7 +36,7 @@ class STFArray: SOAPNode {
 /**
 A SecuTrial form dictionary element.
 */
-public class STFDict: SOAPNode {
+public class SecuTrialEntityDictionary: SOAPNode {
 	
 	var dictionary: [String: SOAPNode]?
 	

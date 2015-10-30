@@ -1,5 +1,5 @@
 //
-//  STVisitBean.swift
+//  SecuTrialBeanVisit.swift
 //  SecuTrialClient
 //
 //  Created by Pascal Pfiffner on 19/10/15.
@@ -7,7 +7,7 @@
 //
 
 
-public class STVisitBean: SecuTrialBean {
+public class SecuTrialBeanVisit: SecuTrialBean {
 	
 	public var label: String?
 	

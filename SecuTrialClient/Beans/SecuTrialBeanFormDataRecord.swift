@@ -1,5 +1,5 @@
 //
-//  STFormDataRecordBean.swift
+//  SecuTrialBeanFormDataRecord.swift
 //  SecuTrialClient
 //
 //  Created by Pascal Pfiffner on 19/10/15.
@@ -10,7 +10,7 @@
 /**
 Manually created FormDataRecordBean.
 */
-public class STFormDataRecordBean: SecuTrialBean {
+public class SecuTrialBeanFormDataRecord: SecuTrialBean {
 	
 	public var project: String?
 	
@@ -18,13 +18,13 @@ public class STFormDataRecordBean: SecuTrialBean {
 	
 	public var form: String?
 	
-	public var patient: STPatientBean?
+	public var patient: SecuTrialBeanPatient?
 	
-	public var visit: STVisitBean?
+	public var visit: SecuTrialBeanVisit?
 	
 //	public var ae: STAdverseEventBean?
 	
-	public var item: [STFormDataItemBean]?
+	public var item: [SecuTrialBeanFormDataItem]?
 	
 	
 	public required init() {
@@ -41,15 +41,15 @@ public class STFormDataRecordBean: SecuTrialBean {
 			form = txt
 		}
 		if let sub = node.childNamed("patient") {
-			patient = try STPatientBean(node: sub)
+			patient = try SecuTrialBeanPatient(node: sub)
 		}
 		if let sub = node.childNamed("visit") {
-			visit = try STVisitBean(node: sub)
+			visit = try SecuTrialBeanVisit(node: sub)
 		}
 //		if let sub = node.childNamed("ae") {
 //			ae = try STAdverseEventBean(node: sub)
 //		}
-		item = try node.childrenNamed("item").map() { try STFormDataItemBean(node: $0) }
+		item = try node.childrenNamed("item").map() { try SecuTrialBeanFormDataItem(node: $0) }
 	}
 	
 	

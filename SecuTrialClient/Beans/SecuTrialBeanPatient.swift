@@ -1,5 +1,5 @@
 //
-//  STPatientBean.swift
+//  SecuTrialBeanPatient.swift
 //  SecuTrialClient
 //
 //  Created by Pascal Pfiffner on 19/10/15.
@@ -7,7 +7,7 @@
 //
 
 
-public class STPatientBean: SecuTrialBean {
+public class SecuTrialBeanPatient: SecuTrialBean {
 	
 	public var psd: String?
 	

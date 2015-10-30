@@ -1,5 +1,5 @@
 //
-//  STFormDataItemBean.swift
+//  SecuTrialBeanFormDataItem.swift
 //  SecuTrialClient
 //
 //  Created by Pascal Pfiffner on 19/10/15.
@@ -7,7 +7,7 @@
 //
 
 
-public class STFormDataItemBean: SecuTrialBean {
+public class SecuTrialBeanFormDataItem: SecuTrialBean {
 	
 	public var key: String?
 	

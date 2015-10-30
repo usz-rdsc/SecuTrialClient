@@ -1,5 +1,5 @@
 //
-//  STWebServiceResult.swift
+//  SecuTrialBeanWebServiceResult.swift
 //  SecuTrialClient
 //
 //  Created by Pascal Pfiffner on 19/10/15.
@@ -10,7 +10,7 @@
 /**
 Manually created "WebServiceResult" bean, would be cool if it was automated!
 */
-public class STWebServiceResult: SecuTrialBean {
+public class SecuTrialBeanWebServiceResult: SecuTrialBean {
 	
 	let node: SOAPNode
 	

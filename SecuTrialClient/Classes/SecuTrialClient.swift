@@ -78,7 +78,7 @@ public class SecuTrialClient {
 			secu_debug("performing operation “\(auth.name)”")
 			service.performOperation(auth) { response in
 				if nil == response.error {
-					if let bean = response.bean as? STWebServiceResult {
+					if let bean = response.bean as? SecuTrialBeanWebServiceResult {
 						if let sessionId = bean.message {
 							self.session = sessionId
 						}

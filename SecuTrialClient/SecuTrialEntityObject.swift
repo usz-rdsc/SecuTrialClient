@@ -1,5 +1,5 @@
 //
-//  STFObject.swift
+//  SecuTrialEntityObject.swift
 //  SecuTrialClient
 //
 //  Created by Pascal Pfiffner on 29/10/15.
@@ -10,13 +10,13 @@
 /**
 An XML node in the SecuTrial form that represents an Object.
 */
-public class STFObject: SOAPNode {
+public class SecuTrialEntityObject: SOAPNode {
 	
 	public var entity = "Object"
 	
-	public var properties: [STFProperty]?
+	public var properties: [SecuTrialEntityProperty]?
 	
-	public var type: STFDict?
+	public var type: SecuTrialEntityDictionary?
 	
 	public init(node: SOAPNode) throws {
 		super.init(name: node.name)
@@ -26,12 +26,12 @@ public class STFObject: SOAPNode {
 			entity = ent
 		}
 		
-		var props = [STFProperty]()
+		var props = [SecuTrialEntityProperty]()
 		for child in childNodes {
-			if let prop = child as? STFProperty {		// "property" == child.name
+			if let prop = child as? SecuTrialEntityProperty {		// "property" == child.name
 				props.append(prop)
 			}
-			else if let typ = child as? STFDict {		// "dict" == child.name
+			else if let typ = child as? SecuTrialEntityDictionary {		// "dict" == child.name
 				type = typ
 			}
 			else {
@@ -45,7 +45,7 @@ public class STFObject: SOAPNode {
 		fatalError("Cannot use init(name:)")
 	}
 	
-	public subscript(name: String) -> STFProperty? {
+	public subscript(name: String) -> SecuTrialEntityProperty? {
 		if let properties = properties {
 			for prop in properties {
 				if name == prop.name {
@@ -64,8 +64,8 @@ public class STFObject: SOAPNode {
 		return self[name]?.stringValue
 	}
 	
-	public func propertyArrayValueObjects<T: STFObject>(name: String, entities: String, type: T.Type? = nil) -> [T] {
-		if let arr = propertyValue(name) as? STFArray {
+	public func propertyArrayValueObjects<T: SecuTrialEntityObject>(name: String, entities: String, type: T.Type? = nil) -> [T] {
+		if let arr = propertyValue(name) as? SecuTrialEntityArray {
 			return arr.objects(entities, type: T.self)
 		}
 		return []
@@ -73,7 +73,7 @@ public class STFObject: SOAPNode {
 }
 
 
-public class STFProperty: SOAPNode {
+public class SecuTrialEntityProperty: SOAPNode {
 	
 	public var value: SOAPNode? = nil
 	

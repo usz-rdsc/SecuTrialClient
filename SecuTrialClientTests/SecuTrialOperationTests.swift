@@ -16,12 +16,12 @@ class SecuTrialOperationTests: XCTestCase {
 		let data = NSData(contentsOfURL: NSBundle(forClass: self.dynamicType).URLForResource("TestEnvelope", withExtension: "xml")!)
 		XCTAssertNotNil(data)
 		let ops = SecuTrialOperation(name: "authenticate")
-		ops.expectedResponseBean = STWebServiceResult.self
+		ops.expectedResponseBean = SecuTrialBeanWebServiceResult.self
 		ops.expectsResponseBeanAt = ["authenticateResponse", "authenticateReturn"]
 		let res = ops.handleResponseData(data!)
 		XCTAssertNotNil(res.bean)
 		XCTAssertNil(res.error)
-		if let bean = res.bean as? STWebServiceResult {
+		if let bean = res.bean as? SecuTrialBeanWebServiceResult {
 			XCTAssertNotNil(bean.message)
 			XCTAssertEqual(1, bean.statusCode)
 			XCTAssertEqual("64enfEQAr6rj2kXpC7jbjw", bean.message!)

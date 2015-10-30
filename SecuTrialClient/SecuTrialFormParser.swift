@@ -11,51 +11,51 @@ public class SecuTrialFormParser {
 	
 	public init() {  }
 	
-	public func parseLocalFile(url: NSURL) throws -> [STFForm] {
+	public func parseLocalFile(url: NSURL) throws -> [SecuTrialEntityForm] {
 		guard let data = NSData(contentsOfURL: url) else {
 			throw SecuTrialError.Error("Failed to read data from «\(url)»")
 		}
 		return try parse(data)
 	}
 	
-	public func parse(data: NSData) throws -> [STFForm] {
+	public func parse(data: NSData) throws -> [SecuTrialEntityForm] {
 		let parser = SOAPParser()
 		parser.onEndElement = { element in
 			if "array" == element.name {
-				return try STFArray(node: element)
+				return try SecuTrialEntityArray(node: element)
 			}
 			if "dict" == element.name {
-				return try STFDict(node: element)
+				return try SecuTrialEntityDictionary(node: element)
 			}
 			if "object" == element.name {
 				if let entity = element.attr("entity") {
 					if "Form" == entity {
-						return try STFForm(node: element)
+						return try SecuTrialEntityForm(node: element)
 					}
 					if "Formgroup" == entity {
-						return try STFFormGroup(node: element)
+						return try SecuTrialEntityFormGroup(node: element)
 					}
 					if "Formfield" == entity {
-						return try STFFormField(node: element)
+						return try SecuTrialEntityFormField(node: element)
 					}
 					if "Importmapping" == entity {
-						return try STFImportMapping(node: element)
+						return try SecuTrialEntityImportMapping(node: element)
 					}
 					if "Importformat" == entity {
-						return try STFImportFormat(node: element)
+						return try SecuTrialEntityImportFormat(node: element)
 					}
 				}
-				return try STFObject(node: element)
+				return try SecuTrialEntityObject(node: element)
 			}
 			if "property" == element.name {
-				return try STFProperty(node: element)
+				return try SecuTrialEntityProperty(node: element)
 			}
 			return nil
 		}
 		
-		let root = try parser.parse(data) as! STFDict
-		if let formarr = root["forms"] as? STFArray {
-			return formarr.objects("Form", type: STFForm.self)
+		let root = try parser.parse(data) as! SecuTrialEntityDictionary
+		if let formarr = root["forms"] as? SecuTrialEntityArray {
+			return formarr.objects("Form", type: SecuTrialEntityForm.self)
 		}
 		return []
 	}

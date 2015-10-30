@@ -20,7 +20,7 @@ public class SecuTrialOperation: SOAPNode {
 	
 	var inputs = [SecuTrialOperationInput]()
 	
-	public var expectedResponseBean: SecuTrialBean.Type = STWebServiceResult.self
+	public var expectedResponseBean: SecuTrialBean.Type = SecuTrialBeanWebServiceResult.self
 	
 	public var expectsResponseBeanAt: [String]?
 	
