@@ -12,6 +12,11 @@ Instances of this class represent one XML node in a SOAP tree.
 */
 public class SOAPNode {
 	
+	/// The id, if any.
+	public var id: String? {
+		return self.attr("id")
+	}
+	
 	/// The node name.
 	public let name: String
 	
@@ -23,6 +28,11 @@ public class SOAPNode {
 	
 	/// The parent node.
 	weak var parent: SOAPNode?
+	
+	/// The root node.
+	var document: SOAPNode {
+		return parent?.document ?? self
+	}
 	
 	/// Node attributes.
 	var attributes = [SOAPNodeAttribute]()
@@ -121,6 +131,18 @@ public class SOAPNode {
 		return childNodesForXMLString().count
 	}
 	
+	func nodeWithId(id: String) -> SOAPNode? {
+		if id == self.id {
+			return self
+		}
+		for child in childNodes {
+			if let found = child.nodeWithId(id) {
+				return found
+			}
+		}
+		return nil
+	}
+	
 	
 	// MARK: - Namespaces
 	
@@ -152,18 +174,19 @@ public class SOAPNode {
 	
 	// MARK: - Attributes
 	
+	/** Get the desired attribute's string value, if it exist. If a new value is provided, will set new value but return the old value. */
 	public func attr(name: String, value: String? = nil) -> String? {
 		for attr in attributes {
 			if name == attr.name {
+				let val = attr.value
 				if let value = value {
 					attr.value = value
 				}
-				return attr.value
+				return val
 			}
 		}
 		if let value = value {
 			attributes.append(SOAPNodeAttribute(name: name, value: value))
-			return value
 		}
 		return nil
 	}
