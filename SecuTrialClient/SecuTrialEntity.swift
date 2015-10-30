@@ -24,7 +24,11 @@ class SecuTrialEntityArray: SOAPNode {
 	func objects<T: SecuTrialEntityObject>(entity: String, type: T.Type? = nil) -> [T] {
 		var objects = [T]()
 		for object in childNodes {
-			if let obj = object as? T where obj.entity == entity {
+			var obj = object
+			if let refid = object.attr("refid"), let ref = document.nodeWithId(refid) {
+				obj = ref
+			}
+			if let obj = obj as? T where obj.entity == entity {
 				objects.append(obj)
 			}
 		}

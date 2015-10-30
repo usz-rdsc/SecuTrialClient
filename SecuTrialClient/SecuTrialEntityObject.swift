@@ -57,7 +57,13 @@ public class SecuTrialEntityObject: SOAPNode {
 	}
 	
 	public func propertyValue<T: SOAPNode>(name: String, type: T.Type? = nil) -> T? {
-		return self[name]?.value as? T
+		if let property = self[name]?.value {
+			if let refid = property.attr("refid"), let ref = document.nodeWithId(refid) as? T {
+				return ref
+			}
+			return property as? T
+		}
+		return nil
 	}
 	
 	public func propertyValueString(name: String) -> String? {

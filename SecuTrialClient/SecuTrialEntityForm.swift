@@ -24,19 +24,8 @@ public class SecuTrialEntityForm: SecuTrialEntityObject {
 		return propertyArrayValueObjects("formgroupArray", entities: "Formgroup", type: SecuTrialEntityFormGroup.self)
 	}
 	
-	// Returns an array of all Fields in all Groups that have an Importmapping with importformat.
-	public var importables: [SecuTrialEntityImportMapping] {
-		var arr = [SecuTrialEntityImportMapping]()
-		for group in groups {
-			for field in group.fields {
-				for mapping in field.importMapping {
-					if nil != mapping.importFormat {
-						arr.append(mapping)
-					}
-				}
-			}
-		}
-		return arr
+	public var importFormats: [SecuTrialEntityImportFormat] {
+		return propertyArrayValueObjects("importformatArray", entities: "Importformat", type: SecuTrialEntityImportFormat.self)
 	}
 }
 
@@ -50,6 +39,14 @@ public class SecuTrialEntityFormGroup: SecuTrialEntityObject {
 
 
 public class SecuTrialEntityFormField: SecuTrialEntityObject {
+	
+	public var fflabel: String? {
+		return propertyValueString("fflabel")
+	}
+	
+	public var fftext: String? {
+		return propertyValueString("fftext")
+	}
 	
 	public var importMapping: [SecuTrialEntityImportMapping] {
 		return propertyArrayValueObjects("importmappingArray", entities: "Importmapping", type: SecuTrialEntityImportMapping.self)
@@ -82,10 +79,6 @@ public class SecuTrialEntityImportMapping: SecuTrialEntityObject {
 	
 	public var dateFormat: String? {
 		return propertyValueString("dateformat")
-	}
-	
-	public var formField: SecuTrialEntityFormField? {
-		return propertyValue("formfield", type: SecuTrialEntityFormField.self)
 	}
 }
 

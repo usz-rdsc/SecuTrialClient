@@ -16,7 +16,7 @@ class SecuTrialFormParsingTests: XCTestCase {
 		let parser = SecuTrialFormParser()
 		let url = NSBundle(forClass: self.dynamicType).URLForResource("TestFormDefinition", withExtension: "xml")
 		XCTAssertNotNil(url)
-		let forms = try! parser.parseLocalFile(url!)
-		XCTAssertEqual(1, forms.count, "Expecting one form but got \(forms.count)")
+		let main = try! parser.parseLocalFile(url!)
+		XCTAssertEqual(1, main.forms.count, "Expecting one form but got \(main.forms.count)")
     }
 }
