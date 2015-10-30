@@ -26,9 +26,10 @@
 		EEA69A6D1BE106BA00DAA00E /* SOAPParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A6C1BE106BA00DAA00E /* SOAPParser.swift */; };
 		EEA69A6F1BE1074C00DAA00E /* SOAPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A6E1BE1074C00DAA00E /* SOAPError.swift */; };
 		EEA69A741BE1142B00DAA00E /* SecuTrialFormParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A731BE1142B00DAA00E /* SecuTrialFormParsingTests.swift */; };
-		EEA69A781BE1166000DAA00E /* TestFormDefinition.xml in Resources */ = {isa = PBXBuildFile; fileRef = EEA69A771BE1166000DAA00E /* TestFormDefinition.xml */; };
 		EEA69A871BE27F6900DAA00E /* STFObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A861BE27F6900DAA00E /* STFObject.swift */; };
 		EEA69A891BE282DA00DAA00E /* STFBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A881BE282DA00DAA00E /* STFBase.swift */; };
+		EEA69A8C1BE377DA00DAA00E /* TestFormDefinition.xml in Resources */ = {isa = PBXBuildFile; fileRef = EEA69A8B1BE377DA00DAA00E /* TestFormDefinition.xml */; };
+		EEA69A8E1BE3877100DAA00E /* STFForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A8D1BE3877100DAA00E /* STFForm.swift */; };
 		EEEA7F131BD4E1C30089BF85 /* SecuTrialAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA7F121BD4E1C30089BF85 /* SecuTrialAccount.swift */; };
 		EEEA7F1A1BD4E5B60089BF85 /* STFormDataRecordBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA7F191BD4E5B60089BF85 /* STFormDataRecordBean.swift */; };
 		EEEA7F1C1BD4E6020089BF85 /* STWebServiceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEA7F1B1BD4E6020089BF85 /* STWebServiceResult.swift */; };
@@ -86,9 +87,10 @@
 		EEA69A6C1BE106BA00DAA00E /* SOAPParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPParser.swift; sourceTree = "<group>"; };
 		EEA69A6E1BE1074C00DAA00E /* SOAPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPError.swift; sourceTree = "<group>"; };
 		EEA69A731BE1142B00DAA00E /* SecuTrialFormParsingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialFormParsingTests.swift; sourceTree = "<group>"; };
-		EEA69A771BE1166000DAA00E /* TestFormDefinition.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestFormDefinition.xml; sourceTree = "<group>"; };
 		EEA69A861BE27F6900DAA00E /* STFObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STFObject.swift; sourceTree = "<group>"; };
 		EEA69A881BE282DA00DAA00E /* STFBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STFBase.swift; sourceTree = "<group>"; };
+		EEA69A8B1BE377DA00DAA00E /* TestFormDefinition.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestFormDefinition.xml; sourceTree = "<group>"; };
+		EEA69A8D1BE3877100DAA00E /* STFForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STFForm.swift; sourceTree = "<group>"; };
 		EEEA7F121BD4E1C30089BF85 /* SecuTrialAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecuTrialAccount.swift; path = Classes/SecuTrialAccount.swift; sourceTree = "<group>"; };
 		EEEA7F191BD4E5B60089BF85 /* STFormDataRecordBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STFormDataRecordBean.swift; sourceTree = "<group>"; };
 		EEEA7F1B1BD4E6020089BF85 /* STWebServiceResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STWebServiceResult.swift; sourceTree = "<group>"; };
@@ -162,7 +164,7 @@
 				EEA69A731BE1142B00DAA00E /* SecuTrialFormParsingTests.swift */,
 				EE83DC821BCFC3F9000B57D5 /* SOAPNodeTests.swift */,
 				EE83DC841BCFC437000B57D5 /* TestEnvelope.xml */,
-				EEA69A771BE1166000DAA00E /* TestFormDefinition.xml */,
+				EEA69A8B1BE377DA00DAA00E /* TestFormDefinition.xml */,
 				EE83DC391BC66E2C000B57D5 /* Info.plist */,
 			);
 			path = SecuTrialClientTests;
@@ -183,6 +185,7 @@
 				EEA69A671BE105FD00DAA00E /* SecuTrialFormParser.swift */,
 				EEA69A881BE282DA00DAA00E /* STFBase.swift */,
 				EEA69A861BE27F6900DAA00E /* STFObject.swift */,
+				EEA69A8D1BE3877100DAA00E /* STFForm.swift */,
 			);
 			name = "Form Parser";
 			sourceTree = "<group>";
@@ -334,7 +337,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEA69A781BE1166000DAA00E /* TestFormDefinition.xml in Resources */,
+				EEA69A8C1BE377DA00DAA00E /* TestFormDefinition.xml in Resources */,
 				EE83DC851BCFC437000B57D5 /* TestEnvelope.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +358,7 @@
 				EE83DC4E1BC66EE1000B57D5 /* SecuTrialService.swift in Sources */,
 				EE83DC7E1BCFC0D3000B57D5 /* SOAPEnvelope.swift in Sources */,
 				EEEA7F1A1BD4E5B60089BF85 /* STFormDataRecordBean.swift in Sources */,
+				EEA69A8E1BE3877100DAA00E /* STFForm.swift in Sources */,
 				EE89734D1BD11BFD001FE1DA /* SecuTrialResponse.swift in Sources */,
 				EEEA7F1E1BD4E6A20089BF85 /* STPatientBean.swift in Sources */,
 				EEEA7F531BD674C70089BF85 /* SecuTrialBean.swift in Sources */,

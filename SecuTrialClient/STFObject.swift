@@ -73,43 +73,6 @@ public class STFObject: SOAPNode {
 }
 
 
-public class STFForm: STFObject {
-	
-	public var groups: [STFFormGroup] {
-		return propertyArrayValueObjects("formgroupArray", entities: "Formgroup", type: STFFormGroup.self)
-	}
-}
-
-
-public class STFFormGroup: STFObject {
-	
-	public var fields: [STFFormField] {
-		return propertyArrayValueObjects("formfieldArray", entities: "Formfield", type: STFFormField.self)
-	}
-}
-
-
-public class STFFormField: STFObject {
-	
-	public var mapping: [STFImportMapping] {
-		return propertyArrayValueObjects("importmappingArray", entities: "Importmapping", type: STFImportMapping.self)
-	}
-}
-
-
-public class STFImportMapping: STFObject {
-	
-	public var format: STFImportFormat? {
-		return propertyValue("importformat", type: STFImportFormat.self)
-	}
-}
-
-
-public class STFImportFormat: STFObject {
-	
-}
-
-
 public class STFProperty: SOAPNode {
 	
 	public var value: SOAPNode? = nil
