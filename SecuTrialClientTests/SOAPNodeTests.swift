@@ -37,11 +37,16 @@ class SOAPNodeTests: XCTestCase {
 			XCTAssertNil(ret!.namespace)
 			
 			let status = ret!.childNamed("statusCode", ofType: SOAPTextNode.self)
-			XCTAssertNotNil(status, "Expecting 'statusCode' child node")
+			XCTAssertNotNil(status, "Expecting 'statusCode' text child node")
 			XCTAssertTrue(ret!.childNodes[2] === status!)
 			XCTAssertNil(status!.namespace)
 			XCTAssertEqual("xsd:int", status!.attr("xsi:type")!)
 			XCTAssertEqual("1", status!.text!)
+			
+			let text = ret!.childNamed("extraNode", ofType: SOAPTextNode.self)
+			XCTAssertNotNil(text, "Expecting 'extraNode' text child node")
+			XCTAssertNotNil(text!.text, "Expecting 'extraNode' text child node to contain text")
+			XCTAssertEqual("<br><i><font color=\"red\">zahl</i></font>", text!.text!)
 		}
 		catch let err {
 			XCTAssertNil(err, "Error parsing TestEnvelope")

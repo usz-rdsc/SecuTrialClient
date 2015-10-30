@@ -10,6 +10,7 @@
 				<errorCode xsi:type="xsd:int">0</errorCode>
 				<message xsi:type="soapenc:string" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">64enfEQAr6rj2kXpC7jbjw</message>
 				<statusCode xsi:type="xsd:int">1</statusCode>
+				<extraNode>&lt;br&gt;&lt;i&gt;&lt;font color=&quot;red&quot;&gt;zahl&lt;/i&gt;&lt;/font&gt;</extraNode>
 			</authenticateReturn>
 		</ns3:authenticateResponse>
 	</soapenv:Body>

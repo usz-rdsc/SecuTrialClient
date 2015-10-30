@@ -91,9 +91,14 @@ public class SOAPParser: NSObject, NSXMLParserDelegate {
 	public func parser(parser: NSXMLParser, foundCharacters string: String) {
 		let stripped = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
 		if !stripped.isEmpty {
-			let textNode = SOAPTextNode.replace(parsingNode!)
-			textNode.text = string
-			parsingNode = textNode
+			if let textNode = parsingNode as? SOAPTextNode, let existing = textNode.text {		// we only create text nodes when we have a non-empty string, so there should always be text in a text node
+				textNode.text = existing + string
+			}
+			else {
+				let textNode = SOAPTextNode.replace(parsingNode!)
+				textNode.text = string
+				parsingNode = textNode
+			}
 		}
 	}
 	
