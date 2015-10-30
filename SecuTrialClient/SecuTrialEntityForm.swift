@@ -12,6 +12,14 @@ Holds all content of a "Form" entity found in a secuTrial form definition XML.
 */
 public class SecuTrialEntityForm: SecuTrialEntityObject {
 	
+	public var formname: String? {
+		return propertyValueString("formname")
+	}
+	
+	public var formtablename: String? {
+		return propertyValueString("formtablename")
+	}
+	
 	public var groups: [SecuTrialEntityFormGroup] {
 		return propertyArrayValueObjects("formgroupArray", entities: "Formgroup", type: SecuTrialEntityFormGroup.self)
 	}

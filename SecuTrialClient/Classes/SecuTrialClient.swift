@@ -13,6 +13,12 @@ public class SecuTrialClient {
 	
 	let service: SecuTrialService
 	
+	public internal(set) var formDefinition: SecuTrialFormDefinition?
+	
+	public var forms: [SecuTrialEntityForm]? {
+		return formDefinition?.forms
+	}
+	
 	public var account: SecuTrialAccount?
 	
 	var session: String?
@@ -22,6 +28,19 @@ public class SecuTrialClient {
 		service = SecuTrialService(url: url)
 		account = SecuTrialAccount(customer: customer, username: username, password: password)
 		secu_debug("client initialized against \(service.serviceURL.host ?? service.serviceURL.description)")
+	}
+	
+	
+	// MARK: - Forms
+	
+	/**
+	Looks for the given file, adding ".xml", in the main Bundle and assigns parsed forms to the `forms` property.
+	*/
+	public func readFormsFromSpecificationFile(filename: String) throws {
+		guard let url = NSBundle.mainBundle().URLForResource(filename, withExtension: "xml") else {
+			throw SecuTrialError.Error("Form specification named «\(filename).xml» not found in main bundle")
+		}
+		formDefinition = try SecuTrialFormParser().parseLocalFile(url)
 	}
 	
 	

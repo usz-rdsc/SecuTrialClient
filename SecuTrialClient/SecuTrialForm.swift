@@ -7,18 +7,58 @@
 //
 
 
+/**
+Holds on to secuTrial form definition found in an XML export file.
+
+Use `SecuTrialFormParser` to instantiate one of these from an XML file.
+*/
+public class SecuTrialFormDefinition {
+	
+	let root: SecuTrialEntityDictionary
+	
+	public let forms: [SecuTrialEntityForm]
+	
+	/// The name of the project the form applies to.
+	public var projectname: String?
+	
+	/// The model name.
+	public var modelname: String?
+	
+	/// The number of this form.
+	public var formnumber: String?
+	
+	
+	public init(definition: SecuTrialEntityDictionary) {
+		root = definition
+		projectname = (root["projectname"] as? SOAPTextNode)?.text
+		modelname = (root["modelname"] as? SOAPTextNode)?.text
+		formnumber = (root["formnumber"] as? SOAPTextNode)?.text
+		
+		if let formarr = definition["forms"] as? SecuTrialEntityArray {
+			forms = formarr.objects("Form", type: SecuTrialEntityForm.self)
+		}
+		else {
+			forms = []
+		}
+	}
+}
+
+
+/**
+Parses secuTrial form definition export files (XML, some weird plist variant).
+*/
 public class SecuTrialFormParser {
 	
 	public init() {  }
 	
-	public func parseLocalFile(url: NSURL) throws -> [SecuTrialEntityForm] {
+	public func parseLocalFile(url: NSURL) throws -> SecuTrialFormDefinition {
 		guard let data = NSData(contentsOfURL: url) else {
 			throw SecuTrialError.Error("Failed to read data from «\(url)»")
 		}
 		return try parse(data)
 	}
 	
-	public func parse(data: NSData) throws -> [SecuTrialEntityForm] {
+	public func parse(data: NSData) throws -> SecuTrialFormDefinition {
 		let parser = SOAPParser()
 		parser.onEndElement = { element in
 			if "array" == element.name {
@@ -54,10 +94,7 @@ public class SecuTrialFormParser {
 		}
 		
 		let root = try parser.parse(data) as! SecuTrialEntityDictionary
-		if let formarr = root["forms"] as? SecuTrialEntityArray {
-			return formarr.objects("Form", type: SecuTrialEntityForm.self)
-		}
-		return []
+		return SecuTrialFormDefinition(definition: root)
 	}
 }
 
