@@ -27,6 +27,8 @@ public class SecuTrialSurvey: NSObject, ORKTaskViewControllerDelegate {
 	
 	public let form: SecuTrialEntityForm
 	
+	private var task: ORKTask?
+	
 	public init(form: SecuTrialEntityForm) {
 		self.form = form
 	}
@@ -34,13 +36,27 @@ public class SecuTrialSurvey: NSObject, ORKTaskViewControllerDelegate {
 	
 	// MARK: - Surveys
 	
+	/**
+	Creates a task from the receiver's `form`, then returns a task view controller set up to run through this task.
+	
+	- parameter complete: The callback to call when the survey was completed successfully
+	- parameter failure: The callback to call when the survey was cancelled or an error occurred
+	- returns: An ORKTaskViewController, set up with the `form`'s task, ready to be presented to the user
+	*/
 	public func taskViewController(complete complete: SecuTrialSurveyCompletion, failure: SecuTrialSurveyCancelOrFailure) throws -> ORKTaskViewController {
 		whenCompleted = complete
 		whenCancelledOrFailed = failure
-		let task = try form.strk_asTask()
-		let viewController = ORKTaskViewController(task: task, taskRunUUID: nil)
+		task = try form.strk_asTask()
+		let viewController = ORKTaskViewController(task: task!, taskRunUUID: nil)
 		viewController.delegate = self
 		return viewController
+	}
+	
+	/**
+	All result data gathered from the survey.
+	*/
+	public func resultDataRecord() throws -> SecuTrialBeanFormDataRecord {
+		throw SecuTrialError.Error("Not implemented")
 	}
 	
 	

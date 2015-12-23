@@ -30,13 +30,19 @@ extension SecuTrialEntityFormGroup {
 	
 	public func strk_asSteps() throws -> [ORKStep] {
 		var steps = [ORKStep]()
-		let intro = ORKInstructionStep(identifier: "label_\(id ?? "group")")
-		intro.title = label
-		steps.append(intro)
 		
+		// add questions
 		for field in fields {
-			let step = try field.strk_asStep()
-			steps.append(step)
+			if let step = field.strk_asStep() {
+				steps.append(step)
+			}
+		}
+		
+		// only use if not empty
+		if !steps.isEmpty {
+			let intro = ORKInstructionStep(identifier: "label_\(id ?? "group")")
+			intro.title = label
+			steps.insert(intro, atIndex: 0)
 		}
 		return steps
 	}
