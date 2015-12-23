@@ -13,6 +13,7 @@ SOAP Errors.
 public enum SOAPError: ErrorType, CustomStringConvertible {
 	case RootNotFound
 	case InvalidDOM(String)
+	case EnvelopeNotFound
 	case Error(String)
 	
 	public var description: String {
@@ -21,6 +22,8 @@ public enum SOAPError: ErrorType, CustomStringConvertible {
 			return "The root node was not found"
 		case .InvalidDOM(let message):
 			return message
+		case .EnvelopeNotFound:
+			return "No \"Envelope\" node was found"
 		case .Error(let message):
 			return message
 		}

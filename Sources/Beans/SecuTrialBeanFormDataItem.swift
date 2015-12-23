@@ -6,6 +6,10 @@
 //  Copyright © 2015 USZ. All rights reserved.
 //
 
+#if !SKIP_INTERNAL_IMPORT
+import SOAP
+#endif
+
 
 public class SecuTrialBeanFormDataItem: SecuTrialBean {
 	

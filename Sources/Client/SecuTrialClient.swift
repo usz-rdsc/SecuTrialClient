@@ -7,6 +7,9 @@
 //
 
 import Foundation
+#if !SKIP_INTERNAL_IMPORT
+import Beans
+#endif
 
 
 public class SecuTrialClient {

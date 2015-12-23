@@ -40,7 +40,6 @@ public class SOAPParser: NSObject, NSXMLParserDelegate {
 		parser.parse()
 		if let error = parser.parserError {
 			if let raw = NSString(data: data, encoding: NSUTF8StringEncoding) {
-				secu_debug("Failed parsing XML:\n----\n\(raw)\n----")
 				if NSXMLParserErrorDomain == error.domain && 111 == error.code {		// CharacterRefInPrologError
 					throw SOAPError.Error(raw as String)
 				}

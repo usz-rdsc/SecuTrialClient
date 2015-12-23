@@ -11,7 +11,6 @@ public enum SecuTrialError: ErrorType, CustomStringConvertible {
 	case NoAccount
 	case Unauthenticated
 	case OperationNotConfigured
-	case EnvelopeNotFound
 	case ResponseBeanNotFound
 	case InvalidDOM(String)
 	case HTTPStatus(Int)
@@ -26,8 +25,6 @@ public enum SecuTrialError: ErrorType, CustomStringConvertible {
 			return "Not authenticated"
 		case .OperationNotConfigured:
 			return "The operation was not properly configured: expected-bean-type or -path is missing"
-		case .EnvelopeNotFound:
-			return "No \"Envelope\" node was found"
 		case .ResponseBeanNotFound:
 			return "The response bean was not found"
 		case .InvalidDOM(let message):

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE5BE97B1C2ACA4100058027 /* SecuTrialError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5BE97A1C2ACA4100058027 /* SecuTrialError.swift */; };
 		EE83DC331BC66E2C000B57D5 /* SecuTrialClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE83DC281BC66E2C000B57D5 /* SecuTrialClient.framework */; };
 		EE83DC381BC66E2C000B57D5 /* SecuTrialClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC371BC66E2C000B57D5 /* SecuTrialClientTests.swift */; };
 		EE83DC4E1BC66EE1000B57D5 /* SecuTrialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC4D1BC66EE1000B57D5 /* SecuTrialService.swift */; };
@@ -20,7 +21,6 @@
 		EE8973441BD0F5CA001FE1DA /* SecuTrialOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8973431BD0F5CA001FE1DA /* SecuTrialOperationTests.swift */; };
 		EE89734B1BD0FFB4001FE1DA /* SecuTrialClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE89734A1BD0FFB4001FE1DA /* SecuTrialClient.swift */; };
 		EE89734D1BD11BFD001FE1DA /* SecuTrialResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE89734C1BD11BFD001FE1DA /* SecuTrialResponse.swift */; };
-		EE8973511BD14030001FE1DA /* SecuTrialError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8973501BD14030001FE1DA /* SecuTrialError.swift */; };
 		EEA69A681BE105FD00DAA00E /* SecuTrialForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A671BE105FD00DAA00E /* SecuTrialForm.swift */; };
 		EEA69A6D1BE106BA00DAA00E /* SOAPParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A6C1BE106BA00DAA00E /* SOAPParser.swift */; };
 		EEA69A6F1BE1074C00DAA00E /* SOAPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA69A6E1BE1074C00DAA00E /* SOAPError.swift */; };
@@ -63,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE5BE97A1C2ACA4100058027 /* SecuTrialError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialError.swift; sourceTree = "<group>"; };
+		EE5BE97C1C2ACDBB00058027 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		EE83DC281BC66E2C000B57D5 /* SecuTrialClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SecuTrialClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE83DC2D1BC66E2C000B57D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE83DC321BC66E2C000B57D5 /* SecuTrialClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecuTrialClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,7 +82,6 @@
 		EE8973431BD0F5CA001FE1DA /* SecuTrialOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialOperationTests.swift; sourceTree = "<group>"; };
 		EE89734A1BD0FFB4001FE1DA /* SecuTrialClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialClient.swift; sourceTree = "<group>"; };
 		EE89734C1BD11BFD001FE1DA /* SecuTrialResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialResponse.swift; sourceTree = "<group>"; };
-		EE8973501BD14030001FE1DA /* SecuTrialError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialError.swift; sourceTree = "<group>"; };
 		EEA69A671BE105FD00DAA00E /* SecuTrialForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialForm.swift; sourceTree = "<group>"; };
 		EEA69A6C1BE106BA00DAA00E /* SOAPParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPParser.swift; sourceTree = "<group>"; };
 		EEA69A6E1BE1074C00DAA00E /* SOAPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPError.swift; sourceTree = "<group>"; };
@@ -121,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				EE83DC2D1BC66E2C000B57D5 /* Info.plist */,
+				EE5BE97C1C2ACDBB00058027 /* Package.swift */,
 				EEEA7F171BD4E5730089BF85 /* SOAP */,
 				EEEA7F181BD4E5A40089BF85 /* Beans */,
 				EE83DC2A1BC66E2C000B57D5 /* Client */,
@@ -147,7 +149,6 @@
 				EE83DC4D1BC66EE1000B57D5 /* SecuTrialService.swift */,
 				EE83DC661BC691E7000B57D5 /* SecuTrialOperation.swift */,
 				EE89734C1BD11BFD001FE1DA /* SecuTrialResponse.swift */,
-				EE8973501BD14030001FE1DA /* SecuTrialError.swift */,
 				EEA69A811BE20C1100DAA00E /* Forms */,
 			);
 			name = Client;
@@ -211,6 +212,7 @@
 				EEEA7F231BD4E6F60089BF85 /* SecuTrialBeanFormDataItem.swift */,
 				EEEA7F1D1BD4E6A20089BF85 /* SecuTrialBeanPatient.swift */,
 				EEEA7F1F1BD4E6CF0089BF85 /* SecuTrialBeanVisit.swift */,
+				EE5BE97A1C2ACA4100058027 /* SecuTrialError.swift */,
 			);
 			name = Beans;
 			path = Sources/Beans;
@@ -359,11 +361,11 @@
 				EEEA7F1A1BD4E5B60089BF85 /* SecuTrialBeanFormDataRecord.swift in Sources */,
 				EEA69A8E1BE3877100DAA00E /* SecuTrialEntityForm.swift in Sources */,
 				EE89734D1BD11BFD001FE1DA /* SecuTrialResponse.swift in Sources */,
+				EE5BE97B1C2ACA4100058027 /* SecuTrialError.swift in Sources */,
 				EEEA7F1E1BD4E6A20089BF85 /* SecuTrialBeanPatient.swift in Sources */,
 				EEEA7F531BD674C70089BF85 /* SecuTrialBean.swift in Sources */,
 				EEA69A6D1BE106BA00DAA00E /* SOAPParser.swift in Sources */,
 				EEA69A891BE282DA00DAA00E /* SecuTrialEntity.swift in Sources */,
-				EE8973511BD14030001FE1DA /* SecuTrialError.swift in Sources */,
 				EE83DC6B1BC6929A000B57D5 /* SOAPResponse.swift in Sources */,
 				EEEA7F241BD4E6F60089BF85 /* SecuTrialBeanFormDataItem.swift in Sources */,
 				EEA69A6F1BE1074C00DAA00E /* SOAPError.swift in Sources */,
@@ -495,7 +497,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-DDEBUG";
+				OTHER_SWIFT_FLAGS = "-DDEBUG -DSKIP_INTERNAL_IMPORT";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.usz.medinfo.SecuTrialClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -514,7 +516,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "";
+				OTHER_SWIFT_FLAGS = "-DSKIP_INTERNAL_IMPORT";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.usz.medinfo.SecuTrialClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

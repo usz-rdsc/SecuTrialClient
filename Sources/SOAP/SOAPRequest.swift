@@ -14,7 +14,7 @@ This is an INCREDIBLY FAKE implementation of a real SOAP request.
 */
 public class SOAPRequest {
 	
-	lazy var envelope = SOAPEnvelope()
+	public lazy var envelope = SOAPEnvelope()
 	
 	public init() { }
 	

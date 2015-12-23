@@ -6,6 +6,11 @@
 //  Copyright © 2015 USZ. All rights reserved.
 //
 
+#if !SKIP_INTERNAL_IMPORT
+import SOAP
+import Beans
+#endif
+
 
 /**
 An XML node in the SecuTrial form that represents an Object.

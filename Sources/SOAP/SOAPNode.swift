@@ -30,15 +30,15 @@ public class SOAPNode {
 	weak var parent: SOAPNode?
 	
 	/// The root node.
-	var document: SOAPNode {
+	public var document: SOAPNode {
 		return parent?.document ?? self
 	}
 	
 	/// Node attributes.
-	var attributes = [SOAPNodeAttribute]()
+	public var attributes = [SOAPNodeAttribute]()
 	
 	/// Child nodes.
-	private(set) var childNodes = [SOAPNode]()
+	public private(set) var childNodes = [SOAPNode]()
 	
 	
 	public required init(name: String) {
@@ -82,7 +82,7 @@ public class SOAPNode {
 	/**
 	Add the given node as a child node to the receiver, setting the parent pointer accordingly.
 	*/
-	func addChild(child: SOAPNode, atIndex: Int? = nil) {
+	public func addChild(child: SOAPNode, atIndex: Int? = nil) {
 		if let parent = child.parent {
 			parent.removeChild(child)
 		}
@@ -99,7 +99,7 @@ public class SOAPNode {
 	Remove the given node from the receiver's child nodes, unsetting the parent pointer accordingly. This method does nothing if the given
 	node is not a child node of the receiver.
 	*/
-	func removeChild(child: SOAPNode) -> Int? {
+	public func removeChild(child: SOAPNode) -> Int? {
 		let idx = childNodes.indexOf() { $0 === child }
 		if nil != idx {
 			child.parent = nil
@@ -127,11 +127,11 @@ public class SOAPNode {
 		return childNodes.filter() { $0.name == name }
 	}
 	
-	func numChildNodes() -> Int {
+	public func numChildNodes() -> Int {
 		return childNodesForXMLString().count
 	}
 	
-	func nodeWithId(id: String) -> SOAPNode? {
+	public func nodeWithId(id: String) -> SOAPNode? {
 		if id == self.id {
 			return self
 		}
@@ -220,7 +220,7 @@ public class SOAPNode {
 		return "\(tabs)<\(parts)>\(children)</\(nodeName)>"
 	}
 	
-	func childNodesForXMLString() -> [SOAPNode] {
+	public func childNodesForXMLString() -> [SOAPNode] {
 		return childNodes
 	}
 	
@@ -247,7 +247,7 @@ public class SOAPTextNode: SOAPNode {
 		}
 	}
 	
-	override func numChildNodes() -> Int {
+	public override func numChildNodes() -> Int {
 		return 1
 	}
 	
@@ -277,16 +277,16 @@ public func ==(left: SOAPNamespace, right: SOAPNamespace) -> Bool {
 }
 
 
-class SOAPNodeAttribute {
-	let name: String
+public class SOAPNodeAttribute {
+	public let name: String
 	
-	var value: String?
+	public var value: String?
 	
-	init(name: String) {
+	public init(name: String) {
 		self.name = name
 	}
 	
-	convenience init(name: String, value inValue: String) {
+	public convenience init(name: String, value inValue: String) {
 		self.init(name: name)
 		value = inValue
 	}

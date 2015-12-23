@@ -7,6 +7,10 @@
 //
 
 import Foundation
+#if !SKIP_INTERNAL_IMPORT
+import SOAP
+import Beans
+#endif
 
 
 /// Aliasing "$" to `SecuTrialOperation`.
@@ -45,7 +49,7 @@ public class SecuTrialOperation: SOAPNode {
 		inputs = inputs.filter() { $0.node.name != name }
 	}
 	
-	override func childNodesForXMLString() -> [SOAPNode] {
+	public override func childNodesForXMLString() -> [SOAPNode] {
 		return inputs.map() { $0.node }
 	}
 	

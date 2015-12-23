@@ -49,7 +49,7 @@ public class SOAPEnvelope: SOAPNode {
 		super.init(name: name)
 	}
 	
-	override func addChild(child: SOAPNode, atIndex: Int? = nil) {
+	public override func addChild(child: SOAPNode, atIndex: Int? = nil) {
 		if "Header" == child.name {
 			header = child
 		}
@@ -59,7 +59,7 @@ public class SOAPEnvelope: SOAPNode {
 		super.addChild(child, atIndex: atIndex)
 	}
 	
-	override func removeChild(child: SOAPNode) -> Int? {
+	public override func removeChild(child: SOAPNode) -> Int? {
 		if header === child {
 			header = nil
 		}
@@ -81,14 +81,14 @@ public class SOAPEnvelopeParser: SOAPParser {
 	
 	- parameter data: The data, presumed to be UTF-8 encoded XML data, that should be parsed
 	- returns: The SOAPEnvelope node found at the root level of the XML document, if any
-	- throws: SOAPError or SecuTrialError when parsing fails
+	- throws: SOAPError when parsing fails
 	*/
 	public override func parse(data: NSData) throws -> SOAPEnvelope {
 		let root = try super.parse(data)
 		if "Envelope" == root.name {
 			return SOAPEnvelope.replace(root)
 		}
-		throw SecuTrialError.EnvelopeNotFound
+		throw SOAPError.EnvelopeNotFound
 	}
 }
 
