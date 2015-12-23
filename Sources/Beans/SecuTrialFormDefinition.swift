@@ -9,7 +9,6 @@
 import Foundation
 #if !SKIP_INTERNAL_IMPORT
 import SOAP
-import Beans
 #endif
 
 

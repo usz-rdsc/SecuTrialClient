@@ -1,8 +1,8 @@
 //
-//  SecuTrialEntityForm.swift
+//  SecuTrialEntityFormField.swift
 //  SecuTrialClient
 //
-//  Created by Pascal Pfiffner on 30/10/15.
+//  Created by Pascal Pfiffner on 23/12/15.
 //  Copyright © 2015 USZ. All rights reserved.
 //
 
@@ -11,37 +11,36 @@ import SOAP
 #endif
 
 
+public enum SecuTrialEntityFormFieldType: Int, CustomStringConvertible {
+	case Unknown
+	case Numeric = 27
+	case Checkbox = 33
+	case Date = 35
+	case Text = 88
+	case Radio = 127
+	
+	public var description: String {
+		switch self {
+		case .Numeric:
+			return "numeric"
+		case .Checkbox:
+			return "checkbox"
+		case .Date:
+			return "date"
+		case .Text:
+			return "text"
+		case .Radio:
+			return "radio"
+		default:
+			return "unknown"
+		}
+	}
+}
+
+
 /**
-Holds all content of a "Form" entity found in a secuTrial form definition XML.
+Definition of a form field, usually contained in a group within a form.
 */
-public class SecuTrialEntityForm: SecuTrialEntityObject {
-	
-	public var formname: String? {
-		return propertyValueString("formname")
-	}
-	
-	public var formtablename: String? {
-		return propertyValueString("formtablename")
-	}
-	
-	public var groups: [SecuTrialEntityFormGroup] {
-		return propertyArrayValueObjects("formgroupArray", entities: "Formgroup", type: SecuTrialEntityFormGroup.self)
-	}
-	
-	public var importFormats: [SecuTrialEntityImportFormat] {
-		return propertyArrayValueObjects("importformatArray", entities: "Importformat", type: SecuTrialEntityImportFormat.self)
-	}
-}
-
-
-public class SecuTrialEntityFormGroup: SecuTrialEntityObject {
-	
-	public var fields: [SecuTrialEntityFormField] {
-		return propertyArrayValueObjects("formfieldArray", entities: "Formfield", type: SecuTrialEntityFormField.self)
-	}
-}
-
-
 public class SecuTrialEntityFormField: SecuTrialEntityObject {
 	
 	public var fflabel: String? {
@@ -56,13 +55,13 @@ public class SecuTrialEntityFormField: SecuTrialEntityObject {
 		return propertyArrayValueObjects("importmappingArray", entities: "Importmapping", type: SecuTrialEntityImportMapping.self)
 	}
 	
-	public var fieldType: Int? {
+	public var fieldType: SecuTrialEntityFormFieldType {
 		if let type = propertyValue("fieldtype", type: SecuTrialEntityObject.self)?.type {
-			if let fftype = type["fftype"] as? SOAPTextNode where "integer" == fftype.name, let intstr = fftype.text {
-				return Int(intstr)
+			if let fftype = type["fftype"] as? SOAPTextNode where "integer" == fftype.name, let intstr = fftype.text, let int = Int(intstr) {
+				return SecuTrialEntityFormFieldType(rawValue: int) ?? .Unknown
 			}
 		}
-		return nil
+		return .Unknown
 	}
 	
 	// TODO: fvaluelinkArray (radiobutton values/labels)

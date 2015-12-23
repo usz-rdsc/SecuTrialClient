@@ -12,7 +12,7 @@ import SOAP
 
 
 /**
-Manually created FormDataRecordBean.
+Represents a FormDataRecord bean.
 */
 public class SecuTrialBeanFormDataRecord: SecuTrialBean {
 	

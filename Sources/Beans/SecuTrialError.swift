@@ -17,6 +17,8 @@ public enum SecuTrialError: ErrorType, CustomStringConvertible {
 	case NoSessionReceived
 	case Error(String)
 	
+	case SurveyFinishedWithError
+	
 	public var description: String {
 		switch self {
 		case .NoAccount:
@@ -35,6 +37,9 @@ public enum SecuTrialError: ErrorType, CustomStringConvertible {
 			return "No session-id received"
 		case .Error(let message):
 			return message
+		
+		case .SurveyFinishedWithError:
+			return "Survey finished with an error"
 		}
 	}
 }

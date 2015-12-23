@@ -14,5 +14,6 @@ let package = Package(
 		Target(name: "SOAP"),
 		Target(name: "Beans", dependencies: [.Target(name: "SOAP")]),
 		Target(name: "Client", dependencies: [.Target(name: "Beans")]),
+//		Target(name: "ResearchKitIntegration", dependencies: [.Target(name: "Beans")]),
 	]
 )
