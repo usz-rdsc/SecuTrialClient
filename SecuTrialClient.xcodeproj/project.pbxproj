@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EE83DC2C1BC66E2C000B57D5 /* SecuTrialClient.h in Headers */ = {isa = PBXBuildFile; fileRef = EE83DC2B1BC66E2C000B57D5 /* SecuTrialClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE83DC331BC66E2C000B57D5 /* SecuTrialClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE83DC281BC66E2C000B57D5 /* SecuTrialClient.framework */; };
 		EE83DC381BC66E2C000B57D5 /* SecuTrialClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC371BC66E2C000B57D5 /* SecuTrialClientTests.swift */; };
 		EE83DC4E1BC66EE1000B57D5 /* SecuTrialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE83DC4D1BC66EE1000B57D5 /* SecuTrialService.swift */; };
@@ -65,14 +64,13 @@
 
 /* Begin PBXFileReference section */
 		EE83DC281BC66E2C000B57D5 /* SecuTrialClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SecuTrialClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE83DC2B1BC66E2C000B57D5 /* SecuTrialClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecuTrialClient.h; sourceTree = "<group>"; };
 		EE83DC2D1BC66E2C000B57D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE83DC321BC66E2C000B57D5 /* SecuTrialClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecuTrialClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE83DC371BC66E2C000B57D5 /* SecuTrialClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecuTrialClientTests.swift; sourceTree = "<group>"; };
 		EE83DC391BC66E2C000B57D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE83DC4D1BC66EE1000B57D5 /* SecuTrialService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecuTrialService.swift; path = Classes/SecuTrialService.swift; sourceTree = "<group>"; };
+		EE83DC4D1BC66EE1000B57D5 /* SecuTrialService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialService.swift; sourceTree = "<group>"; };
 		EE83DC5C1BC68F37000B57D5 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ResearchKit/ResearchKit.xcodeproj; sourceTree = "<group>"; };
-		EE83DC661BC691E7000B57D5 /* SecuTrialOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecuTrialOperation.swift; path = Classes/SecuTrialOperation.swift; sourceTree = "<group>"; };
+		EE83DC661BC691E7000B57D5 /* SecuTrialOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialOperation.swift; sourceTree = "<group>"; };
 		EE83DC681BC69291000B57D5 /* SOAPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPRequest.swift; sourceTree = "<group>"; };
 		EE83DC6A1BC6929A000B57D5 /* SOAPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPResponse.swift; sourceTree = "<group>"; };
 		EE83DC6C1BC6A234000B57D5 /* SOAPNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPNode.swift; sourceTree = "<group>"; };
@@ -80,9 +78,9 @@
 		EE83DC821BCFC3F9000B57D5 /* SOAPNodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPNodeTests.swift; sourceTree = "<group>"; };
 		EE83DC841BCFC437000B57D5 /* TestEnvelope.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestEnvelope.xml; sourceTree = "<group>"; };
 		EE8973431BD0F5CA001FE1DA /* SecuTrialOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialOperationTests.swift; sourceTree = "<group>"; };
-		EE89734A1BD0FFB4001FE1DA /* SecuTrialClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecuTrialClient.swift; path = Classes/SecuTrialClient.swift; sourceTree = "<group>"; };
-		EE89734C1BD11BFD001FE1DA /* SecuTrialResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecuTrialResponse.swift; path = Classes/SecuTrialResponse.swift; sourceTree = "<group>"; };
-		EE8973501BD14030001FE1DA /* SecuTrialError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecuTrialError.swift; path = Classes/SecuTrialError.swift; sourceTree = "<group>"; };
+		EE89734A1BD0FFB4001FE1DA /* SecuTrialClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialClient.swift; sourceTree = "<group>"; };
+		EE89734C1BD11BFD001FE1DA /* SecuTrialResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialResponse.swift; sourceTree = "<group>"; };
+		EE8973501BD14030001FE1DA /* SecuTrialError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialError.swift; sourceTree = "<group>"; };
 		EEA69A671BE105FD00DAA00E /* SecuTrialForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialForm.swift; sourceTree = "<group>"; };
 		EEA69A6C1BE106BA00DAA00E /* SOAPParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPParser.swift; sourceTree = "<group>"; };
 		EEA69A6E1BE1074C00DAA00E /* SOAPError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOAPError.swift; sourceTree = "<group>"; };
@@ -91,7 +89,7 @@
 		EEA69A881BE282DA00DAA00E /* SecuTrialEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialEntity.swift; sourceTree = "<group>"; };
 		EEA69A8B1BE377DA00DAA00E /* TestFormDefinition.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestFormDefinition.xml; sourceTree = "<group>"; };
 		EEA69A8D1BE3877100DAA00E /* SecuTrialEntityForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialEntityForm.swift; sourceTree = "<group>"; };
-		EEEA7F121BD4E1C30089BF85 /* SecuTrialAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecuTrialAccount.swift; path = Classes/SecuTrialAccount.swift; sourceTree = "<group>"; };
+		EEEA7F121BD4E1C30089BF85 /* SecuTrialAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialAccount.swift; sourceTree = "<group>"; };
 		EEEA7F191BD4E5B60089BF85 /* SecuTrialBeanFormDataRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialBeanFormDataRecord.swift; sourceTree = "<group>"; };
 		EEEA7F1B1BD4E6020089BF85 /* SecuTrialBeanWebServiceResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialBeanWebServiceResult.swift; sourceTree = "<group>"; };
 		EEEA7F1D1BD4E6A20089BF85 /* SecuTrialBeanPatient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecuTrialBeanPatient.swift; sourceTree = "<group>"; };
@@ -122,8 +120,11 @@
 		EE83DC1E1BC66E2C000B57D5 = {
 			isa = PBXGroup;
 			children = (
-				EE83DC2A1BC66E2C000B57D5 /* SecuTrialClient */,
-				EE83DC361BC66E2C000B57D5 /* SecuTrialClientTests */,
+				EE83DC2D1BC66E2C000B57D5 /* Info.plist */,
+				EEEA7F171BD4E5730089BF85 /* SOAP */,
+				EEEA7F181BD4E5A40089BF85 /* Beans */,
+				EE83DC2A1BC66E2C000B57D5 /* Client */,
+				EE83DC361BC66E2C000B57D5 /* Tests */,
 				EE83DC5C1BC68F37000B57D5 /* ResearchKit.xcodeproj */,
 				EE83DC291BC66E2C000B57D5 /* Products */,
 			);
@@ -138,7 +139,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EE83DC2A1BC66E2C000B57D5 /* SecuTrialClient */ = {
+		EE83DC2A1BC66E2C000B57D5 /* Client */ = {
 			isa = PBXGroup;
 			children = (
 				EE89734A1BD0FFB4001FE1DA /* SecuTrialClient.swift */,
@@ -148,15 +149,12 @@
 				EE89734C1BD11BFD001FE1DA /* SecuTrialResponse.swift */,
 				EE8973501BD14030001FE1DA /* SecuTrialError.swift */,
 				EEA69A811BE20C1100DAA00E /* Forms */,
-				EEEA7F181BD4E5A40089BF85 /* Beans */,
-				EEEA7F171BD4E5730089BF85 /* SOAP */,
-				EE83DC2B1BC66E2C000B57D5 /* SecuTrialClient.h */,
-				EE83DC2D1BC66E2C000B57D5 /* Info.plist */,
 			);
-			path = SecuTrialClient;
+			name = Client;
+			path = Sources/Client;
 			sourceTree = "<group>";
 		};
-		EE83DC361BC66E2C000B57D5 /* SecuTrialClientTests */ = {
+		EE83DC361BC66E2C000B57D5 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				EE83DC371BC66E2C000B57D5 /* SecuTrialClientTests.swift */,
@@ -167,7 +165,7 @@
 				EEA69A8B1BE377DA00DAA00E /* TestFormDefinition.xml */,
 				EE83DC391BC66E2C000B57D5 /* Info.plist */,
 			);
-			path = SecuTrialClientTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		EE83DC5D1BC68F37000B57D5 /* Products */ = {
@@ -193,14 +191,15 @@
 		EEEA7F171BD4E5730089BF85 /* SOAP */ = {
 			isa = PBXGroup;
 			children = (
+				EE83DC6C1BC6A234000B57D5 /* SOAPNode.swift */,
+				EEA69A6C1BE106BA00DAA00E /* SOAPParser.swift */,
 				EE83DC681BC69291000B57D5 /* SOAPRequest.swift */,
 				EE83DC6A1BC6929A000B57D5 /* SOAPResponse.swift */,
 				EE83DC7D1BCFC0D3000B57D5 /* SOAPEnvelope.swift */,
-				EE83DC6C1BC6A234000B57D5 /* SOAPNode.swift */,
-				EEA69A6C1BE106BA00DAA00E /* SOAPParser.swift */,
 				EEA69A6E1BE1074C00DAA00E /* SOAPError.swift */,
 			);
-			path = SOAP;
+			name = SOAP;
+			path = Sources/SOAP;
 			sourceTree = "<group>";
 		};
 		EEEA7F181BD4E5A40089BF85 /* Beans */ = {
@@ -213,7 +212,8 @@
 				EEEA7F1D1BD4E6A20089BF85 /* SecuTrialBeanPatient.swift */,
 				EEEA7F1F1BD4E6CF0089BF85 /* SecuTrialBeanVisit.swift */,
 			);
-			path = Beans;
+			name = Beans;
+			path = Sources/Beans;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,7 +223,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE83DC2C1BC66E2C000B57D5 /* SecuTrialClient.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +492,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SecuTrialClient/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
@@ -512,7 +511,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SecuTrialClient/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
@@ -525,7 +524,7 @@
 		EE83DC401BC66E2C000B57D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SecuTrialClientTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.usz.medinfo.SecuTrialClientTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -535,7 +534,7 @@
 		EE83DC411BC66E2C000B57D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SecuTrialClientTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ch.usz.medinfo.SecuTrialClientTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

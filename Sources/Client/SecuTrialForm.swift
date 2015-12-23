@@ -6,6 +6,8 @@
 //  Copyright © 2015 USZ. All rights reserved.
 //
 
+import Foundation
+
 
 /**
 Holds on to secuTrial form definition found in an XML export file.
