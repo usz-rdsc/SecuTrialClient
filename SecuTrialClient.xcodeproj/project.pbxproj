@@ -146,8 +146,8 @@
 				EE5BE97E1C2AD91700058027 /* SecuTrialEntity.swift */,
 				EE5BE9801C2AD91700058027 /* SecuTrialEntityObject.swift */,
 				EE5BE97F1C2AD91700058027 /* SecuTrialEntityForm.swift */,
-				EE3907A61C3ACD95005BFF3D /* SecuTrialEntityImportFormat.swift */,
 				EE5BE9931C2ADDE800058027 /* SecuTrialEntityFormField.swift */,
+				EE3907A61C3ACD95005BFF3D /* SecuTrialEntityImportFormat.swift */,
 			);
 			name = Forms;
 			sourceTree = "<group>";

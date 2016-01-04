@@ -81,9 +81,9 @@ extension ORKQuestionResult {
 	- returns: A string response or nil if there is none
 	*/
 	func strk_answerAsResponseValueOfStep(step: ORKQuestionStep?) throws -> String? {
-//		if let this = self as? ORKChoiceQuestionResult {
-//			return this.strk_asQuestionAnswers(fhirType)
-//		}
+		if let this = self as? ORKChoiceQuestionResult {
+			return try this.strk_asResponseValue()
+		}
 		if let this = self as? ORKTextQuestionResult {
 			return this.strk_asResponseValue()
 		}
@@ -106,6 +106,16 @@ extension ORKQuestionResult {
 //			return this.chip_asQuestionAnswers(fhirType)
 //		}
 		throw SecuTrialError.Error("I don't understand ORKQuestionResult answer from \(self)")
+	}
+}
+
+
+extension ORKChoiceQuestionResult {
+	func strk_asResponseValue() throws -> String? {
+		guard let choices = choiceAnswers as? [String] else {
+			throw SecuTrialError.Error("expecting choice question results to be strings, but got: \(choiceAnswers)")
+		}
+		return choices.joinWithSeparator(", ")
 	}
 }
 

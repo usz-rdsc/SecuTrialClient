@@ -30,3 +30,19 @@ public func ==(left: SecuTrialEntityImportFormat, right: SecuTrialEntityImportFo
 	return left.identifier == right.identifier
 }
 
+
+public class SecuTrialEntityImportMapping: SecuTrialEntityObject {
+	
+	public var importFormat: SecuTrialEntityImportFormat? {
+		return propertyValue("importformat", type: SecuTrialEntityImportFormat.self)
+	}
+	
+	public var externalKey: String? {
+		return propertyValueString("externalkey")
+	}
+	
+	public var dateFormat: String? {
+		return propertyValueString("dateformat")
+	}
+}
+

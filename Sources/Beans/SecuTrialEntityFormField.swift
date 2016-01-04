@@ -64,24 +64,29 @@ public class SecuTrialEntityFormField: SecuTrialEntityObject {
 		return .Unknown
 	}
 	
-	// TODO: fvaluelinkArray (radiobutton values/labels)
+	/// Possible values for radiobuttons.
+	public var values: [SecuTrialEntityFormFieldValue]? {
+		let fvaluelinkArray = propertyArrayValueObjects("fvaluelinkArray", entities: "Fvaluelink")
+		let values = fvaluelinkArray.map() { $0.propertyValue("fvalue", type: SecuTrialEntityFormFieldValue.self) }.filter() { nil != $0 }.map() { $0! }
+		return values.isEmpty ? nil : values
+	}
 	
 	// TODO: formfieldruleArray (checkboxes)
 }
 
 
-public class SecuTrialEntityImportMapping: SecuTrialEntityObject {
+public class SecuTrialEntityFormFieldValue: SecuTrialEntityObject {
 	
-	public var importFormat: SecuTrialEntityImportFormat? {
-		return propertyValue("importformat", type: SecuTrialEntityImportFormat.self)
+	//public var entity = "Fvalue"
+	
+	/// The radio button's label to display.
+	public var fvlabel: String? {
+		return propertyValueString("fvlabel")
 	}
 	
-	public var externalKey: String? {
-		return propertyValueString("externalkey")
-	}
-	
-	public var dateFormat: String? {
-		return propertyValueString("dateformat")
+	/// The value associated with the radio button.
+	public var fvvalue: String? {
+		return propertyValueString("fvvalue")
 	}
 }
 

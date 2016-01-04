@@ -32,9 +32,13 @@ extension SecuTrialEntityFormField {
 		if importMapping.isEmpty {
 			return nil
 		}
+		guard let answerFormat = strk_answerFormat() else {
+			strk_warn("No answer format is compatible with field \"\(fflabel ?? "<nil>")\", omitting")
+			return nil
+		}
 		
 		let step = ORKQuestionStep(identifier: strk_identifier())
-		step.answerFormat = strk_answerFormat()
+		step.answerFormat = answerFormat
 		step.title = strk_bestTitle()
 		step.text = fftext
 		return step
@@ -53,12 +57,18 @@ extension SecuTrialEntityFormField {
 		switch fieldType {
 		case .Numeric:
 			return ORKAnswerFormat.decimalAnswerFormatWithUnit(nil)
+		
 		case .Checkbox:
 			return ORKAnswerFormat.booleanAnswerFormat()
-		// TODO: create choices
-//		case .Radio:
-//			let choices = [ORKTextChoice]()
-//			return ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: choices)
+		
+		case .Radio:
+			guard let values = values else {
+				strk_warn("Radio form field \"\(fflabel ?? "<nil>")\" has no values, omitting")
+				return nil
+			}
+			let choices = values.map() { ORKTextChoice(text: $0.fvlabel ?? "Unknown", value: $0.fvvalue ?? "") }
+			return ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: choices)
+		
 		case .Date:
 			if let format = importMapping.first?.dateFormat {
 				switch format {
@@ -74,9 +84,11 @@ extension SecuTrialEntityFormField {
 				}
 			}
 			return ORKAnswerFormat.dateAnswerFormat()
+		
 		case .Text:
 			return ORKAnswerFormat.textAnswerFormat()
 		default:
+			strk_warn("Unknown field type, defaulting to text entry")
 			return ORKAnswerFormat.textAnswerFormat()
 		}
 	}

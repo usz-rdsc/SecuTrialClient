@@ -83,6 +83,9 @@ public class SecuTrialFormParser {
 					if "Formfield" == entity {
 						return try SecuTrialEntityFormField(node: element)
 					}
+					if "Fvalue" == entity {
+						return try SecuTrialEntityFormFieldValue(node: element)
+					}
 					if "Importmapping" == entity {
 						return try SecuTrialEntityImportMapping(node: element)
 					}

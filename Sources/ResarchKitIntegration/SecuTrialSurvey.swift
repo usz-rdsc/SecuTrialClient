@@ -18,7 +18,7 @@ public typealias SecuTrialSurveyCancelOrFailure = ((viewController: ORKTaskViewC
 
 
 /**
-Instances of this class can be used to create ResearchKit-surveys from secuTrial forms.
+Instances of this class can be used to create ResearchKit-surveys from secuTrial forms and a given import format.
 */
 public class SecuTrialSurvey: NSObject, ORKTaskViewControllerDelegate {
 	
