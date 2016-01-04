@@ -11,7 +11,14 @@ import ResearchKit
 
 extension SecuTrialEntityForm {
 	
-	public func strk_asTask(identifier: String = NSUUID().UUIDString) throws -> ORKTask {
+	public func strk_asTask(format: SecuTrialEntityImportFormat) throws -> ORKTask {
+		guard let identifier = format.identifier else {
+			throw SecuTrialError.ImportFormatWithoutIdentifier
+		}
+		return try strk_asTaskWithIdentifier(identifier)
+	}
+	
+	public func strk_asTaskWithIdentifier(identifier: String = NSUUID().UUIDString) throws -> ORKTask {
 		return ORKOrderedTask(identifier: identifier, steps: try strk_asSteps())
 	}
 	
@@ -38,7 +45,7 @@ extension SecuTrialEntityFormGroup {
 			}
 		}
 		
-		// only use if not empty
+		// only add instruction step if the group's steps are not empty
 		if !steps.isEmpty {
 			let intro = ORKInstructionStep(identifier: "label_\(id ?? "group")")
 			intro.title = label

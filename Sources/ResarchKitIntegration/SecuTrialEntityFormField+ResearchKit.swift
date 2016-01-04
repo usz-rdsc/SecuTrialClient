@@ -69,6 +69,7 @@ extension SecuTrialEntityFormField {
 				case "HH:mm":
 					return ORKAnswerFormat.timeOfDayAnswerFormat()
 				default:
+					strk_warn("Date format \"\(format)\" is not handled, defaulting to date-only")
 					return ORKAnswerFormat.dateAnswerFormat()
 				}
 			}

@@ -6,6 +6,8 @@
 //  Copyright © 2015 USZ. All rights reserved.
 //
 
+import Foundation
+
 
 public enum SecuTrialError: ErrorType, CustomStringConvertible {
 	case NoAccount
@@ -15,9 +17,13 @@ public enum SecuTrialError: ErrorType, CustomStringConvertible {
 	case InvalidDOM(String)
 	case HTTPStatus(Int)
 	case NoSessionReceived
-	case Error(String)
 	
+	case AlreadyPerformingSurvey
+	case ImportFormatNotKnownToForm
+	case ImportFormatWithoutIdentifier
 	case SurveyFinishedWithError
+	
+	case Error(String)
 	
 	public var description: String {
 		switch self {
@@ -35,11 +41,24 @@ public enum SecuTrialError: ErrorType, CustomStringConvertible {
 			return "Status \(code)"
 		case .NoSessionReceived:
 			return "No session-id received"
-		case .Error(let message):
-			return message
 		
+		case .AlreadyPerformingSurvey:
+			return "The survey is already ongoing"
+		case .ImportFormatNotKnownToForm:
+			return "The import format does not belong to the form"
+		case .ImportFormatWithoutIdentifier:
+			return "The import format does not have an identifier"
 		case .SurveyFinishedWithError:
 			return "Survey finished with an error"
+		
+		case .Error(let message):
+			return message
 		}
 	}
 }
+
+
+func strk_warn(@autoclosure message: () -> String, function: String = __FUNCTION__, file: NSString = __FILE__, line: Int = __LINE__) {
+	print("[\(file.lastPathComponent):\(line)] \(function)  WARNING: \(message())")
+}
+

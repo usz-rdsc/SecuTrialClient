@@ -85,19 +85,3 @@ public class SecuTrialEntityImportMapping: SecuTrialEntityObject {
 	}
 }
 
-
-public class SecuTrialEntityImportFormat: SecuTrialEntityObject {
-	
-	public var formatName: String? {
-		return propertyValueString("formatname")
-	}
-	
-	public var identifier: String? {
-		return propertyValueString("identifier")
-	}
-	
-	public var importMapping: [SecuTrialEntityImportMapping] {
-		return propertyArrayValueObjects("importmappingArray", entities: "Importmapping", type: SecuTrialEntityImportMapping.self)
-	}
-}
-
