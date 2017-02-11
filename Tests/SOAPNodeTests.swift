@@ -13,7 +13,7 @@ import XCTest
 class SOAPNodeTests: XCTestCase {
 	
 	func testNodeStuff() {
-		let data = NSData(contentsOfURL: NSBundle(forClass: self.dynamicType).URLForResource("TestEnvelope", withExtension: "xml")!)
+		let data = try? Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "TestEnvelope", withExtension: "xml")!)
 		XCTAssertNotNil(data)
 		let parser = SOAPParser()
 		do {
@@ -27,7 +27,7 @@ class SOAPNodeTests: XCTestCase {
 			XCTAssertEqual("ns3", resp!.namespace!.name)
 			XCTAssertEqual("http://DefaultNamespace", resp!.namespace!.url)
 			
-			let replacement = SOAPNode.replace(resp!)
+			let replacement = SOAPNode.replace(with: resp!)
 			XCTAssertNil(resp!.parent)
 			XCTAssertNotNil(replacement.parent)
 			XCTAssertTrue(root.childNamed("Body")! === replacement.parent!)
@@ -54,7 +54,7 @@ class SOAPNodeTests: XCTestCase {
 	}
 	
 	func testEnvelopeParsing() {
-		let data = NSData(contentsOfURL: NSBundle(forClass: self.dynamicType).URLForResource("TestEnvelope", withExtension: "xml")!)
+		let data = try? Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "TestEnvelope", withExtension: "xml")!)
 		XCTAssertNotNil(data)
 		let parser = SOAPEnvelopeParser()
 		do {
@@ -84,7 +84,7 @@ class SOAPNodeTests: XCTestCase {
 	
 	func dontTestPerformanceExample() {
 		// This is an example of a performance test case.
-		self.measureBlock {
+		self.measure {
 			// Put the code you want to measure the time of here.
 		}
 	}

@@ -10,17 +10,17 @@
 /**
 An import format belongs to a data form and determines how form data is handled.
 */
-public class SecuTrialEntityImportFormat: SecuTrialEntityObject {
+open class SecuTrialEntityImportFormat: SecuTrialEntityObject {
 	
-	public var formatName: String? {
+	open var formatName: String? {
 		return propertyValueString("formatname")
 	}
 	
-	public var identifier: String? {
+	open var identifier: String? {
 		return propertyValueString("identifier")
 	}
 	
-	public var importMapping: [SecuTrialEntityImportMapping] {
+	open var importMapping: [SecuTrialEntityImportMapping] {
 		return propertyArrayValueObjects("importmappingArray", entities: "Importmapping", type: SecuTrialEntityImportMapping.self)
 	}
 }
@@ -31,17 +31,17 @@ public func ==(left: SecuTrialEntityImportFormat, right: SecuTrialEntityImportFo
 }
 
 
-public class SecuTrialEntityImportMapping: SecuTrialEntityObject {
+open class SecuTrialEntityImportMapping: SecuTrialEntityObject {
 	
-	public var importFormat: SecuTrialEntityImportFormat? {
+	open var importFormat: SecuTrialEntityImportFormat? {
 		return propertyValue("importformat", type: SecuTrialEntityImportFormat.self)
 	}
 	
-	public var externalKey: String? {
+	open var externalKey: String? {
 		return propertyValueString("externalkey")
 	}
 	
-	public var dateFormat: String? {
+	open var dateFormat: String? {
 		return propertyValueString("dateformat")
 	}
 }

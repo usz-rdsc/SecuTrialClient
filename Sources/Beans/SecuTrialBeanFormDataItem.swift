@@ -11,16 +11,15 @@ import SOAP
 #endif
 
 
-public class SecuTrialBeanFormDataItem: SecuTrialBean {
+open class SecuTrialBeanFormDataItem: SecuTrialBean {
 	
-	public var key: String?
+	open var key: String?
 	
-	public var value: String?
+	open var value: String?
 	
-	public var repindex = 0
+	open var repindex = 0
 	
-	public required init() {
-	}
+	public required init() {  }
 	
 	public convenience init(key: String, value: String) {
 		self.init()
@@ -28,10 +27,9 @@ public class SecuTrialBeanFormDataItem: SecuTrialBean {
 		self.value = value
 	}
 	
-	public required init(node: SOAPNode) throws {
-	}
+	public required init(node: SOAPNode) throws {  }
 	
-	public func node(name: String) -> SOAPNode {
+	open func node(_ name: String) -> SOAPNode {
 		let node = SOAPNode(name: name)
 		if let txt = key {
 			node.addChild(SOAPTextNode(name: "key", textValue: txt))

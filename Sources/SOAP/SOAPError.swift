@@ -10,21 +10,21 @@
 /**
 SOAP Errors.
 */
-public enum SOAPError: ErrorType, CustomStringConvertible {
-	case RootNotFound
-	case InvalidDOM(String)
-	case EnvelopeNotFound
-	case Error(String)
+public enum SOAPError: Error, CustomStringConvertible {
+	case rootNotFound
+	case invalidDOM(String)
+	case envelopeNotFound
+	case error(String)
 	
 	public var description: String {
 		switch self {
-		case .RootNotFound:
+		case .rootNotFound:
 			return "The root node was not found"
-		case .InvalidDOM(let message):
+		case .invalidDOM(let message):
 			return message
-		case .EnvelopeNotFound:
+		case .envelopeNotFound:
 			return "No \"Envelope\" node was found"
-		case .Error(let message):
+		case .error(let message):
 			return message
 		}
 	}

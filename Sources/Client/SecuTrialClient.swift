@@ -12,22 +12,22 @@ import Beans
 #endif
 
 
-public class SecuTrialClient {
+open class SecuTrialClient {
 	
 	let service: SecuTrialService
 	
-	public internal(set) var formDefinition: SecuTrialFormDefinition?
+	open internal(set) var formDefinition: SecuTrialFormDefinition?
 	
-	public var forms: [SecuTrialEntityForm]? {
+	open var forms: [SecuTrialEntityForm]? {
 		return formDefinition?.forms
 	}
 	
-	public var account: SecuTrialAccount?
+	open var account: SecuTrialAccount?
 	
 	var session: String?
 	
 	
-	public init(url: NSURL, customer: String? = nil, username: String? = nil, password: String? = nil) {
+	public init(url: URL, customer: String? = nil, username: String? = nil, password: String? = nil) {
 		service = SecuTrialService(url: url)
 		account = SecuTrialAccount(customer: customer, username: username, password: password)
 		secu_debug("client initialized against \(service.serviceURL.host ?? service.serviceURL.description)")
@@ -39,11 +39,11 @@ public class SecuTrialClient {
 	/**
 	Looks for the given file, adding ".xml", in the main Bundle and assigns parsed forms to the `forms` property.
 	*/
-	public func readFormsFromSpecificationFile(filename: String) throws {
-		guard let url = NSBundle.mainBundle().URLForResource(filename, withExtension: "xml") else {
-			throw SecuTrialError.Error("Form specification named «\(filename).xml» not found in main bundle")
+	open func readFormsFromSpecificationFile(_ filename: String) throws {
+		guard let url = Bundle.main.url(forResource: filename, withExtension: "xml") else {
+			throw SecuTrialError.error("Form specification named «\(filename).xml» not found in main bundle")
 		}
-		formDefinition = try SecuTrialFormParser().parseLocalFile(url)
+		formDefinition = try SecuTrialFormParser().parseLocalFile(at: url)
 	}
 	
 	
@@ -55,7 +55,7 @@ public class SecuTrialClient {
 	- parameter operation: The operation to perform
 	- parameter callback: Callback called when the operation finishes, either with a response or an error instance
 	*/
-	public func performOperation(operation: SecuTrialOperation, callback: ((response: SecuTrialResponse) -> Void)) {
+	open func performOperation(_ operation: SecuTrialOperation, callback: @escaping ((_ response: SecuTrialResponse) -> Void)) {
 		if !operation.hasInput("sessionId") {
 			if let sessionId = session {
 				operation.addInput(SecuTrialOperationInput(name: "sessionId", type: "soapenc:string", textValue: sessionId))
@@ -71,7 +71,7 @@ public class SecuTrialClient {
 		service.performOperation(operation) { response in
 			if let error = response.error {
 				switch error {
-				case .Unauthenticated:
+				case .unauthenticated:
 					secu_debug("unauthenticated, authenticating")
 					operation.removeInput("sessionId")
 					self.autoAuthenticateOperation(operation, callback: callback)
@@ -87,7 +87,7 @@ public class SecuTrialClient {
 				self.terminate(response, callback: callback)
 			}
 			else {
-				callback(response: response)
+				callback(response)
 			}
 		}
 	}
@@ -95,7 +95,7 @@ public class SecuTrialClient {
 	
 	// MARK: - Authentication & Termination
 	
-	func authenticate(callback: ((response: SecuTrialResponse) -> Void)) {
+	func authenticate(_ callback: @escaping ((_ response: SecuTrialResponse) -> Void)) {
 		if let auth = account?.authOperation() {
 			secu_debug("performing operation “\(auth.name)”")
 			service.performOperation(auth) { response in
@@ -105,23 +105,23 @@ public class SecuTrialClient {
 							self.session = sessionId
 						}
 						else {
-							response.error = SecuTrialError.NoSessionReceived
+							response.error = SecuTrialError.noSessionReceived
 						}
 					}
 					else {
-						response.error = SecuTrialError.InvalidDOM("Authenticate operation did not receive a WebServiceResult Bean")
+						response.error = SecuTrialError.invalidDOM("Authenticate operation did not receive a WebServiceResult Bean")
 					}
 				}
-				callback(response: response)
+				callback(response)
 			}
 		}
 		else {
 			secu_debug("no `account`, cannot authenticate")
-			callback(response: SecuTrialResponse(error: .NoAccount))
+			callback(SecuTrialResponse(error: .noAccount))
 		}
 	}
 	
-	func autoAuthenticateOperation(operation: SecuTrialOperation, callback: ((response: SecuTrialResponse) -> Void)) {
+	func autoAuthenticateOperation(_ operation: SecuTrialOperation, callback: @escaping ((_ response: SecuTrialResponse) -> Void)) {
 		guard "authenticate" != operation.name else {
 			self.performOperation(operation, callback: callback)
 			return
@@ -131,12 +131,12 @@ public class SecuTrialClient {
 				self.performOperation(operation, callback: callback)
 			}
 			else {
-				callback(response: response)
+				callback(response)
 			}
 		}
 	}
 	
-	func terminate(afterResponse: SecuTrialResponse, callback: ((response: SecuTrialResponse) -> Void)) {
+	func terminate(_ afterResponse: SecuTrialResponse, callback: @escaping ((_ response: SecuTrialResponse) -> Void)) {
 		if let sessionId = session {
 			let terminate = SecuTrialOperation(name: "terminate")
 			terminate.addInput(SecuTrialOperationInput(name: "sessionId", type: "soapenc:string", textValue: sessionId))
@@ -147,18 +147,18 @@ public class SecuTrialClient {
 				if let error = response.error {
 					secu_debug("error terminating: \(error)")
 				}
-				callback(response: afterResponse)
+				callback(afterResponse)
 			}
 		}
 		else {
 			secu_debug("No session id, no need to terminate")
-			callback(response: afterResponse)
+			callback(afterResponse)
 		}
 	}
 }
 
 
-func secu_debug(@autoclosure message: () -> String, function: String = __FUNCTION__, file: NSString = __FILE__, line: Int = __LINE__) {
+func secu_debug(_ message: @autoclosure () -> String, function: String = #function, file: NSString = #file, line: Int = #line) {
 #if DEBUG
 	print("# \(file.lastPathComponent):\(line), \(function)():  \(message())")
 #endif

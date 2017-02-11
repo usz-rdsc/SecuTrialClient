@@ -13,7 +13,7 @@ import XCTest
 class SecuTrialOperationTests: XCTestCase {
 	
 	func testExample() {
-		let data = NSData(contentsOfURL: NSBundle(forClass: self.dynamicType).URLForResource("TestEnvelope", withExtension: "xml")!)
+		let data = try? Data(contentsOf: Bundle(for: type(of: self)).url(forResource: "TestEnvelope", withExtension: "xml")!)
 		XCTAssertNotNil(data)
 		let ops = SecuTrialOperation(name: "authenticate")
 		ops.expectedResponseBean = SecuTrialBeanWebServiceResult.self

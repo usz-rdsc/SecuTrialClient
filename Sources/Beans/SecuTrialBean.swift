@@ -17,6 +17,6 @@ public protocol SecuTrialBean {
 	
 	init(node: SOAPNode) throws
 	
-	func node(name: String) -> SOAPNode
+	func node(_ name: String) -> SOAPNode
 }
 

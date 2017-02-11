@@ -16,7 +16,7 @@ import Beans
 /**
 Response to a `SecuTrialOperation`.
 */
-public class SecuTrialResponse: SOAPResponse {
+open class SecuTrialResponse: SOAPResponse {
 	
 	/// Response bean.
 	public internal(set) var bean: SecuTrialBean?
@@ -28,13 +28,13 @@ public class SecuTrialResponse: SOAPResponse {
 	public init(envelope: SOAPEnvelope, path: [String], type: SecuTrialBean.Type) {
 		super.init(envelope: envelope)
 		do {
-			try parseResponse(path, type: type)
+			try parseResponse(path: path, type: type)
 		}
 		catch let err as SecuTrialError {
 			error = err
 		}
 		catch let err {
-			error = SecuTrialError.Error("\(err)")
+			error = SecuTrialError.error("\(err)")
 		}
 	}
 	
@@ -43,20 +43,20 @@ public class SecuTrialResponse: SOAPResponse {
 		self.error = error
 	}
 	
-	func parseResponse(path: [String], type: SecuTrialBean.Type) throws {
-		guard let node = findResponseNode(envelope, at: path) else {
-			throw SecuTrialError.ResponseBeanNotFound
+	public func parseResponse(path: [String], type: SecuTrialBean.Type) throws {
+		guard let node = findResponseNode(envelope: envelope, at: path) else {
+			throw SecuTrialError.responseBeanNotFound
 		}
 		bean = try type.init(node: node)
 	}
 	
-	func findResponseNode(envelope: SOAPEnvelope, at path: [String]) -> SOAPNode? {
+	public func findResponseNode(envelope: SOAPEnvelope, at path: [String]) -> SOAPNode? {
 		var node = envelope.body
 		for part in path {
 			node = node?.childNamed(part)
 			if nil == node {
 				let sep = "” > “"
-				secu_debug("Desired response bean at “\(path.joinWithSeparator(sep))” not found in:\n\(envelope.asXMLString())\n----")
+				secu_debug("Desired response bean at “\(path.joined(separator: sep))” not found in:\n\(envelope.asXMLString())\n----")
 				break
 			}
 		}

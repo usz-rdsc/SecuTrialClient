@@ -11,24 +11,24 @@ import ResearchKit
 
 
 /// Callback used when a survey completes successfully.
-public typealias SecuTrialSurveyCompletion = ((viewController: ORKTaskViewController, response: SecuTrialBeanFormDataRecord) -> Void)
+public typealias SecuTrialSurveyCompletion = ((_ viewController: ORKTaskViewController, _ response: SecuTrialBeanFormDataRecord) -> Void)
 
 /// Callback used when a survey fails or is cancelled.
-public typealias SecuTrialSurveyCancelOrFailure = ((viewController: ORKTaskViewController, error: ErrorType?) -> Void)
+public typealias SecuTrialSurveyCancelOrFailure = ((_ viewController: ORKTaskViewController, _ error: Error?) -> Void)
 
 
 /**
 Instances of this class can be used to create ResearchKit-surveys from secuTrial forms and a given import format.
 */
-public class SecuTrialSurvey: NSObject, ORKTaskViewControllerDelegate {
+open class SecuTrialSurvey: NSObject, ORKTaskViewControllerDelegate {
 	
-	private var whenCompleted: SecuTrialSurveyCompletion?
+	fileprivate var whenCompleted: SecuTrialSurveyCompletion?
 	
-	private var whenCancelledOrFailed: SecuTrialSurveyCancelOrFailure?
+	fileprivate var whenCancelledOrFailed: SecuTrialSurveyCancelOrFailure?
 	
-	public let form: SecuTrialEntityForm
+	open let form: SecuTrialEntityForm
 	
-	public let importFormat: SecuTrialEntityImportFormat
+	open let importFormat: SecuTrialEntityImportFormat
 	
 	
 	public init(form: SecuTrialEntityForm, importFormat: SecuTrialEntityImportFormat) {
@@ -46,18 +46,18 @@ public class SecuTrialSurvey: NSObject, ORKTaskViewControllerDelegate {
 	- parameter failure: The callback to call when the survey was cancelled or an error occurred
 	- returns: An ORKTaskViewController, set up with the `form`'s task, ready to be presented to the user
 	*/
-	public func taskViewController(complete complete: SecuTrialSurveyCompletion, failure: SecuTrialSurveyCancelOrFailure) throws -> ORKTaskViewController {
+	open func taskViewController(complete: @escaping SecuTrialSurveyCompletion, failure: @escaping SecuTrialSurveyCancelOrFailure) throws -> ORKTaskViewController {
 		if nil != whenCancelledOrFailed || nil != whenCompleted {
-			throw SecuTrialError.AlreadyPerformingSurvey
+			throw SecuTrialError.alreadyPerformingSurvey
 		}
 		if !form.importFormats.contains(importFormat) {
-			throw SecuTrialError.ImportFormatNotKnownToForm
+			throw SecuTrialError.importFormatNotKnownToForm
 		}
 		
 		whenCompleted = complete
 		whenCancelledOrFailed = failure
-		let task = try form.strk_asTask(importFormat)
-		let viewController = ORKTaskViewController(task: task, taskRunUUID: nil)
+		let task = try form.strk_asTask(with: importFormat)
+		let viewController = ORKTaskViewController(task: task, taskRun: nil)
 		viewController.delegate = self
 		return viewController
 	}
@@ -65,14 +65,14 @@ public class SecuTrialSurvey: NSObject, ORKTaskViewControllerDelegate {
 	/**
 	All result data gathered from the survey.
 	*/
-	public func resultDataRecord() throws -> SecuTrialBeanFormDataRecord {
-		throw SecuTrialError.Error("Not implemented")
+	open func resultDataRecord() throws -> SecuTrialBeanFormDataRecord {
+		throw SecuTrialError.error("Not implemented")
 	}
 	
 	
 	// MARK: - Task View Controller Delegate
 	
-	public func taskViewController(taskViewController: ORKTaskViewController, didFinishWithReason reason: ORKTaskViewControllerFinishReason, error: NSError?) {
+	open func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
 		if let error = error {
 			didFailWithError(taskViewController, error: error)
 		}
@@ -84,27 +84,29 @@ public class SecuTrialSurvey: NSObject, ORKTaskViewControllerDelegate {
 	
 	// MARK: - Survey Completion
 	
-	func didFinish(viewController: ORKTaskViewController, reason: ORKTaskViewControllerFinishReason) {
+	func didFinish(_ viewController: ORKTaskViewController, reason: ORKTaskViewControllerFinishReason) {
 		switch reason {
-		case .Failed:
-			didFailWithError(viewController, error: SecuTrialError.SurveyFinishedWithError)
-		case .Completed:
+		case .failed:
+			didFailWithError(viewController, error: SecuTrialError.surveyFinishedWithError)
+		case .completed:
 			didComplete(viewController)
-		case .Discarded:
+		case .discarded:
 			didFailWithError(viewController, error: nil)
-		case .Saved:
+		case .saved:
 			// TODO: support saving tasks
 			didFailWithError(viewController, error: nil)
 		}
 	}
 	
-	func didComplete(viewController: ORKTaskViewController) {
+	func didComplete(_ viewController: ORKTaskViewController) {
 		do {
 			let responseItems = try viewController.result.strk_asResponseForTask(viewController.task!)
 			let data = SecuTrialBeanFormDataRecord()
 			data.form = importFormat.identifier!		// throwing ImportFormatWithoutIdentifier when instantiating the task view controller if this is nil
+//			data.patient = patient
+//			data.visit = visit
 			data.item = responseItems
-			whenCompleted?(viewController: viewController, response: data)
+			whenCompleted?(viewController, data)
 			done()
 		}
 		catch let error {
@@ -112,12 +114,12 @@ public class SecuTrialSurvey: NSObject, ORKTaskViewControllerDelegate {
 		}
 	}
 	
-	func didFailWithError(viewController: ORKTaskViewController, error: ErrorType?) {
-		whenCancelledOrFailed?(viewController: viewController, error: error)
+	func didFailWithError(_ viewController: ORKTaskViewController, error: Error?) {
+		whenCancelledOrFailed?(viewController, error)
 		done()
 	}
 	
-	private func done() {
+	fileprivate func done() {
 		whenCompleted = nil
 		whenCancelledOrFailed = nil
 	}

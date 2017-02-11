@@ -7,13 +7,13 @@
 //
 
 
-public class SecuTrialAccount {
+open class SecuTrialAccount {
 	
-	public var customer: String?
+	open var customer: String?
 	
-	public var username: String?
+	open var username: String?
 	
-	public var password: String?
+	open var password: String?
 	
 	public init(customer: String?, username: String?, password: String?) {
 		self.customer = customer
@@ -24,7 +24,7 @@ public class SecuTrialAccount {
 	
 	// MARK: - Authentication
 	
-	public func authOperation() -> SecuTrialOperation {
+	open func authOperation() -> SecuTrialOperation {
 		let auth = SecuTrialOperation(name: "authenticate")
 		if let customer = customer {
 			auth.addInput(SecuTrialOperationInput(name: "customerId", type: "soapenc:string", textValue: customer))

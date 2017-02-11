@@ -11,24 +11,22 @@ import SOAP
 #endif
 
 
-public class SecuTrialBeanPatient: SecuTrialBean {
+open class SecuTrialBeanPatient: SecuTrialBean {
 	
-	public var psd: String?
+	open var psd: String?
 	
-	public var aid: String?
+	open var aid: String?
 	
-	public var labid: String?
+	open var labid: String?
 	
-	public var entrydate: String?
+	open var entrydate: String?
 	
 	
-	public required init() {
-	}
+	public required init() {  }
 	
-	public required init(node: SOAPNode) throws {
-	}
+	public required init(node: SOAPNode) throws {  }
 	
-	public func node(name: String) -> SOAPNode {
+	open func node(_ name: String) -> SOAPNode {
 		let node = SOAPNode(name: name)
 		if let txt = psd {
 			node.addChild(SOAPTextNode(name: "psd", textValue: txt))

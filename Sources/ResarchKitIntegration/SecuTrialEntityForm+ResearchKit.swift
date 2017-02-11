@@ -11,14 +11,14 @@ import ResearchKit
 
 extension SecuTrialEntityForm {
 	
-	public func strk_asTask(format: SecuTrialEntityImportFormat) throws -> ORKTask {
+	public func strk_asTask(with format: SecuTrialEntityImportFormat) throws -> ORKTask {
 		guard let identifier = format.identifier else {
-			throw SecuTrialError.ImportFormatWithoutIdentifier
+			throw SecuTrialError.importFormatWithoutIdentifier
 		}
-		return try strk_asTaskWithIdentifier(identifier)
+		return try strk_asTask(with: identifier)
 	}
 	
-	public func strk_asTaskWithIdentifier(identifier: String = NSUUID().UUIDString) throws -> ORKTask {
+	public func strk_asTask(with identifier: String = UUID().uuidString) throws -> ORKTask {
 		return ORKOrderedTask(identifier: identifier, steps: try strk_asSteps())
 	}
 	
@@ -26,7 +26,7 @@ extension SecuTrialEntityForm {
 		var steps = [ORKStep]()
 		for group in groups {
 			let substeps = try group.strk_asSteps()
-			steps.appendContentsOf(substeps)
+			steps.append(contentsOf: substeps)
 		}
 		return steps
 	}
@@ -49,7 +49,7 @@ extension SecuTrialEntityFormGroup {
 		if !steps.isEmpty {
 			let intro = ORKInstructionStep(identifier: "label_\(id ?? "group")")
 			intro.title = label
-			steps.insert(intro, atIndex: 0)
+			steps.insert(intro, at: 0)
 		}
 		return steps
 	}

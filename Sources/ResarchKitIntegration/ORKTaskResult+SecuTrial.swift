@@ -17,7 +17,7 @@ extension ORKTaskResult {
 	- parameter task: The task this result is for
 	- returns: An array of SecuTrialBeanFormDataItem instances for all completed questions
 	*/
-	func strk_asResponseForTask(task: ORKTask) throws -> [SecuTrialBeanFormDataItem] {
+	func strk_asResponseForTask(_ task: ORKTask) throws -> [SecuTrialBeanFormDataItem] {
 		guard let results = results as? [ORKStepResult] else {
 			return []
 		}
@@ -26,7 +26,7 @@ extension ORKTaskResult {
 		var items = [SecuTrialBeanFormDataItem]()
 		for result in results {
 			if let subitems = try result.strk_stepResponse(task) {
-				items.appendContentsOf(subitems)
+				items.append(contentsOf: subitems)
 			}
 		}
 		return items
@@ -42,7 +42,7 @@ extension ORKStepResult {
 	- parameter task: The ORKTask that was associated with the parent task result
 	- returns: An array of SecuTrialBeanFormDataItem or nil
 	*/
-	func strk_stepResponse(task: ORKTask) throws -> [SecuTrialBeanFormDataItem]? {
+	func strk_stepResponse(_ task: ORKTask) throws -> [SecuTrialBeanFormDataItem]? {
 		guard let results = results else {
 			return nil
 		}
@@ -50,14 +50,14 @@ extension ORKStepResult {
 		// loop results to collect answers; omit questions that do not have answers
 		var items = [SecuTrialBeanFormDataItem]()
 		for result in results {
-			let step = task.stepWithIdentifier?(result.identifier) as? ORKQuestionStep
+			let step = task.step?(withIdentifier: result.identifier) as? ORKQuestionStep
 			do {	// TODO: remove when all result types are supported
 			if let result = result as? ORKQuestionResult, let response = try result.strk_answerAsResponseValueOfStep(step) {
 				let item = SecuTrialBeanFormDataItem(key: result.identifier, value: response)
 				items.append(item)
 			}
 			else {
-				throw SecuTrialError.Error("I cannot handle ORKStepResult result \(result)")
+				throw SecuTrialError.error("I cannot handle ORKStepResult result \(result)")
 			}
 			}
 			catch let error {		// TODO: remove when all result types are supported
@@ -80,7 +80,7 @@ extension ORKQuestionResult {
 	- parameter step: The ORKQuestionStep subclass to return the response for
 	- returns: A string response or nil if there is none
 	*/
-	func strk_answerAsResponseValueOfStep(step: ORKQuestionStep?) throws -> String? {
+	func strk_answerAsResponseValueOfStep(_ step: ORKQuestionStep?) throws -> String? {
 		if let this = self as? ORKChoiceQuestionResult {
 			return try this.strk_asResponseValue()
 		}
@@ -105,7 +105,7 @@ extension ORKQuestionResult {
 //		if let this = self as? ORKDateQuestionResult {
 //			return this.chip_asQuestionAnswers(fhirType)
 //		}
-		throw SecuTrialError.Error("I don't understand ORKQuestionResult answer from \(self)")
+		throw SecuTrialError.error("I don't understand ORKQuestionResult answer from \(self)")
 	}
 }
 
@@ -113,9 +113,9 @@ extension ORKQuestionResult {
 extension ORKChoiceQuestionResult {
 	func strk_asResponseValue() throws -> String? {
 		guard let choices = choiceAnswers as? [String] else {
-			throw SecuTrialError.Error("expecting choice question results to be strings, but got: \(choiceAnswers)")
+			throw SecuTrialError.error("expecting choice question results to be strings, but got: \(choiceAnswers)")
 		}
-		return choices.joinWithSeparator(", ")
+		return choices.joined(separator: ", ")
 	}
 }
 

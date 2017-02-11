@@ -22,7 +22,7 @@ extension SecuTrialEntityFormField {
 			}
 			return key
 		}
-		return NSUUID().UUIDString
+		return UUID().uuidString
 	}
 	
 	/**
@@ -55,25 +55,25 @@ extension SecuTrialEntityFormField {
 	*/
 	public func strk_answerFormat() -> ORKAnswerFormat? {
 		switch fieldType {
-		case .Numeric:
-			return ORKAnswerFormat.decimalAnswerFormatWithUnit(nil)
+		case .numeric:
+			return ORKAnswerFormat.decimalAnswerFormat(withUnit: nil)
 		
-		case .Checkbox:
+		case .checkbox:
 			return ORKAnswerFormat.booleanAnswerFormat()
 		
-		case .Radio:
+		case .radio:
 			guard let values = values else {
 				strk_warn("Radio form field \"\(fflabel ?? "<nil>")\" has no values, omitting")
 				return nil
 			}
-			let choices = values.map() { ORKTextChoice(text: $0.fvlabel ?? "Unknown", value: $0.fvvalue ?? "") }
-			return ORKAnswerFormat.choiceAnswerFormatWithStyle(.SingleChoice, textChoices: choices)
+			let choices = values.map() { ORKTextChoice(text: $0.fvlabel ?? "Unknown", value: $0.fvvalue as NSCoding & NSCopying & NSObjectProtocol? ?? "" as NSCoding & NSCopying & NSObjectProtocol) }
+			return ORKAnswerFormat.choiceAnswerFormat(with: .singleChoice, textChoices: choices)
 		
-		case .Date:
+		case .date:
 			if let format = importMapping.first?.dateFormat {
 				switch format {
 				case "dd.MM.yyyy HH:mm":
-					return ORKAnswerFormat.dateTimeAnswerFormat()
+					return ORKAnswerFormat.dateTime()
 				case "dd.MM.yyyy":
 					return ORKAnswerFormat.dateAnswerFormat()
 				case "HH:mm":
@@ -85,7 +85,7 @@ extension SecuTrialEntityFormField {
 			}
 			return ORKAnswerFormat.dateAnswerFormat()
 		
-		case .Text:
+		case .text:
 			return ORKAnswerFormat.textAnswerFormat()
 		default:
 			strk_warn("Unknown field type, defaulting to text entry")

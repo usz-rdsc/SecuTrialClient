@@ -14,13 +14,13 @@ import SOAP
 /**
 An XML node in the SecuTrial form that represents an Object.
 */
-public class SecuTrialEntityObject: SOAPNode {
+open class SecuTrialEntityObject: SOAPNode {
 	
-	public var entity = "Object"
+	open var entity = "Object"
 	
-	public var properties: [SecuTrialEntityProperty]?
+	open var properties: [SecuTrialEntityProperty]?
 	
-	public var type: SecuTrialEntityDictionary?
+	open var type: SecuTrialEntityDictionary?
 	
 	public init(node: SOAPNode) throws {
 		super.init(name: node.name)
@@ -39,7 +39,7 @@ public class SecuTrialEntityObject: SOAPNode {
 				type = typ
 			}
 			else {
-				throw SecuTrialError.InvalidDOM("<object> nodes can not contain <\(child.name)> nodes, but this one does")
+				throw SecuTrialError.invalidDOM("<object> nodes can not contain <\(child.name)> nodes, but this one does")
 			}
 		}
 		properties = props
@@ -49,7 +49,7 @@ public class SecuTrialEntityObject: SOAPNode {
 		fatalError("Cannot use init(name:)")
 	}
 	
-	public subscript(name: String) -> SecuTrialEntityProperty? {
+	open subscript(name: String) -> SecuTrialEntityProperty? {
 		if let properties = properties {
 			for prop in properties {
 				if name == prop.name {
@@ -60,7 +60,7 @@ public class SecuTrialEntityObject: SOAPNode {
 		return nil
 	}
 	
-	public func propertyValue<T: SOAPNode>(name: String, type: T.Type? = nil) -> T? {
+	open func propertyValue<T: SOAPNode>(_ name: String, type: T.Type? = nil) -> T? {
 		if let property = self[name]?.value {
 			if let refid = property.attr("refid"), let ref = document.nodeWithId(refid) as? T {
 				return ref
@@ -70,11 +70,11 @@ public class SecuTrialEntityObject: SOAPNode {
 		return nil
 	}
 	
-	public func propertyValueString(name: String) -> String? {
+	open func propertyValueString(_ name: String) -> String? {
 		return self[name]?.stringValue
 	}
 	
-	public func propertyArrayValueObjects<T: SecuTrialEntityObject>(name: String, entities: String, type: T.Type? = nil) -> [T] {
+	open func propertyArrayValueObjects<T: SecuTrialEntityObject>(_ name: String, entities: String, type: T.Type? = nil) -> [T] {
 		if let arr = propertyValue(name) as? SecuTrialEntityArray {
 			return arr.objects(entities, type: T.self)
 		}
@@ -83,11 +83,11 @@ public class SecuTrialEntityObject: SOAPNode {
 }
 
 
-public class SecuTrialEntityProperty: SOAPNode {
+open class SecuTrialEntityProperty: SOAPNode {
 	
-	public var value: SOAPNode? = nil
+	open var value: SOAPNode? = nil
 	
-	public var stringValue: String? {
+	open var stringValue: String? {
 		if let txt = value as? SOAPTextNode {
 			return txt.text
 		}
@@ -99,10 +99,10 @@ public class SecuTrialEntityProperty: SOAPNode {
 		super.init(name: name)
 		copy(node)
 		if 1 != childNodes.count {
-			throw SecuTrialError.InvalidDOM("<property> node can only have one child node, this one is: \(node.asXMLString())")
+			throw SecuTrialError.invalidDOM("<property> node can only have one child node, this one is: \(node.asXMLString())")
 		}
 		if "<>" == name {
-			throw SecuTrialError.InvalidDOM("<property> nodes must have a “name” attribute: \(node.asXMLString())")
+			throw SecuTrialError.invalidDOM("<property> nodes must have a “name” attribute: \(node.asXMLString())")
 		}
 		if "null" != childNodes[0].name {
 			value = childNodes[0]

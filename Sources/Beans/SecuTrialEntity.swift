@@ -14,25 +14,25 @@ import SOAP
 /**
 A SecuTrial form array element.
 */
-class SecuTrialEntityArray: SOAPNode {
+open class SecuTrialEntityArray: SOAPNode {
 	
-	init(node: SOAPNode) throws {
+	public init(node: SOAPNode) throws {
 		super.init(name: node.name)
 		copy(node)
 	}
 	
-	required init(name: String) {
+	public required init(name: String) {
 		fatalError("Cannot use init(name:)")
 	}
 	
-	func objects<T: SecuTrialEntityObject>(entity: String, type: T.Type? = nil) -> [T] {
+	public func objects<T: SecuTrialEntityObject>(_ entity: String, type: T.Type? = nil) -> [T] {
 		var objects = [T]()
 		for object in childNodes {
 			var obj = object
 			if let refid = object.attr("refid"), let ref = document.nodeWithId(refid) {
 				obj = ref
 			}
-			if let obj = obj as? T where obj.entity == entity {
+			if let obj = obj as? T, obj.entity == entity {
 				objects.append(obj)
 			}
 		}
@@ -44,7 +44,7 @@ class SecuTrialEntityArray: SOAPNode {
 /**
 A SecuTrial form dictionary element.
 */
-public class SecuTrialEntityDictionary: SOAPNode {
+open class SecuTrialEntityDictionary: SOAPNode {
 	
 	var dictionary: [String: SOAPNode]?
 	
@@ -60,7 +60,7 @@ public class SecuTrialEntityDictionary: SOAPNode {
 					current = str
 				}
 				else {
-					throw SecuTrialError.InvalidDOM("<key> nodes must contain a <string> node with the key name, this one is: \(child.asXMLString())")
+					throw SecuTrialError.invalidDOM("<key> nodes must contain a <string> node with the key name, this one is: \(child.asXMLString())")
 				}
 			}
 			else if "value" == child.name {
@@ -69,12 +69,12 @@ public class SecuTrialEntityDictionary: SOAPNode {
 						dict[current] = child.childNodes[0]
 					}
 					else {
-						throw SecuTrialError.InvalidDOM("<value> nodes can only contain one child node, this one has: \(child.asXMLString())")
+						throw SecuTrialError.invalidDOM("<value> nodes can only contain one child node, this one has: \(child.asXMLString())")
 					}
 				}
 			}
 			else {
-				throw SecuTrialError.InvalidDOM("<dict> nodes should only contain <key> and <value> nodes, but has <\(child.name)>")
+				throw SecuTrialError.invalidDOM("<dict> nodes should only contain <key> and <value> nodes, but has <\(child.name)>")
 			}
 		}
 		dictionary = dict
@@ -84,7 +84,7 @@ public class SecuTrialEntityDictionary: SOAPNode {
 		fatalError("Cannot use init(name:)")
 	}
 	
-	public subscript(name: String) -> SOAPNode? {
+	open subscript(name: String) -> SOAPNode? {
 		return dictionary?[name]
 	}
 }

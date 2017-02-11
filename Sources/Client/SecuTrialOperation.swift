@@ -20,13 +20,13 @@ public typealias $ = SecuTrialOperation
 /**
 An operation to be performed against secuTrial's SOAP interface.
 */
-public class SecuTrialOperation: SOAPNode {
+open class SecuTrialOperation: SOAPNode {
 	
 	var inputs = [SecuTrialOperationInput]()
 	
-	public var expectedResponseBean: SecuTrialBean.Type = SecuTrialBeanWebServiceResult.self
+	open var expectedResponseBean: SecuTrialBean.Type = SecuTrialBeanWebServiceResult.self
 	
-	public var expectsResponseBeanAt: [String]?
+	open var expectsResponseBeanAt: [String]?
 	
 	
 	public required init(name: String) {
@@ -37,26 +37,26 @@ public class SecuTrialOperation: SOAPNode {
 	
 	// MARK: - Operation Input
 	
-	public func addInput(input: SecuTrialOperationInput) {
+	open func addInput(_ input: SecuTrialOperationInput) {
 		inputs.append(input)
 	}
 	
-	public func hasInput(name: String) -> Bool {
+	open func hasInput(_ name: String) -> Bool {
 		return !inputs.filter() { $0.node.name == name }.isEmpty
 	}
 	
-	public func removeInput(name: String) {
+	open func removeInput(_ name: String) {
 		inputs = inputs.filter() { $0.node.name != name }
 	}
 	
-	public override func childNodesForXMLString() -> [SOAPNode] {
+	open override func childNodesForXMLString() -> [SOAPNode] {
 		return inputs.map() { $0.node }
 	}
 	
 	
 	// MARK: - Request
 	
-	public func request() -> SOAPRequest {
+	open func request() -> SOAPRequest {
 		let request = SOAPRequest()
 		if let reqns = request.envelope.namespace {
 			attributes = [SOAPNodeAttribute(name: "\(reqns.name):encodingStyle", value: "http://schemas.xmlsoap.org/soap/encoding/")]
@@ -74,34 +74,34 @@ public class SecuTrialOperation: SOAPNode {
 	- parameter data: The data received from the server, expected to be UTF-8 encoded XML
 	- returns: A SecuTrialResponse instance
 	*/
-	public func handleResponseData(data: NSData) -> SecuTrialResponse {
-		secu_debug("handling response data of \(data.length) bytes")
+	open func handleResponseData(_ data: Data) -> SecuTrialResponse {
+		secu_debug("handling response data of \(data.count) bytes")
 		let parser = SOAPEnvelopeParser()
 		do {
 			let envelope = try parser.parse(data)
 			if let beanPath = expectsResponseBeanAt {
 				return SecuTrialResponse(envelope: envelope, path: beanPath, type: expectedResponseBean)
 			}
-			throw SecuTrialError.OperationNotConfigured
+			throw SecuTrialError.operationNotConfigured
 		}
 		catch let err as SecuTrialError {
 			return hadError(err)
 		}
 		catch {
-			return hadError(SecuTrialError.Error("unknown"))
+			return hadError(SecuTrialError.error("unknown"))
 		}
 	}
 	
-	public func hadError(error: SecuTrialError?) -> SecuTrialResponse {
+	open func hadError(_ error: SecuTrialError?) -> SecuTrialResponse {
 		if let error = error {
 			return SecuTrialResponse(error: error)
 		}
-		return SecuTrialResponse(error: SecuTrialError.Error("unknown"))
+		return SecuTrialResponse(error: SecuTrialError.error("unknown"))
 	}
 }
 
 
-public class SecuTrialOperationInput {
+open class SecuTrialOperationInput {
 	
 	let name: String
 	
@@ -111,7 +111,7 @@ public class SecuTrialOperationInput {
 	
 	var bean: SecuTrialBean?
 	
-	public var node: SOAPNode {
+	open var node: SOAPNode {
 		if let bean = bean {
 			return bean.node(name)
 		}

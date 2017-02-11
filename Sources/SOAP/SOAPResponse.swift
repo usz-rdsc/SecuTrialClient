@@ -8,9 +8,9 @@
 
 
 
-public class SOAPResponse {
+open class SOAPResponse {
 	
-	public let envelope: SOAPEnvelope
+	open let envelope: SOAPEnvelope
 	
 	public init(envelope: SOAPEnvelope) {
 		self.envelope = envelope

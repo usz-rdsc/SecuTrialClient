@@ -9,56 +9,56 @@
 import Foundation
 
 
-public enum SecuTrialError: ErrorType, CustomStringConvertible {
-	case NoAccount
-	case Unauthenticated
-	case OperationNotConfigured
-	case ResponseBeanNotFound
-	case InvalidDOM(String)
-	case HTTPStatus(Int)
-	case NoSessionReceived
+public enum SecuTrialError: Error, CustomStringConvertible {
+	case noAccount
+	case unauthenticated
+	case operationNotConfigured
+	case responseBeanNotFound
+	case invalidDOM(String)
+	case httpStatus(Int)
+	case noSessionReceived
 	
-	case AlreadyPerformingSurvey
-	case ImportFormatNotKnownToForm
-	case ImportFormatWithoutIdentifier
-	case SurveyFinishedWithError
+	case alreadyPerformingSurvey
+	case importFormatNotKnownToForm
+	case importFormatWithoutIdentifier
+	case surveyFinishedWithError
 	
-	case Error(String)
+	case error(String)
 	
 	public var description: String {
 		switch self {
-		case .NoAccount:
+		case .noAccount:
 			return "No account has been set up yet"
-		case .Unauthenticated:
+		case .unauthenticated:
 			return "Not authenticated"
-		case .OperationNotConfigured:
+		case .operationNotConfigured:
 			return "The operation was not properly configured: expected-bean-type or -path is missing"
-		case .ResponseBeanNotFound:
+		case .responseBeanNotFound:
 			return "The response bean was not found"
-		case .InvalidDOM(let message):
+		case .invalidDOM(let message):
 			return message
-		case .HTTPStatus(let code):
+		case .httpStatus(let code):
 			return "Status \(code)"
-		case .NoSessionReceived:
+		case .noSessionReceived:
 			return "No session-id received"
 		
-		case .AlreadyPerformingSurvey:
+		case .alreadyPerformingSurvey:
 			return "The survey is already ongoing"
-		case .ImportFormatNotKnownToForm:
+		case .importFormatNotKnownToForm:
 			return "The import format does not belong to the form"
-		case .ImportFormatWithoutIdentifier:
+		case .importFormatWithoutIdentifier:
 			return "The import format does not have an identifier"
-		case .SurveyFinishedWithError:
+		case .surveyFinishedWithError:
 			return "Survey finished with an error"
 		
-		case .Error(let message):
+		case .error(let message):
 			return message
 		}
 	}
 }
 
 
-func strk_warn(@autoclosure message: () -> String, function: String = __FUNCTION__, file: NSString = __FILE__, line: Int = __LINE__) {
+func strk_warn(_ message: @autoclosure () -> String, function: String = #function, file: NSString = #file, line: Int = #line) {
 	print("[\(file.lastPathComponent):\(line)] \(function)  WARNING: \(message())")
 }
 

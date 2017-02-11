@@ -12,24 +12,24 @@ import SOAP
 
 
 public enum SecuTrialEntityFormFieldType: Int, CustomStringConvertible {
-	case Unknown
-	case Numeric = 27
-	case Checkbox = 33
-	case Date = 35
-	case Text = 88
-	case Radio = 127
+	case unknown
+	case numeric = 27
+	case checkbox = 33
+	case date = 35
+	case text = 88
+	case radio = 127
 	
 	public var description: String {
 		switch self {
-		case .Numeric:
+		case .numeric:
 			return "numeric"
-		case .Checkbox:
+		case .checkbox:
 			return "checkbox"
-		case .Date:
+		case .date:
 			return "date"
-		case .Text:
+		case .text:
 			return "text"
-		case .Radio:
+		case .radio:
 			return "radio"
 		default:
 			return "unknown"
@@ -41,31 +41,31 @@ public enum SecuTrialEntityFormFieldType: Int, CustomStringConvertible {
 /**
 Definition of a form field, usually contained in a group within a form.
 */
-public class SecuTrialEntityFormField: SecuTrialEntityObject {
+open class SecuTrialEntityFormField: SecuTrialEntityObject {
 	
-	public var fflabel: String? {
+	open var fflabel: String? {
 		return propertyValueString("fflabel")
 	}
 	
-	public var fftext: String? {
+	open var fftext: String? {
 		return propertyValueString("fftext")
 	}
 	
-	public var importMapping: [SecuTrialEntityImportMapping] {
+	open var importMapping: [SecuTrialEntityImportMapping] {
 		return propertyArrayValueObjects("importmappingArray", entities: "Importmapping", type: SecuTrialEntityImportMapping.self)
 	}
 	
-	public var fieldType: SecuTrialEntityFormFieldType {
+	open var fieldType: SecuTrialEntityFormFieldType {
 		if let type = propertyValue("fieldtype", type: SecuTrialEntityObject.self)?.type {
-			if let fftype = type["fftype"] as? SOAPTextNode where "integer" == fftype.name, let intstr = fftype.text, let int = Int(intstr) {
-				return SecuTrialEntityFormFieldType(rawValue: int) ?? .Unknown
+			if let fftype = type["fftype"] as? SOAPTextNode, "integer" == fftype.name, let intstr = fftype.text, let int = Int(intstr) {
+				return SecuTrialEntityFormFieldType(rawValue: int) ?? .unknown
 			}
 		}
-		return .Unknown
+		return .unknown
 	}
 	
 	/// Possible values for radiobuttons.
-	public var values: [SecuTrialEntityFormFieldValue]? {
+	open var values: [SecuTrialEntityFormFieldValue]? {
 		let fvaluelinkArray = propertyArrayValueObjects("fvaluelinkArray", entities: "Fvaluelink")
 		let values = fvaluelinkArray.map() { $0.propertyValue("fvalue", type: SecuTrialEntityFormFieldValue.self) }.filter() { nil != $0 }.map() { $0! }
 		return values.isEmpty ? nil : values
@@ -75,17 +75,17 @@ public class SecuTrialEntityFormField: SecuTrialEntityObject {
 }
 
 
-public class SecuTrialEntityFormFieldValue: SecuTrialEntityObject {
+open class SecuTrialEntityFormFieldValue: SecuTrialEntityObject {
 	
 	//public var entity = "Fvalue"
 	
 	/// The radio button's label to display.
-	public var fvlabel: String? {
+	open var fvlabel: String? {
 		return propertyValueString("fvlabel")
 	}
 	
 	/// The value associated with the radio button.
-	public var fvvalue: String? {
+	open var fvvalue: String? {
 		return propertyValueString("fvvalue")
 	}
 }

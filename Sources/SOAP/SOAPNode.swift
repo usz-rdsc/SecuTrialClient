@@ -10,42 +10,42 @@
 /**
 Instances of this class represent one XML node in a SOAP tree.
 */
-public class SOAPNode {
+open class SOAPNode {
 	
 	/// The id, if any.
-	public var id: String? {
+	open var id: String? {
 		return self.attr("id")
 	}
 	
 	/// The node name.
-	public let name: String
+	open let name: String
 	
 	/// The namespace of the node
-	public var namespace: SOAPNamespace?
+	open var namespace: SOAPNamespace?
 	
 	/// Other namespaces defined on the node
 	var namespaces: [SOAPNamespace]?
 	
 	/// The parent node.
-	weak var parent: SOAPNode?
+	public weak var parent: SOAPNode?
 	
 	/// The root node.
-	public var document: SOAPNode {
+	open var document: SOAPNode {
 		return parent?.document ?? self
 	}
 	
 	/// Node attributes.
-	public var attributes = [SOAPNodeAttribute]()
+	open var attributes = [SOAPNodeAttribute]()
 	
 	/// Child nodes.
-	public private(set) var childNodes = [SOAPNode]()
+	public fileprivate(set) var childNodes = [SOAPNode]()
 	
 	
 	public required init(name: String) {
 		self.name = name
 	}
 	
-	public func copy(other: SOAPNode) {
+	open func copy(_ other: SOAPNode) {
 		namespace = other.namespace
 		namespaces = other.namespaces
 		attributes = other.attributes
@@ -59,17 +59,18 @@ public class SOAPNode {
 	
 	You usually use this to use a specific subclass in place of a generic SOAPNode.
 	*/
-	public class func replace(other: SOAPNode) -> Self {
+	@discardableResult
+	open class func replace(with other: SOAPNode) -> Self {
 		let node = self.init(name: other.name)
 		node.copy(other)
-		node.replace(other)
+		node.replace(with: other)
 		return node
 	}
 	
 	/**
 	Replaces the given node with itself in the DOM.
 	*/
-	public func replace(other: SOAPNode) {
+	open func replace(with other: SOAPNode) {
 		if let parent = other.parent {
 			let idx = parent.removeChild(other)
 			parent.addChild(self, atIndex: idx)
@@ -82,13 +83,13 @@ public class SOAPNode {
 	/**
 	Add the given node as a child node to the receiver, setting the parent pointer accordingly.
 	*/
-	public func addChild(child: SOAPNode, atIndex: Int? = nil) {
+	open func addChild(_ child: SOAPNode, atIndex: Int? = nil) {
 		if let parent = child.parent {
 			parent.removeChild(child)
 		}
 		child.parent = self
-		if let idx = atIndex where idx < childNodes.count {
-			childNodes.insert(child, atIndex: idx)
+		if let idx = atIndex, idx < childNodes.count {
+			childNodes.insert(child, at: idx)
 		}
 		else {
 			childNodes.append(child)
@@ -99,8 +100,9 @@ public class SOAPNode {
 	Remove the given node from the receiver's child nodes, unsetting the parent pointer accordingly. This method does nothing if the given
 	node is not a child node of the receiver.
 	*/
-	public func removeChild(child: SOAPNode) -> Int? {
-		let idx = childNodes.indexOf() { $0 === child }
+	@discardableResult
+	open func removeChild(_ child: SOAPNode) -> Int? {
+		let idx = childNodes.index() { $0 === child }
 		if nil != idx {
 			child.parent = nil
 			childNodes = childNodes.filter() { $0 !== child }
@@ -111,7 +113,7 @@ public class SOAPNode {
 	/**
 	Return the first child node with the given name and of the given type.
 	*/
-	public func childNamed<T: SOAPNode>(name: String, ofType: T.Type? = nil) -> T? {
+	open func childNamed<T: SOAPNode>(_ name: String, ofType: T.Type? = nil) -> T? {
 		for child in childNodes {
 			if name == child.name && child is T {
 				return (child as! T)
@@ -123,15 +125,15 @@ public class SOAPNode {
 	/**
 	Return an array of child nodes with the given name.
 	*/
-	public func childrenNamed(name: String) -> [SOAPNode] {
+	open func childrenNamed(_ name: String) -> [SOAPNode] {
 		return childNodes.filter() { $0.name == name }
 	}
 	
-	public func numChildNodes() -> Int {
+	open func numChildNodes() -> Int {
 		return childNodesForXMLString().count
 	}
 	
-	public func nodeWithId(id: String) -> SOAPNode? {
+	open func nodeWithId(_ id: String) -> SOAPNode? {
 		if id == self.id {
 			return self
 		}
@@ -147,7 +149,7 @@ public class SOAPNode {
 	// MARK: - Namespaces
 	
 	func namespaceIsInScope(namespace otherNS: SOAPNamespace) -> Bool {
-		if let myNS = namespace where otherNS == myNS {
+		if let myNS = namespace, otherNS == myNS {
 			return true
 		}
 		if let nss = namespaces {
@@ -160,7 +162,7 @@ public class SOAPNode {
 		return parent?.namespaceIsInScope(namespace: otherNS) ?? false
 	}
 	
-	func namespaceWithURI(uri: String) -> SOAPNamespace? {
+	func namespaceWithURI(_ uri: String) -> SOAPNamespace? {
 		if let nss = namespaces {
 			for ns in nss {
 				if ns.url == uri {
@@ -175,7 +177,8 @@ public class SOAPNode {
 	// MARK: - Attributes
 	
 	/** Get the desired attribute's string value, if it exist. If a new value is provided, will set new value but return the old value. */
-	public func attr(name: String, value: String? = nil) -> String? {
+	@discardableResult
+	open func attr(_ name: String, value: String? = nil) -> String? {
 		for attr in attributes {
 			if name == attr.name {
 				let val = attr.value
@@ -194,7 +197,7 @@ public class SOAPNode {
 	
 	// MARK: - Serialization
 	
-	public func asXMLString(indentLevel: Int = 0) -> String {
+	open func asXMLString(_ indentLevel: Int = 0) -> String {
 		var tabs = ""
 		for _ in 0..<indentLevel {
 			tabs += "\t"
@@ -203,14 +206,14 @@ public class SOAPNode {
 		// build node name and add attributes
 		let nodeName = (nil != namespace) ? "\(namespace!.name):\(name)" : name
 		var attrs = [nodeName]
-		if let ns = namespace where nil == parent || !parent!.namespaceIsInScope(namespace: ns) {
+		if let ns = namespace, nil == parent || !parent!.namespaceIsInScope(namespace: ns) {
 			attrs.append(ns.asXMLAttributeString())
 		}
 		if let ns = namespaces {
-			attrs.appendContentsOf(ns.filter() { nil == namespace || $0.url != namespace!.url }.map() { $0.asXMLAttributeString() })
+			attrs.append(contentsOf: ns.filter() { nil == namespace || $0.url != namespace!.url }.map() { $0.asXMLAttributeString() })
 		}
-		attrs.appendContentsOf(attributes.map() { return $0.asXMLAttributeString() })
-		let parts = attrs.joinWithSeparator(" ")
+		attrs.append(contentsOf: attributes.map() { return $0.asXMLAttributeString() })
+		let parts = attrs.joined(separator: " ")
 		
 		// add child nodes, if any, and create string
 		if 0 == numChildNodes() {
@@ -220,26 +223,26 @@ public class SOAPNode {
 		return "\(tabs)<\(parts)>\(children)</\(nodeName)>"
 	}
 	
-	public func childNodesForXMLString() -> [SOAPNode] {
+	open func childNodesForXMLString() -> [SOAPNode] {
 		return childNodes
 	}
 	
 	func childNodesAsXMLString(useTabs tabs: String, childIndentLevel: Int = 0) -> String {
-		let children = childNodesForXMLString().map() { return $0.asXMLString(childIndentLevel) }.joinWithSeparator("\n")
+		let children = childNodesForXMLString().map() { return $0.asXMLString(childIndentLevel) }.joined(separator: "\n")
 		return "\n\(children)\n\(tabs)"
 	}
 }
 
 
-public class SOAPTextNode: SOAPNode {
-	public var text: String?
+open class SOAPTextNode: SOAPNode {
+	open var text: String?
 	
 	public convenience init(name: String, textValue: String) {
 		self.init(name: name)
 		text = textValue
 	}
 	
-	public override func copy(other: SOAPNode) {
+	open override func copy(_ other: SOAPNode) {
 		super.copy(other)
 		childNodes.removeAll()
 		if let other = other as? SOAPTextNode {
@@ -247,7 +250,7 @@ public class SOAPTextNode: SOAPNode {
 		}
 	}
 	
-	public override func numChildNodes() -> Int {
+	open override func numChildNodes() -> Int {
 		return 1
 	}
 	
@@ -257,17 +260,17 @@ public class SOAPTextNode: SOAPNode {
 }
 
 
-public class SOAPNamespace {
-	public let name: String
+open class SOAPNamespace {
+	open let name: String
 	
-	public let url: String
+	open let url: String
 	
 	public init(name: String, url: String) {
 		self.name = name
 		self.url = url
 	}
 	
-	public func asXMLAttributeString() -> String {
+	open func asXMLAttributeString() -> String {
 		return "xmlns:\(name)=\"\(url)\""
 	}
 }
@@ -277,10 +280,10 @@ public func ==(left: SOAPNamespace, right: SOAPNamespace) -> Bool {
 }
 
 
-public class SOAPNodeAttribute {
-	public let name: String
+open class SOAPNodeAttribute {
+	open let name: String
 	
-	public var value: String?
+	open var value: String?
 	
 	public init(name: String) {
 		self.name = name

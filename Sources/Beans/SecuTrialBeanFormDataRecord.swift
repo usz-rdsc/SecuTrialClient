@@ -14,25 +14,24 @@ import SOAP
 /**
 Represents a FormDataRecord bean.
 */
-public class SecuTrialBeanFormDataRecord: SecuTrialBean {
+open class SecuTrialBeanFormDataRecord: SecuTrialBean {
 	
-	public var project: String?
+	open var project: String?
 	
-	public var centre: String?
+	open var centre: String?
 	
-	public var form: String?
+	open var form: String?
 	
-	public var patient: SecuTrialBeanPatient?
+	open var patient: SecuTrialBeanPatient?
 	
-	public var visit: SecuTrialBeanVisit?
+	open var visit: SecuTrialBeanVisit?
 	
 //	public var ae: STAdverseEventBean?
 	
-	public var item: [SecuTrialBeanFormDataItem]?
+	open var item: [SecuTrialBeanFormDataItem]?
 	
 	
-	public required init() {
-	}
+	public required init() {  }
 	
 	public required init(node: SOAPNode) throws {
 		if let txt = (node.childNamed("project") as? SOAPTextNode)?.text {
@@ -57,7 +56,7 @@ public class SecuTrialBeanFormDataRecord: SecuTrialBean {
 	}
 	
 	
-	public func node(name: String) -> SOAPNode {
+	open func node(_ name: String) -> SOAPNode {
 		let node = SOAPNode(name: name)
 		if let txt = project {
 			node.addChild(SOAPTextNode(name: "project", textValue: txt))

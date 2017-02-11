@@ -13,17 +13,17 @@ import Beans
 #endif
 
 
-public class SecuTrialService {
-	let url: NSURL
+open class SecuTrialService {
+	let url: URL
 	
-	let serviceURL: NSURL
+	let serviceURL: URL
 	
-	public init(url: NSURL) {
+	public init(url: URL) {
 		self.url = url
-		let components = NSURLComponents(URL: url, resolvingAgainstBaseURL: false)!
+		var components = URLComponents(url: url, resolvingAgainstBaseURL: false)!
 		components.query = nil
 		components.fragment = nil
-		serviceURL = components.URL!
+		serviceURL = components.url!
 	}
 	
 	
@@ -42,13 +42,13 @@ public class SecuTrialService {
 	- parameter operation: The operation to perform
 	- parameter callback: Callback called when the operation finishes, either with a response or an error instance
 	*/
-	public func performOperation(operation: SecuTrialOperation, callback: ((response: SecuTrialResponse) -> Void)) {
+	open func performOperation(_ operation: SecuTrialOperation, callback: @escaping ((_ response: SecuTrialResponse) -> Void)) {
 		performRequest(operation.request()) { data, error in
 			if let data = data {
-				callback(response: operation.handleResponseData(data))
+				callback(operation.handleResponseData(data))
 			}
 			else {
-				callback(response: operation.hadError(error))
+				callback(operation.hadError(error))
 			}
 		}
 	}
@@ -59,20 +59,20 @@ public class SecuTrialService {
 	- parameter request: The SOAPRequest to perform
 	- parameter callback: Callback that's called when the request finishes, either with a data or an error instance
 	*/
-	public func performRequest(request: SOAPRequest, callback: ((data: NSData?, error: SecuTrialError?) -> Void)) {
-		let session = NSURLSession.sharedSession()
+	open func performRequest(_ request: SOAPRequest, callback: @escaping ((_ data: Data?, _ error: SecuTrialError?) -> Void)) {
+		let session = URLSession.shared
 		let request = request.requestReadyForURL(serviceURL)
-		let task = session.uploadTaskWithRequest(request, fromData: request.HTTPBody) { data, response, error in
+		let task = session.uploadTask(with: request, from: request.httpBody, completionHandler: { data, response, error in
 			if let error = error {
-				callback(data: nil, error: SecuTrialError.Error(error.localizedDescription))
+				callback(nil, SecuTrialError.error(error.localizedDescription))
 			}
-			else if let response = response as? NSHTTPURLResponse where response.statusCode >= 400 {
-				callback(data: nil, error: SecuTrialError.HTTPStatus(response.statusCode))
+			else if let response = response as? HTTPURLResponse, response.statusCode >= 400 {
+				callback(nil, SecuTrialError.httpStatus(response.statusCode))
 			}
 			else if let data = data {
-				callback(data: data, error: nil)
+				callback(data, nil)
 			}
-		}
+		}) 
 		task.resume()
 	}
 }
