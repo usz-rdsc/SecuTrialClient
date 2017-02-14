@@ -18,5 +18,34 @@ class SecuTrialFormParsingTests: XCTestCase {
 		XCTAssertNotNil(url)
 		let main = try! parser.parseLocalFile(at: url!)
 		XCTAssertEqual(1, main.forms.count, "Expecting one form but got \(main.forms.count)")
+		
+		// DEBUG: print form tree
+		print("-  MAIN:  \(main.modelname ?? "<nil>")")
+		for form in main.forms {
+			print("--  FORM:  \(form.formname ?? "<nil>")  [\(form.formtablename ?? "<nil>")]")
+			
+			for format in form.importFormats {
+				print("---  IMPORT:  “\(format.formatName ?? "<nil>")”, identifier “\(format.identifier ?? "<nil>")”")
+			}
+			
+			for group in form.groups {
+				print("---  GROUP")
+				for field in group.fields {
+					print("----  FIELD:  “\(field.fflabel ?? "<nil>")”, type \(field.fieldType)")
+					if let txt = field.fftext {
+						print("-----  FFTEXT:  “\(txt)”")
+					}
+					for imports in field.importMapping {
+						print("-----  MAPPED:  “\(imports.externalKey ?? "<nil>")”")
+						if let ip = imports.importFormat {
+							print("-----  IMPORTFMT:  “\(ip.identifier ?? "<nil>")”")
+						}
+						if let df = imports.dateFormat {
+							print("-----  DATEFMT:  \(df)")
+						}
+					}
+				}
+			}
+		}
     }
 }

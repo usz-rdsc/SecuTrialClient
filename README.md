@@ -1,7 +1,12 @@
 SecuTrialClient
 ===============
 
-Client, written in Swift 2.0, to use _secuTrial_ with _ResearchKit_.
+Client, written in Swift 3.0, to use _secuTrial_ together with [_ResearchKit_](http://researchkit.org).
+
+## Usage
+
+This client framework must be linked with the ResearchKit framework.
+See the [SecuTrialApp](https://github.com/usz-rdsc/SecuTrialApp), which includes both this client as well as ResearchKit as a submodule side-by-side.
 
 ## Hierarchy
 
